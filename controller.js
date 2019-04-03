@@ -6,20 +6,38 @@ $(document).ready(function(){
 			return;
 		}
 		var selected = this;
-		var topPos = $('.accountIcon:first-child').css('top');
+		var topPos = $('.accountIcon:first').offset().top - $(this).offset().top;
 		console.log(top);
-		$('.accountIcon').each(function(){
-			if(this !==  selected){
-				var toClear = this;
-				$(this).animate({
-					opacity: 0
-				}, 200, function(){
+		var disapearPromise = Promise.resolve(
+			$('.accountIcon').each(function(index){
+				console.log(index);
+				if(this !==  selected){
+					var toClear = this;
+					var p = Promise.resolve($(this).animate({
+							opacity: 0
+						}, 1000).promise());
+					var p2 = new Promise(function(resolve, reject){
+							if(index == 0){
+								$(selected).animate({
+									marginTop: topPos
+								}, 1000);
+							}
+							resolve(true);
+						});
+					Promise.all([p,p2]).then(function(){
+						console.log('now')
 						$(toClear).css('display', 'none');
-				});
-			}
+						$(selected).css('marginTop', 0);
+						return
+					})
+				}
+			}).promise()
+		);
+		disapearPromise.then(function(){ 
+			$(this).css('cursor', 'default');
+			$('.accountInfo').css('display', 'flex');
+			return;
 		});
-		$('.accountInfo').css('display', 'flex');
-		$(this).css('cursor', 'default');
 		$('#backArrowLeft').css({
 			visibility: 'visible',
 			cursor: 'pointer'
