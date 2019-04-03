@@ -44,9 +44,9 @@ ul {
 
 #title {
 	flex-flow: column wrap;
-	height: 7vh;
+	height: 6vh;
 	width: 100%;
-	text-align: center;
+	text-align: text-bottom;
 	vertical-align: middle;
 	background-color: #912E2E;
 }
@@ -80,7 +80,7 @@ ul {
 }
 
 #rightContent{
-	background-color: #D05353;
+	background-color: #FFFFFF;
 	z-index: 0;
 	height: 93vh;
 	width: 100%;
@@ -129,4 +129,29 @@ ul {
 	z-index: 3;
 	visibility: hidden;
 	cursor: default;
+}
+
+#viewTabs{
+	margin: 0 auto;
+	margin-top: .2em;
+	padding: 0 auto;
+}
+
+.tabButton{
+	margin: 0em;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: text-bottom;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 1.5em;
+	border-radius: 20px 20px 0px 0px;
+	border: .5px solid #D05353;
+	border-bottom: none;
+}
+.activeTab{
+	background-color: #F79696;
+	box-shadow: 1px 1px 1px 1px rgba(0,0,0,.25);
 }

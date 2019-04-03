@@ -39,4 +39,9 @@ $(document).ready(function(){
 			cursor: 'default'
 		});
 	});
+	
+	$('.tabButton').on('click', function(){
+		$('.tabButton').toggleClass('activeTab', false);
+		$(this).toggleClass('activeTab', true);
+	});
 });
