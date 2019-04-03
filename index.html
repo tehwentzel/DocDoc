@@ -16,8 +16,95 @@
 </head>
 
 <body>
-	<div class='container' id='title'>
-		<h2>Docdoc</h2>
+	<div class='container' style='width:100%'>
+		<div class='flex-center' id='title'>
+			<h2 style='color: white'>Docdoc</h2>
+		</div>
+		<div class='row no-gutters'>
+			<div class='col-md-2'>
+				<div class='flex-container' id='leftContent'>
+				
+					<img src='left_arrow.PNG' id='backArrowLeft'>
+				
+					<div class='card text-center accountIcon' id='boyIcon'>
+						<img class='card-img-top avatar' src='boy_icon.PNG'>
+						<div class='card-body'>
+							<h3 class='card-title'>Bob</h3>
+						</div>
+					</div>
+					
+					<div class='card text-center accountIcon' id='girlIcon' >
+						<img class='card-img-top avatar' src='girl_icon.PNG'>
+						<div class='card-body'>
+							<h3 class='card-title'>Jannette</h3>
+						</div>
+					</div>
+					
+					<div class='card text-center accountIcon' id='plusIcon'>
+						<img class='card-img-top avatar' src='plus.svg'>
+					</div>
+					
+					<div class='card accountInfo' id='userInfo'>
+						<div class='card-header text-center'>
+							<h5 style='margin:0;padding:0;'>Info</h5>
+						</div>
+						<div class='card-body flex-center noInfoDefault'>
+							<div><h3>+Add Info+</h3></div>
+						</div>
+						<div class='card-body populatedInfo'>
+							<p id='allergies'>Allergies<p>
+							<ul id='allergiesList no-gutters'>
+								<li>Pollen</li>
+							</ul>
+							<p id='medication'>Medication<p>
+							<ul id='medicationList'>
+								<li>Pollen-away</li>
+							</ul>
+							<p id='age'>Age: <span id='ageValue'>12</span><p>
+							<p id='weight'>Weight: <span id='weightValue'>120</span><p>
+							<p id='bloodType'>Blood Type: <span id='bloodTypeValue'>AB-</span><p>
+						</div>
+					</div>
+					
+					<div class='card accountInfo' id='doctorInfo'>
+						<div class='card-header text-center'>
+							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
+						</div>
+						<div class='card-body flex-center noInfoDefault' style='display:flex;'>
+							<div><h3>+Add Doctor+</h3></div>
+						</div>
+						<div class='card-body populatedInfo' style='display:none;'>
+							<p id='doctorName'>Name: <span id='doctorNameValue'>Dr. Doc</span><p>
+							<p id='doctorNumber'>Number: <span id='doctorNumberValue'>888-882-1232</span><p>
+							<p id='doctorEmail'>Email: <span id='doctorEmailValue'>docdoc@dmail.biz</span><p>
+							<p id='doctorAddress'>Address: <span id='doctorAddressValue'>A4990 Doctor ln.</span><p>
+						</div>
+					</div>
+					
+					<div class='card accountInfo' id='schoolInfo'>
+						<div class='card-header text-center'>
+							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
+						</div>
+						<div class='card-body flex-center noInfoDefault'>
+							<div><h3>+Add School+</h3></div>
+						</div>
+						<div class='card-body populatedInfo'>
+							<p id='schoolName'>Name: <span id='schoolNameValue'>Middlth Elementary High For the Arts</span><p>
+							<p id='schoolNumber'>Number: <span id='schoolNumberValue'>882-902-1732</span><p>
+							<p id='schoolEmail'>Email: <span id='schoolEmailValue'>nurse@meh.com</span><p>
+							<p id='schoolAddress'>Address: <span id='schoolAddressValue'>4880 School Dr.</span><p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class='col-md-10'>
+				<div class='flex-container' id='rightContent'>
+				</div>
+			</div>
+		</div>
 	</div>
+	
+	<script src='controller.js'></script>
 </body>
 </html>

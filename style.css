@@ -8,12 +8,125 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.3); 
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5); 
+}
+
+.card-body > p{
+	margin: 0 auto;
+	margin-left: 2%;
+	font-weight: bold;
+}
+
+.card-body > p > span{
+	font-weight: normal !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 10%;
+  padding: 0;
 }
 
 #title {
-	height: auto;
+	flex-flow: column wrap;
+	height: 7vh;
 	width: 100%;
 	text-align: center;
 	vertical-align: middle;
+	background-color: #912E2E;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.noInfoDefault{
+	display: none;
+	height: 13vh;
+	cursor: pointer;
+}
+
+#leftContent{
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: flex-start;
+	box-shadow: 10px 20px 5px 5px rgba(0,0,0,.5);
+	background-color: #FFFFFF;
+	height: 93vh;
+	z-index: 2;
+	max-width: 650px;
+	min-width: 200px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 auto;
+	overflow-y: scroll;
+}
+
+#rightContent{
 	background-color: #D05353;
+	z-index: 0;
+	height: 93vh;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 auto;
+}
+
+.accountIcon{
+	width: 80%;
+	margin: 0% 10% 5% 10%;
+	background-color: inherit;
+	border: none;
+	border-radius: 10%;
+	cursor: pointer;
+}
+
+.accountInfo{
+	width: 80%;
+	margin: 0% 10% 5% 10%;
+	box-shadow: 2px 2px 3px 2px rgba(0,0,0,.15);
+	border: none;
+	display: none;
+}
+.accountInfo > .card-header{
+	background-color: #F79696;
+}
+.accountInfo > .card-body{
+	background-color: #EEEEEE;
+}
+
+.avatar {
+	margin: 5% 15% 1% 15%;
+	width: 70%;
+	height: auto;
+	border-radius: 50%;
+	
+}
+
+#backArrowLeft{
+	position: relative;
+	width: 1.8em;
+	height: 1.5em;
+	left: 1em;
+	top: 1.3em;
+	padding: 0em;
+	z-index: 3;
+	visibility: hidden;
+	cursor: default;
 }
