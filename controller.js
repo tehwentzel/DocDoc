@@ -154,5 +154,7 @@ $(document).ready(function() {
       text += "\n-Jannete";
     }
     alert(text);
+    // should reset states of dropdown/checked boxes
+    $(".dropdown-toggle").click();
   });
 });
