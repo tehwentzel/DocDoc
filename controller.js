@@ -64,4 +64,29 @@ $(document).ready(function(){
 		$('.tabView').toggleClass('selectedView', false);
 		$('#' + this.attributes['name'].value).toggleClass('selectedView', true);
 	});
+	
+	$('#popupBackDrop').click(function(ev){
+		if(ev.target.classList.contains('popup')){
+			ev.stopPropagation();
+			return
+		}
+		$('.popup').css('display', 'none');
+		$(this).css('display', 'none');
+	});
+	
+	$('.noInfoDefault').on('click',function(ev){
+		var thisID = this.parentNode.id;
+		$('#popupBackDrop').css('display', 'block');
+		if(thisID == 'userInfo'){
+			$('#userInfoPopup').css('display', 'block');
+		}
+		if(thisID == 'doctorInfo' || thisID == 'schoolInfo'){
+			$('.tabButton').toggleClass('activeTab', false);
+			$('#findButton').toggleClass('activeTab', true);
+			$('.tabView').toggleClass('selectedView', false);
+			$('#find').toggleClass('selectedView', true);
+			$('#userInfoPopup').css('display', 'block');
+		}
+		ev.stopPropagation();
+	});
 });
