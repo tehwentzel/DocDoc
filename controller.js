@@ -77,25 +77,7 @@ $(document).ready(function() {
   $(".tabButton").on("click", function() {
     $(".tabButton").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
-    // Toggle tab
-    $(".tabPage").css("display", "none");
-    switch (this.id) {
-      case "feedButton":
-        $("#tabFeed").css("display", "flex");
-        break;
-      case "calendarButton":
-        $("#tabCalendar").css("display", "flex");
-        break;
-      case "findDoctorButton":
-        $("#tabMap").css("display", "flex");
-        break;
-      case "filesButton":
-        $("#tabFiles").css("display", "flex");
-        break;
-      default:
-    }
-  });
-  $(".docBox").on("click", function() {
-    console.log(this.id);
+    $(".tabView").toggleClass("selectedView", false);
+    $("#" + this.attributes["name"].value).toggleClass("selectedView", true);
   });
 });

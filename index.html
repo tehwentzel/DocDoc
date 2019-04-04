@@ -17,8 +17,14 @@
 
 <body>
 	<div class='container' style='width:100%'>
-		<div class='flex-center' id='title'>
-			<h3 style='color: white'>Docdoc</h3>
+		<div class='row flex-container' id='title'>
+			<div class='col-md-3'></div>
+			<div class='col-md-6 text-center'>
+				<h3 style='color: white'>Docdoc</h3>
+			</div>
+			<div class='col-md-3 flex-container'>
+				<input type="text" id='searchBar' placeholder="Search..">
+			</div>
 		</div>
 		<div class='row no-gutters'>
 			<div class='col-md-2'>
@@ -102,91 +108,95 @@
 				<div class='flex-container' id='rightContent'>
 					<div class='row' id='viewTabs'>
 						<div class='col-md-3'>
-							<div class='tabButton activeTab' id='feedButton'>
+							<div class='tabButton activeTab' id='feedButton' name='feed'>
 								Feed
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='calendarButton'>
+							<div class='tabButton' id='calendarButton' name='calendar'>
 								Calendar
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='findDoctorButton'>
+							<div class='tabButton' id='findButton' name='find'>
 								Find Nearby
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='filesButton'>
+							<div class='tabButton' id='filesButton' name='files'>
 								Files
 							</div>
 						</div>
 					</div>
-					<div id='mainView'>
-							<div class="tabPage" id="tabFeed" style='display:flex;'>tabFeed</div>
-							<div class="tabPage" id="tabCalendar" style='display:none;'>tabCalendar</div>
-							<div class="tabPage" id="tabMap" style='display:none;'>
+
+					<div class='row no-gutters' id='mainView'>
+						<div class='col-md-12' style='height:100%;margin:0auto;padding:0auto;'>
+							<div id='feed' class='tabView  selectedView'>
+							</div>
+							
+							<div id='calendar' class='tabView'>
+							</div>
+							
+							<div id='find' class='tabView'>
 									<div class="col-md-4">
-									  <div class="flex-container docBox" id="docA">
-										<div class="media border p-3">
-										  <img src="doc0.jpg" style="width:100px;" />
-										  <div class="media-body">
-											<h4>
-											  Dr. Realmann<br />
-											  <small><i>Pediatrician</i></small>
-											</h4>
-											123 Fake Street<br />
-											(231)555-1212
+											<div class="flex-container docBox" id="docA">
+											  <div class="media border p-3">
+												<img src="doc0.jpg" style="width:100px;" />
+												<div class="media-body">
+												  <h4>
+													Dr. Realmann<br />
+													<small><i>Pediatrician</i></small>
+												  </h4>
+												  123 Fake Street<br />
+												  (231)555-1212
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docB">
+											  <div class="media border p-3">
+												<img src="doc1.png" style="width:100px;" />
+												<div class="media-body">
+												  <h4>
+													Dr. Octavia<br />
+													<small><i>Pediatrician</i></small>
+												  </h4>
+												  628 Spider Lane<br />
+												  (362)774-3377
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docC">
+											  <div class="media border p-3">
+												<img src="doc2.png" style="width:100px;" />
+												<div class="media-body">
+												  <h4>
+													Dr. Strange<br />
+													<small><i>Pediatrician</i></small>
+												  </h4>
+												  221b Baker Street<br />
+												  (312)995-9112
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docD">
+											  <div class="media border p-3">
+												<img src="doc3.jpg" style="width:100px;" />
+												<div class="media-body">
+												  <h4>
+													Dr. Doctor<br />
+													<small><i>Pediatrician</i></small>
+												  </h4>
+												  301 Doctor Dr.<br />
+												  (123)456-7890
+												</div>
+											  </div>
+											</div>
 										  </div>
-										</div>
-									  </div>
-									  <div class="flex-container docBox" id="docB">
-										<div class="media border p-3">
-										  <img src="doc1.png" style="width:100px;" />
-										  <div class="media-body">
-											<h4>
-											  Dr. Octavia<br />
-											  <small><i>Pediatrician</i></small>
-											</h4>
-											628 Spider Lane<br />
-											(362)774-3377
-										  </div>
-										</div>
-									  </div>
-									  <div class="flex-container docBox" id="docC">
-										<div class="media border p-3">
-										  <img src="doc2.png" style="width:100px;" />
-										  <div class="media-body">
-											<h4>
-											  Dr. Strange<br />
-											  <small><i>Pediatrician</i></small>
-											</h4>
-											221b Baker Street<br />
-											(312)995-9112
-										  </div>
-										</div>
-									  </div>
-									  <div class="flex-container docBox" id="docD">
-										<div class="media border p-3">
-										  <img src="doc3.jpg" style="width:100px;" />
-										  <div class="media-body">
-											<h4>
-											  Dr. Doctor<br />
-											  <small><i>Pediatrician</i></small>
-											</h4>
-											301 Doctor Dr.<br />
-											(123)456-7890
-										  </div>
-										</div>
-									  </div>
-									</div>
-									<div id="map-container-google-1" class="z-depth-1-half map-container col-md-8" style="height:2000px">
-											<iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-											  style="border:0" allowfullscreen></iframe>
-										  </div>
-								  </div>
-								  <div class="tabPage" id="tabFiles" style='display:none;'>tabFiles</div>
-								</div>
+							</div>
+							
+							<div id='files' class='tabView'>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

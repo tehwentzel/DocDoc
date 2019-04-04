@@ -43,12 +43,22 @@ ul {
 }
 
 #title {
-  flex-flow: column wrap;
   height: 6vh;
   width: 100%;
-  text-align: text-bottom;
-  vertical-align: middle;
+  vertical-align: center;
   background-color: #912e2e;
+}
+
+#title > * {
+  margin-top: 1vh;
+}
+
+#searchBar {
+  float: right;
+  width: 15vw;
+  height: 4vh;
+  border: none;
+  font-size: 1.1em;
 }
 
 .flex-center {
@@ -67,7 +77,6 @@ ul {
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
-  box-shadow: 10px 20px 5px 5px rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
   height: 93vh;
   z-index: 2;
@@ -135,6 +144,7 @@ ul {
   margin: 0 auto;
   margin-top: 0.2em;
   padding: 0 auto;
+  height: 2.2em;
 }
 
 .tabButton {
@@ -156,6 +166,33 @@ ul {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
+.tabView,
+#mainView {
+  width: 100%;
+  height: calc(93vh - 2.2em);
+  margin: 0 auto;
+  padding: 0 auto;
+  z-index: 0;
+}
+.tabView {
+  display: none;
+}
+.selectedView {
+  display: block !important;
+  z-index: 2 !important;
+}
+#feed {
+  background: yellow;
+}
+#calendar {
+  background: blue;
+}
+
+#find {
+}
 .docBox {
   cursor: pointer;
+}
+#files {
+  background: cyan;
 }
