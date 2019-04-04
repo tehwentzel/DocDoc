@@ -123,9 +123,11 @@
 						</div>
 					</div>
 					<div id='mainView'>
-							<div class="row tabPage" id="tabMap">
+							<div class="tabPage" id="tabFeed" style='display:flex;'>tabFeed</div>
+							<div class="tabPage" id="tabCalendar" style='display:none;'>tabCalendar</div>
+							<div class="tabPage" id="tabMap" style='display:none;'>
 									<div class="col-md-4">
-									  <div class="container" id="docA">
+									  <div class="flex-container docBox" id="docA">
 										<div class="media border p-3">
 										  <img src="doc0.jpg" style="width:100px;" />
 										  <div class="media-body">
@@ -138,7 +140,7 @@
 										  </div>
 										</div>
 									  </div>
-									  <div class="container" id="docB">
+									  <div class="flex-container docBox" id="docB">
 										<div class="media border p-3">
 										  <img src="doc1.png" style="width:100px;" />
 										  <div class="media-body">
@@ -151,7 +153,7 @@
 										  </div>
 										</div>
 									  </div>
-									  <div class="container" id="docC">
+									  <div class="flex-container docBox" id="docC">
 										<div class="media border p-3">
 										  <img src="doc2.png" style="width:100px;" />
 										  <div class="media-body">
@@ -164,7 +166,7 @@
 										  </div>
 										</div>
 									  </div>
-									  <div class="container" id="docD">
+									  <div class="flex-container docBox" id="docD">
 										<div class="media border p-3">
 										  <img src="doc3.jpg" style="width:100px;" />
 										  <div class="media-body">
@@ -183,9 +185,7 @@
 											  style="border:0" allowfullscreen></iframe>
 										  </div>
 								  </div>
-								  <div class="tabPage" id="tabFeed">tabFeed</div>
-								  <div class="tabPage" id="tabCalendar">tabCalendar</div>
-								  <div class="tabPage" id="tabFiles">tabFiles</div>
+								  <div class="tabPage" id="tabFiles" style='display:none;'>tabFiles</div>
 								</div>
 					</div>
 				</div>

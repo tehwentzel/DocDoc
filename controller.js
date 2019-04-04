@@ -95,4 +95,7 @@ $(document).ready(function() {
       default:
     }
   });
+  $(".docBox").on("click", function() {
+    console.log(this.id);
+  });
 });
