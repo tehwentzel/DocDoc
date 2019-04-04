@@ -188,10 +188,20 @@
 								<div id="cts-clndr" class="clearfix">
 									<script type="text/template" id="cts-clndr-template">
 										<!-- Calendar Controls and heading -->
-										<div class="clndr-controls">
-											<div class="clndr-previous-button"><</i></div>
-											<div class="clndr-next-button">></i></div>
-											<div class="current-month"><%= month %> <%= year %></div>
+										<div class="clndr-controls row no-gutters">
+											<div class='col-md-2'>
+												<div class="clndr-previous-button"><</i></div>
+											</div>
+											<div class='col-md-2' style='overflow: hidden'>
+												<button id="addCalendarEventButton" type="button" class="btn btn-danger"> Add Event </button>
+											</div>
+											<div class='col-md-4'>
+												<div class="current-month"><%= month %> <%= year %></div>
+											</div>
+											<div class='col-md-4'>
+												<div class="clndr-next-button">></i></div>
+											</div>
+											
 										</div>
 										<!-- Calendar Grid with the days -->
 										<div class="clndr-grid">

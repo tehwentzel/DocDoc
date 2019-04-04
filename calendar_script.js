@@ -20,8 +20,10 @@ $( function() {
 		}
 		
 		$('#newEventSubmitButton').on('click', function(){
-			var dialog = $(foo).dialog('open');
-			setTimeout(function() { dialog.dialog('close'); }, 1000);
+			var title = $('#myModal').find('#title').text();
+			if(title !== ''){
+				alert('Event Added!');
+			}
 		});
 		
         $.getJSON("https://api.myjson.com/bins/1bioxk", function(data){
@@ -52,7 +54,6 @@ $( function() {
 					if(target.element.classList.contains('day') && !target.element.classList.contains('event')){
 						document.getElementById('myModal').style.display = 'block';
 					}
-					console.log(target.element);
                     if(target.events.length){
                         var selectedDate = target.date['_i'];
                         console.log(selectedDate);
