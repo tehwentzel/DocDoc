@@ -108,27 +108,40 @@
 				<div class='flex-container' id='rightContent'>
 					<div class='row' id='viewTabs'>
 						<div class='col-md-3'>
-							<div class='tabButton activeTab' id='feedButton'>
+							<div class='tabButton activeTab' id='feedButton' name='feed'>
 								Feed
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='calendarButton'>
+							<div class='tabButton' id='calendarButton' name='calendar'>
 								Calendar
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='findDoctorButton'>
+							<div class='tabButton' id='findButton' name='find'>
 								Find Nearby
 							</div>
 						</div>
 						<div class='col-md-3'>
-							<div class='tabButton' id='filesButton'>
+							<div class='tabButton' id='filesButton' name='files'>
 								Files
 							</div>
 						</div>
 					</div>
-					<div id='mainView'>
+					<div class='row no-gutters' id='mainView'>
+						<div class='col-md-12' style='height:100%;margin:0auto;padding:0auto;'>
+							<div id='feed' class='tabView  selectedView'>
+							</div>
+							
+							<div id='calendar' class='tabView'>
+							</div>
+							
+							<div id='find' class='tabView'>
+							</div>
+							
+							<div id='files' class='tabView'>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
