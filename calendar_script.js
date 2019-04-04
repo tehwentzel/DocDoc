@@ -20,7 +20,8 @@ $( function() {
 		}
 		
 		$('#newEventSubmitButton').on('click', function(){
-			alert('Event Added');
+			var dialog = $(foo).dialog('open');
+			setTimeout(function() { dialog.dialog('close'); }, 1000);
 		});
 		
         $.getJSON("https://api.myjson.com/bins/1bioxk", function(data){
