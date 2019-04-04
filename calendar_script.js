@@ -4,21 +4,8 @@ $( function() {
     $(document).ready(function(){
 		var modal = document.getElementById('myModal');
 
-		// Get the button that opens the modal
-		//var btn = document.getElementById("myBtn");
-
 		// Get the <span> element that closes the modal
 		var span = document.getElementById("close");
-		// When the user clicks the button, open the modal 
-		//btn.onclick = function() {
-		//  modal.style.display = "block";
-		//}
-		
-		$('.clndr-grid > *').on('click', function(){
-			console.log('click');
-			console.log(this);
-			//modal.style.display = 'block';
-		});
 
 		// When the user clicks on <span> (x), close the modal
 		span.onclick = function() {
@@ -31,6 +18,10 @@ $( function() {
 		    modal.style.display = "none";
 		  }
 		}
+		
+		$('#newEventSubmitButton').on('click', function(){
+			alert('Event Added');
+		});
 		
         $.getJSON("https://api.myjson.com/bins/1bioxk", function(data){
            var events = [];
