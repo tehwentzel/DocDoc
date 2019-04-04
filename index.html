@@ -82,16 +82,16 @@
 							<div><h3>+Add Doctor+</h3></div>
 						</div>
 						<div class='card-body populatedInfo' style='display:none;'>
-							<p id='doctorName'>Name: <span id='doctorNameValue'>Dr. Doc</span><p>
-							<p id='doctorNumber'>Number: <span id='doctorNumberValue'>888-882-1232</span><p>
-							<p id='doctorEmail'>Email: <span id='doctorEmailValue'>docdoc@dmail.biz</span><p>
-							<p id='doctorAddress'>Address: <span id='doctorAddressValue'>A4990 Doctor ln.</span><p>
+							<p id='doctorName'>Name: <span id='doctorNameValue'>Dr. Realmann</span><p>
+							<p id='doctorNumber'>Number: <span id='doctorNumberValue'>231-555-1212</span><p>
+							<p id='doctorEmail'>Email: <span id='doctorEmailValue'>realMan@FakeMail.com</span><p>
+							<p id='doctorAddress'>Address: <span id='doctorAddressValue'>123 Fake Street</span><p>
 						</div>
 					</div>
 					
 					<div class='card accountInfo' id='schoolInfo'>
 						<div class='card-header text-center'>
-							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
+							<h5 style='margin:0;padding:0;'>School Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault'>
 							<div><h3>+Add School+</h3></div>
@@ -197,7 +197,7 @@
 												<div class="media border p-3">
 													<img class="docIconBig" src="doc0.jpg"/>
 													<div class="media-body">
-														<span id="docAInfo">
+														<span class="docInfo">
 															<h4>
 																Dr. Realman<br />
 																<small><i>Pediatrician</i></small>
@@ -205,10 +205,19 @@
 															123 Fake Street<br />
 															(231)555-1212<br />
 															Realman@FakeMail.com
-															<button type="button" class="btn btn-default saveDoctorButton">
-																	+ Save 
-																	</button>
 														</span>
+														
+														<div class="btn-group">
+																<button type="button" class="btn btn-danger dropdown-toggle saveDoctorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																  Save
+																</button>
+																<div class="dropdown-menu">
+																  <label><input type="checkbox" class="bobCheck" value="">Bob</label><br/>
+																  <label><input type="checkbox" class="janCheck" value="">Jannette</label>
+																  <div class="dropdown-divider"></div>
+																  <a class="dropdown-item confirmSave" href="#">Confirm</a>
+																</div>
+															  </div>
 													</div>
 													
 													<button type="button" class="close" aria-label="Close">
@@ -220,7 +229,7 @@
 												<div class="media border p-3">
 													<img class="docIconBig" src="doc1.png"/>
 													<div class="media-body">
-														<span id="docBInfo">
+														<span class="docInfo">
 															<h4>
 															Dr. Octavia<br />
 															<small><i>Pediatrician</i></small>
@@ -228,12 +237,20 @@
 															628 Spider Lane<br />
 															(362)774-3377<br />
 															DocOc@Octomail.com
-															<button type="button" class="btn btn-default saveDoctorButton">
-																	+ Save 
-																	</button>
 														</span>
+														
+														<div class="btn-group">
+																<button type="button" class="btn btn-danger dropdown-toggle saveDoctorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																  Save
+																</button>
+																<div class="dropdown-menu">
+																  <label><input type="checkbox" class="bobCheck" value="">Bob</label><br/>
+																  <label><input type="checkbox" class="janCheck" value="">Jannette</label>
+																  <div class="dropdown-divider"></div>
+																  <a class="dropdown-item confirmSave" href="#">Confirm</a>
+																</div>
+															  </div>
 													</div>
-													
 													<button type="button" class="close" aria-label="Close">
 															<span aria-hidden="true">&times;</span>
 														  </button>
@@ -243,7 +260,7 @@
 												<div class="media border p-3">
 													<img class="docIconBig" src="doc2.png" />
 													<div class="media-body">
-														<span id="docCInfo">
+														<span class="docInfo">
 															<h4>
 															Dr. Strange<br />
 															<small><i>Pediatrician</i></small>
@@ -251,10 +268,18 @@
 															221b Baker St.<br />
 															(312)995-9112<br />
 															Strange@Cosmail.com
-															<button type="button" class="btn btn-default saveDoctorButton">
-															+ Save 
-															</button>
 														</span>
+														<div class="btn-group">
+																<button type="button" class="btn btn-danger dropdown-toggle saveDoctorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																  Save
+																</button>
+																<div class="dropdown-menu">
+																  <label><input type="checkbox" class="bobCheck" value="">Bob</label><br/>
+																  <label><input type="checkbox" class="janCheck" value="">Jannette</label>
+																  <div class="dropdown-divider"></div>
+																  <a class="dropdown-item confirmSave" href="#">Confirm</a>
+																</div>
+															  </div>
 													</div>
 													
 													<button type="button" class="close" aria-label="Close">
@@ -266,7 +291,7 @@
 												<div class="media border p-3">
 													<img class="docIconBig" src="doc3.jpg" />
 													<div class="media-body">
-														<span id="docDInfo">
+														<span class="docInfo">
 															<h4>
 															Dr. Doctor<br />
 															<small><i>Pediatrician</i></small>
@@ -274,11 +299,20 @@
 															301 Doctor Dr.<br />
 															(123)456-7890 <br />
 															DrDoctor@Docmail.com
-															<button type="button" class="btn btn-default saveDoctorButton">
-															+ Save 
-															</button>
 														</span>
+														<div class="btn-group">
+																<button type="button" class="btn btn-danger dropdown-toggle saveDoctorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																  Save
+																</button>
+																<div class="dropdown-menu">
+																  <label><input type="checkbox" class="bobCheck" value="">Bob</label><br/>
+																  <label><input type="checkbox" class="janCheck" value="">Jannette</label>
+																  <div class="dropdown-divider"></div>
+																  <a class="dropdown-item confirmSave" href="#">Confirm</a>
+																</div>
+															  </div>
 													</div>
+													
 													<button type="button" class="close" aria-label="Close">
 															<span aria-hidden="true">&times;</span>
 														  </button>
