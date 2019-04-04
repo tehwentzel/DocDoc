@@ -237,9 +237,9 @@ button.close {
   color: black;
 }
 #files {
-  background: cyan;
+	margin-top: 2%;
+	overflow-y: scroll;
 }
-
 .popup {
   position: absolute;
   width: 40vw;
