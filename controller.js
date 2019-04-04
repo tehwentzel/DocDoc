@@ -141,10 +141,6 @@ $(document).ready(function() {
     }
     if (janChecked) {
       text += "\n-Jannete";
-      $("#doctorInfo")[0].getElementsByClassName("noInfoDefault")[0].style =
-        "display:none";
-      $("#doctorInfo")[0].getElementsByClassName("populatedInfo")[0].style =
-        "display:inline";
     }
     alert(text);
   });
