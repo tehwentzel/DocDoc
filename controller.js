@@ -124,24 +124,37 @@ $(document).ready(function() {
       .toggle();
   });
   $(".confirmSave").on("click", function() {
-    var docInfo = this.parentNode.parentNode.parentNode.getElementsByClassName(
-      "docInfo"
-    )[0];
+    var docInfo = this.parentNode.parentNode.parentNode;
     var text = "Doctor Information added to:";
     var janChecked = this.parentNode.getElementsByClassName("janCheck")[0]
       .checked;
     var bobChecked = this.parentNode.getElementsByClassName("bobCheck")[0]
       .checked;
+
     if (bobChecked) {
       text += "\n-Bob";
       $("#doctorInfo")[0].getElementsByClassName("noInfoDefault")[0].style =
         "display:none";
       $("#doctorInfo")[0].getElementsByClassName("populatedInfo")[0].style =
         "display:inline";
+      $("#doctorNameValue").html(
+        docInfo.getElementsByClassName("docNameValue")[0].innerHTML
+      );
+      $("#doctorNumberValue").html(
+        docInfo.getElementsByClassName("docNumberValue")[0].innerHTML
+      );
+      $("#doctorEmailValue").html(
+        docInfo.getElementsByClassName("docEmailValue")[0].innerHTML
+      );
+      $("#doctorAddressValue").html(
+        docInfo.getElementsByClassName("docAddressValue")[0].innerHTML
+      );
     }
     if (janChecked) {
       text += "\n-Jannete";
     }
     alert(text);
+    // should reset states of dropdown/checked boxes
+    $(".dropdown-toggle").click();
   });
 });
