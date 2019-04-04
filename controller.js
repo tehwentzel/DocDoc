@@ -77,7 +77,16 @@ $(document).ready(function() {
   $(".tabButton").on("click", function() {
     $(".tabButton").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
+
     $(".tabView").toggleClass("selectedView", false);
     $("#" + this.attributes["name"].value).toggleClass("selectedView", true);
+  });
+
+  $(".docBox").on("click", function() {
+    $(".docBox").toggleClass("activeTab", false);
+    $(this).toggleClass("activeTab", true);
+
+    $(".docBoxInfo").toggleClass("selectedView", false);
+    $("#" + this.id + "Info").toggleClass("selectedView", true);
   });
 });

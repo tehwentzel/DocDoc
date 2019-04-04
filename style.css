@@ -190,8 +190,13 @@ ul {
 
 #find {
 }
+.docList {
+}
 .docBox {
   cursor: pointer;
+}
+.docIcon {
+  width: 50%;
 }
 #files {
   background: cyan;
