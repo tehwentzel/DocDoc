@@ -167,9 +167,9 @@ ul {
   cursor: pointer;
   font-weight: bold;
   font-size: 1.5em;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px 20px 20px 20px;
   border: 0.5px solid #d05353;
-  border-bottom: none;
+
 }
 .activeTab {
   background-color: #f79696;
@@ -186,6 +186,7 @@ ul {
 }
 .tabView {
   display: none;
+
 }
 .selectedView {
   display: flex !important;
@@ -193,9 +194,6 @@ ul {
 }
 #feed {
   background: yellow;
-}
-#calendar {
-  background: blue;
 }
 
 #find > .row {
