@@ -26,7 +26,7 @@ $( function() {
 				ev.preventDefault(); //don't refresh the page
 				alert('Event Added!'); //alert success
 				modal.style.display = "none";
-				$('#myModal').find('input').val('');  //clear entries
+				$('#myModal').find('input:not([type=submit]), textarea').val('');  //clear entries
 				$('#myModal').find('input:radio').prop('checked', false);
 			}
 		});
