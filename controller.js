@@ -89,4 +89,19 @@ $(document).ready(function(){
 		}
 		ev.stopPropagation();
 	});
+	
+	$(".docBox").on("click", function(ev) {
+		$(".docBox").toggleClass("activeTab", false);
+		$(this).toggleClass("activeTab", true);
+
+		$(".docBoxInfo").css("display", "none");
+		$("#" + this.id + "Info").css("display", "flex");
+		ev.stopPropagation();
+	});
+	
+	$(".close").on("click", function() {
+	  $("#" + this.parentNode.parentNode.id).css("display", "none");
+	  $(".docBox").toggleClass("activeTab", false);
+	});
+	$(".saveDoctorButton").on("click", function() {});
 });
