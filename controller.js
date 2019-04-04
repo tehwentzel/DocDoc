@@ -77,16 +77,45 @@ $(document).ready(function() {
   $(".tabButton").on("click", function() {
     $(".tabButton").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
-
     $(".tabView").toggleClass("selectedView", false);
     $("#" + this.attributes["name"].value).toggleClass("selectedView", true);
   });
 
-  $(".docBox").on("click", function() {
+  $("#popupBackDrop").click(function(ev) {
+    if (ev.target.classList.contains("popup")) {
+      ev.stopPropagation();
+      return;
+    }
+    $(".popup").css("display", "none");
+    $(this).css("display", "none");
+  });
+
+  $(".noInfoDefault").on("click", function(ev) {
+    var thisID = this.parentNode.id;
+    $("#popupBackDrop").css("display", "block");
+    if (thisID == "userInfo") {
+      $("#userInfoPopup").css("display", "block");
+    }
+    if (thisID == "doctorInfo" || thisID == "schoolInfo") {
+      $(".tabButton").toggleClass("activeTab", false);
+      $("#findButton").toggleClass("activeTab", true);
+      $(".tabView").toggleClass("selectedView", false);
+      $("#find").toggleClass("selectedView", true);
+      $("#userInfoPopup").css("display", "block");
+    }
+    ev.stopPropagation();
+  });
+  $(".docBox").on("click", function(ev) {
     $(".docBox").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
 
-    $(".docBoxInfo").toggleClass("selectedView", false);
-    $("#" + this.id + "Info").toggleClass("selectedView", true);
+    $(".docBoxInfo").css("display", "none");
+    $("#" + this.id + "Info").css("display", "flex");
+    ev.stopPropagation();
   });
+  $(".close").on("click", function() {
+    $("#" + this.parentNode.parentNode.id).css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+  });
+  $(".saveDoctorButton").on("click", function() {});
 });
