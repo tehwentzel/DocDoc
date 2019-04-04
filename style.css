@@ -43,12 +43,22 @@ ul {
 }
 
 #title {
-	flex-flow: column wrap;
 	height: 6vh;
 	width: 100%;
-	text-align: text-bottom;
-	vertical-align: middle;
+	vertical-align: center;
 	background-color: #912E2E;
+}
+
+#title > *{
+	margin-top: 1vh;
+}
+
+#searchBar{
+	float: right;
+	width: 15vw;
+	height: 4vh;
+	border: none;
+	font-size: 1.1em;
 }
 
 .flex-center{
