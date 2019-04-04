@@ -6,8 +6,6 @@ $(document).ready(function() {
 
 	// when the user clicks on the button, open the modal
 	$('.fileImage').on('click', function(){
-		console.log('click');
-		console.log(modal);
 		document.getElementById('fileModal').style.display = "block";
 	});
 
@@ -16,17 +14,6 @@ $(document).ready(function() {
 	{
 		document.getElementById('fileModal').style.display = "none";
 	}
-
-	// when the user clicks anywhere outside it, close it
-	$('.file-modal-class').on('click', function(ev)
-	{	
-		if (ev.target.classList.contains('.modal-content-class'))
-		{
-			ev.stopPropagation();
-		}else{
-			modal.style.display = "none";
-		}
-	});
 
 	// download button inside modal
 	$('#downloadButton').on('click', function()
