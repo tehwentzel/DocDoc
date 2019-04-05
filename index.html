@@ -201,41 +201,6 @@
 							</div>
 							
 							<div id='calendar' class='tabView'>
-								<div id="myModal" class="modal">
-								<!-- Modal content -->
-									<div class="event-card-modal-content">
-										<div class="event-card-modal-header">
-											<span id="close" class="closeModal">&times;</span>
-											<h2>Add Event</h2>
-										</div>
-										<div class="modal-body">
-											<form>
-											<div>
-												<label for="title">Title: </label>
-												<input type="text" name="title" id="title" required />
-												<br>
-												<label> Date: </label>
-												<input type="date"/>
-												<label> Time: </label>
-												<input type="time"/>
-											</div>
-											<div>User:
-												<br>
-												<input type="radio" name="radio-choice" value="choice-1" />
-												<label for="radio-choice-1">Bob</label>
-												<br>
-												<input type="radio" name="radio-choice" value="choice-2" />
-												<label for="radio-choice-2">Janette</label>
-											</div>
-											<div>Description:
-												<br>
-												<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
-											</div>
-											<input type="submit" id='newEventSubmitButton'/>
-											</form>
-										</div>
-									</div>
-								</div>
 								<div id="cts-clndr" class="clearfix">
 									<script type="text/template" id="cts-clndr-template">
 										<!-- Calendar Controls and heading -->
@@ -525,34 +490,7 @@
 									</div>
 									<hr>				
 									<div>
-										<img src = "sampleDoc1.png" class="fileImage">
-											<!--  the modal -->
-											<div id = "fileModal" class = "file-modal-class">
-												<!-- modal content -->
-												<div class = "modal-content-class">
-													<span class = "close">&times;</span>
-														<br><br>
-														<center>
-															<!-- define the inside of the modal with what we as a group decided -->
-															<h2>Send File</h2>
-															<hr style = "margin-left: 15%; margin-right: 15%;">
-															<input class = "btn" id = "downloadButton" value = "Download" style = "color:white;"></button>
-															
-															<br>
-														</center>
-														
-														<form style = "margin-top: 15px; margin-left: 15%;">
-															<p>Send To<p>
-															<input type = "text" id = "userInput" value "" style = "width: 72.5%;">
-															<input type = "button" id = "sendButton" value = "Send" style= "width: auto;"/>
-														</form>
-															
-														<img src = "sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
-															
-												</div>
-											</div>
-										
-										
+										<img src = "sampleDoc1.png" class="fileImage">		
 										<img src = "sampleDoc2.png" class = "fileImage">
 										<img src = "sampleDoc3.png" class = "fileImage">
 										<img src = "sampleDoc4.png" class = "fileImage">
@@ -583,6 +521,66 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	<!--  the modal -->
+		<div id = "fileModal" class = "file-modal-class">
+			<!-- modal content -->
+			<div class = "modal-content-class">
+				<span class = "close">&times;</span>
+					<br><br>
+					<center>
+						<!-- define the inside of the modal with what we as a group decided -->
+						<h2>Send File</h2>
+						<hr style = "margin-left: 15%; margin-right: 15%;">
+						<input class = "btn" id = "downloadButton" value = "Download" style = "color:white;"></button>
+						
+						<br>
+					</center>
+					
+					<form style = "margin-top: 15px; margin-left: 15%;">
+						<p>Send To<p>
+						<input type = "text" id = "userInput" value "" style = "width: 72.5%;">
+						<input type = "button" id = "sendButton" value = "Send" style= "width: auto;"/>
+					</form>
+						
+					<img src = "sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
+						
+			</div>
+		</div>
+		<div id="myModal" class="modal">
+		<!-- Modal content -->
+			<div class="event-card-modal-content">
+				<div class="event-card-modal-header">
+					<span id="close" class="closeModal">&times;</span>
+					<h2>Add Event</h2>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div>
+						<label for="title">Title: </label>
+						<input type="text" name="title" id="title" required />
+						<br>
+						<label> Date: </label>
+						<input type="date"/>
+						<label> Time: </label>
+						<input type="time"/>
+					</div>
+					<div>User:
+						<br>
+						<input type="radio" name="radio-choice" value="choice-1" />
+						<label for="radio-choice-1">Bob</label>
+						<br>
+						<input type="radio" name="radio-choice" value="choice-2" />
+						<label for="radio-choice-2">Janette</label>
+					</div>
+					<div>Description:
+						<br>
+						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
+					</div>
+					<input type="submit" id='newEventSubmitButton'/>
+					</form>
 				</div>
 			</div>
 		</div>
