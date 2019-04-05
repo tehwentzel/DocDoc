@@ -92,7 +92,7 @@ $(document).ready(function() {
 
   $(".noInfoDefault").on("click", function(ev) {
     var thisID = this.parentNode.id;
-    $("#popupBackDrop").css("display", "block");
+    //$("#popupBackDrop").css("display", "block");
     if (thisID == "userInfo") {
       $("#userInfoPopup").css("display", "block");
     }
@@ -101,7 +101,7 @@ $(document).ready(function() {
       $("#findButton").toggleClass("activeTab", true);
       $(".tabView").toggleClass("selectedView", false);
       $("#find").toggleClass("selectedView", true);
-      $("#userInfoPopup").css("display", "block");
+      //$("#userInfoPopup").css("display", "block");
     }
     ev.stopPropagation();
   });
