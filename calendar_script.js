@@ -21,7 +21,7 @@ $( function() {
 		
 		$('#newEventSubmitButton').on('click', function(ev){
 			//submit event button 
-			var title = $('#myModal').find('#title').val();;
+			var title = $('#myModal').find('#eventFormTitle').val();;
 			if(title !== ''){//check if a title is given
 				ev.preventDefault(); //don't refresh the page
 				alert('Event Added!'); //alert success

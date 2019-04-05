@@ -40,6 +40,8 @@
 .clndr-controls  {
 	padding: .3%;
 	padding-bottom: 0px;
+	font-weight: bold;
+	font-size: 1.5em;
 } .clndr-controls > *{
 	margin-top: .3%;
 }
@@ -150,7 +152,7 @@ font-family: Roboto;
   width: 35%;
 }
 
-#cts-clndr .event-listing .event-listing-title {
+#cts-clndr .event-listing, .event-card-modal-header  {
   padding: 14px;
   background-color: #777;
   text-align: center;
@@ -262,7 +264,6 @@ html[xmlns] #cts-clndr .clearfix {
     padding: 2px;
     background-color: #912E2E;
     color: white;
-    height: 4em;
     
 }
 
@@ -356,4 +357,8 @@ html[xmlns] #cts-clndr .clearfix {
 	margin-top: 0% !important;
 	background-color: #912E2E !important;
 	cursor: pointer;
+}
+
+#eventFormTitle{
+	width: 80%;
 }
