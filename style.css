@@ -9,6 +9,7 @@
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -175,7 +176,6 @@ ul {
   background-color: #f79696;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
-
 .tabView,
 #mainView {
   width: 100%;
@@ -185,15 +185,12 @@ ul {
   z-index: 0;
 }
 .tabView {
+  overflow-y: scroll;
   display: none;
-
 }
 .selectedView {
   display: flex !important;
   z-index: 2 !important;
-}
-#feed {
-  background: yellow;
 }
 
 #find > .row {
@@ -234,8 +231,7 @@ button.close {
   color: black;
 }
 #files {
-	margin-top: 2%;
-	overflow-y: scroll;
+	margin-top: 1%;
 }
 .popup {
   position: absolute;
@@ -250,4 +246,61 @@ button.close {
   z-index: 10;
   background: #f79696;
   display: none;
+}
+#feed{
+	z-index: 0;
+	margin-top: 1%;
+	
+}
+#feed h2{
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#feedContainer{
+	display: flex;
+	align-items: left;
+	flex-direction: column;
+}
+.feedFile, .feedAppt{
+	width: 80%;
+	margin-top: 1%;
+	margin-left: 1%;
+	border-radius: 8px;
+}
+
+.feedFile {
+	padding-left:150px;
+	background-color: #F79696;
+	border: 2px dashed #D05353;
+	transition-duration: 0.4s;
+	background-image: url(document-icon.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	text-align: left;
+	font-weight: bolder;
+}
+
+.feedFile:hover{
+	box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801), 0 6px 20px 0 rgba(156, 17, 17, 0.821);
+	background-color: #F79696;
+	color: white;
+	border: 2px solid #FFFFFF;
+}
+
+.feedAppt {
+	padding-left:150px;
+	background-color: #D05353;
+	border: 2px dashed #F79696;
+	transition-duration: 0.4s;
+	text-align: left;
+	background-image: url(calander-icon.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	font-weight: bolder;
+}
+
+.feedAppt:hover{
+	border: 2px solid #FFFFFF;
+	box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801), 0 6px 20px 0 rgba(156, 17, 17, 0.821);
+	background-color:#D05353;
+	color: white;
 }
