@@ -30,36 +30,59 @@
 	</div>
 	<div class='container' style='width:100%;margin:0;padding:0;'>
 		<div class='row flex-container' id='title'>
-			<div class='col-md-3'></div>
-			<div class='col-md-6 text-center'>
+			<div class='col-md-4 text-center'>
 				<h3 style='color: white'>Docdoc</h3>
 			</div>
-			<div class='col-md-3 flex-container'>
-				<input type="text" id='searchBar' placeholder="Search..">
+			<div class='col-md-6'>
+				<div class='row no-gutters' id='viewTabs'>
+					<div class='col-md-3'>
+						<div class='tabButton activeTab' id='feedButton' name='feed'>
+							Feed
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='calendarButton' name='calendar'>
+							Calendar
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='findButton' name='find'>
+							Find Nearby
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='filesButton' name='files'>
+							Files
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='col-md-2'>
+				<input type="text" placeholder="Search..." id='searchBar'>
 			</div>
 		</div>
 		<div class='row no-gutters'>
 			<div class='col-md-2'>
 				<div class='flex-container' id='leftContent'>
 				
-					<img src='left_arrow.png' id='backArrowLeft'>
+					<img src='images/left_arrow.png' id='backArrowLeft'>
 				
 					<div class='card text-center accountIcon' id='boyIcon'>
-						<img class='card-img-top avatar' src='boy_icon.png'>
+						<img class='card-img-top avatar' src='images/boy_icon.png'>
 						<div class='card-body'>
 							<h3 class='card-title'>Bob</h3>
 						</div>
 					</div>
 					
 					<div class='card text-center accountIcon' id='girlIcon' >
-						<img class='card-img-top avatar' src='girl_icon.png'>
+						<img class='card-img-top avatar' src='images/girl_icon.png'>
 						<div class='card-body'>
 							<h3 class='card-title'>Jannette</h3>
 						</div>
 					</div>
 					
 					<div class='card text-center accountIcon' id='plusIcon'>
-						<img class='card-img-top avatar' src='plus.svg'>
+						<img class='card-img-top avatar' src='images/plus.svg'>
 					</div>
 					
 					<div class='card accountInfo' id='userInfo'>
@@ -118,29 +141,6 @@
 			</div>
 			<div class='col-md-10'>
 				<div class='flex-container' id='rightContent'>
-					<div class='row' id='viewTabs'>
-						<div class='col-md-3'>
-							<div class='tabButton activeTab' id='feedButton' name='feed'>
-								Feed
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='calendarButton' name='calendar'>
-								Calendar
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='findButton' name='find'>
-								Find Nearby
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='filesButton' name='files'>
-								Files
-							</div>
-						</div>
-					</div>
-
 					<div class='row no-gutters' id='mainView'>
 						<div class='col-md-12' style='height:100%;margin:0auto;padding:0auto;'>
 							<div id='feed' class='tabView  selectedView'>
@@ -318,7 +318,7 @@
 									<div class="col-md-3 docList">
 											<div class="flex-container docBox" id="docBoxA">
 											  <div class="media border p-3">
-												<img class="docIcon" src="doc0.jpg"/>
+												<img class="docIcon" src="images/doc0.jpg"/>
 												<div class="media-body">
 												  <h5>
 													Dr. Realman<br />
@@ -330,7 +330,7 @@
 											</div>
 											<div class="flex-container docBox" id="docBoxB">
 											  <div class="media border p-3">
-												<img class="docIcon" src="doc1.png"/>
+												<img class="docIcon" src="images/doc1.png"/>
 												<div class="media-body">
 												  <h5>
 													Dr. Octavia<br />
@@ -341,7 +341,7 @@
 											</div>
 											<div class="flex-container docBox" id="docBoxC">
 											  <div class="media border p-3">
-												<img class="docIcon" src="doc2.png" />
+												<img class="docIcon" src="images/doc2.png" />
 												<div class="media-body">
 												  <h5>
 													Dr. Strange<br />
@@ -352,7 +352,7 @@
 											</div>
 											<div class="flex-container docBox" id="docBoxD">
 											  <div class="media border p-3">
-												<img class="docIcon" src="doc3.jpg" />
+												<img class="docIcon" src="images/doc3.jpg" />
 												<div class="media-body">
 												  <h5>
 													Dr. Doctor<br />
@@ -366,7 +366,7 @@
 									<div class="col-md-8 mapArea">
 											<div class="flex-container docBoxInfo" id="docBoxAInfo" style="display:none;">
 												<div class="media border p-3">
-													<img class="docIconBig" src="doc0.jpg"/>
+													<img class="docIconBig" src="images/doc0.jpg"/>
 													<div class="media-body">
 														<span class="docInfo">
 															<h2 class='docName'><span class='docNameValue'>Dr. Realman</span></h2>
@@ -396,7 +396,7 @@
 											</div>
 											<div class="flex-container docBoxInfo" id="docBoxBInfo" style="display:none;">
 												<div class="media border p-3">
-													<img class="docIconBig" src="doc1.png"/>
+													<img class="docIconBig" src="images/doc1.png"/>
 													<div class="media-body">
 														<span class="docInfo">
 															<h2 class='docName'><span class='docNameValue'>Dr. Octavia</span></h2>
@@ -425,7 +425,7 @@
 											</div>
 											<div class="docBoxInfo" id="docBoxCInfo" style="display:none;">
 												<div class="media border p-3">
-													<img class="docIconBig" src="doc2.png" />
+													<img class="docIconBig" src="images/doc2.png" />
 													<div class="media-body">
 														<span class="docInfo">
 															<h2 class='docName'><span class='docNameValue'>Dr. Strange</span></h2>
@@ -454,7 +454,7 @@
 											</div>
 											<div class="docBoxInfo" id="docBoxDInfo" style="display:none;">
 												<div class="media border p-3">
-													<img class="docIconBig" src="doc3.jpg" />
+													<img class="docIconBig" src="images/doc3.jpg" />
 													<div class="media-body">
 														<span class="docInfo">
 															<h2 class='docName'><span class='docNameValue'>Dr. Doctor</span></h2>
@@ -483,7 +483,7 @@
 											</div>
 											
 											<div id="map">
-													<img src='map.PNG'/>
+													<img src='images/map.PNG'/>
 												</div>
 									</div>
 								</div>
@@ -495,11 +495,11 @@
 									</div>
 									<hr>				
 									<div>
-										<img src = "sampleDoc1.png" class="fileImage">		
-										<img src = "sampleDoc2.png" class = "fileImage">
-										<img src = "sampleDoc3.png" class = "fileImage">
-										<img src = "sampleDoc4.png" class = "fileImage">
-										<img src = "sampleDoc5.png" class = "fileImage">
+										<img src = "images/sampleDoc1.png" class="fileImage">		
+										<img src = "images/sampleDoc2.png" class = "fileImage">
+										<img src = "images/sampleDoc3.png" class = "fileImage">
+										<img src = "images/sampleDoc4.png" class = "fileImage">
+										<img src = "images/sampleDoc5.png" class = "fileImage">
 									</div>
 									
 									<br>
@@ -510,11 +510,11 @@
 									<hr>
 									
 									<div>
-										<img src = "sampleDoc5.png" class= "fileImage">
-										<img src = "sampleDoc4.png" class= "fileImage">
-										<img src = "sampleDoc3.png" class= "fileImage">
-										<img src = "sampleDoc2.png" class= "fileImage">
-										<img src = "sampleDoc1.png" class= "fileImage">
+										<img src = "images/sampleDoc5.png" class= "fileImage">
+										<img src = "images/sampleDoc4.png" class= "fileImage">
+										<img src = "images/sampleDoc3.png" class= "fileImage">
+										<img src = "images/sampleDoc2.png" class= "fileImage">
+										<img src = "images/sampleDoc1.png" class= "fileImage">
 									</div>
 									
 								</div>
@@ -550,7 +550,7 @@
 						<input type = "button" id = "sendButton" value = "Send" style= "width: auto;"/>
 					</form>
 						
-					<img src = "sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
+					<img src = "images/sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
 						
 			</div>
 		</div>

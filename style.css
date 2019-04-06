@@ -39,17 +39,17 @@ body {
   z-index: 9;
 }
 
-.card-body > p {
+#leftContent .card-body > p {
   margin: 0 auto;
   margin-left: 2%;
   font-weight: bold;
 }
 
-.card-body > p > span {
+#leftContent .card-body > p > span {
   font-weight: normal !important;
 }
 
-ul {
+#leftContent ul {
   list-style-type: none;
   margin: 0;
   margin-left: 10%;
@@ -57,22 +57,23 @@ ul {
 }
 
 #title {
-  height: 6vh;
+  min-height: 5vh;
   width: 100%;
-  vertical-align: center;
-  background-color: #912e2e;
+  vertical-align: middle;
+  background-color: #191919;
 }
-
-#title > * {
-  margin-top: 1vh;
+#title > *{
+	margin-top: .8vh;
+	margin-bottom: .6vh;
 }
-
-#searchBar {
-  float: right;
-  width: 15vw;
-  height: 4vh;
+#searchBar{
+  width: 88%;
   border: none;
+  border-radius: 5px;
+  min-height: 90%;
+  max-height: 100%;
   font-size: 1.1em;
+  float: right;
 }
 
 .flex-center {
@@ -83,7 +84,8 @@ ul {
 
 .noInfoDefault {
   display: none;
-  height: 13vh;
+  height: auto;
+  min-height: 10vh;
   cursor: pointer;
 }
 
@@ -128,11 +130,13 @@ ul {
   border: none;
   display: none;
 }
-.accountInfo > .card-header {
+.accountInfo .card-header {
   background-color: #f79696;
+  font-weight: bold;
 }
-.accountInfo > .card-body {
+.accountInfo .card-body {
   background-color: #eeeeee;
+  margin: 1%;
 }
 
 .avatar {
@@ -156,7 +160,6 @@ ul {
 
 #viewTabs {
   margin: 0 auto;
-  margin-top: 0.2em;
   padding: 0 auto;
   height: 2.2em;
 }
@@ -164,20 +167,19 @@ ul {
 .tabButton {
   margin: 0em;
   width: 100%;
+  color: white;
   height: 100%;
   text-align: center;
   vertical-align: text-bottom;
-  background-color: #ffffff;
   cursor: pointer;
-  font-weight: bold;
   font-size: 1.5em;
-  border-radius: 20px 20px 20px 20px;
-  border: 0.5px solid #d05353;
-
+  border-radius: 2px;
+} .tabButton:hover{
+	border: 2px solid #912E2E;
 }
+
 .activeTab {
-  background-color: #f79696;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+  background-color: #912E2E;
 }
 .tabView,
 #mainView {
@@ -234,7 +236,6 @@ button.close {
   color: black;
 }
 #files {
-	margin-top: 1%;
 }
 .popup {
   position: absolute;
@@ -252,8 +253,6 @@ button.close {
 }
 #feed{
 	z-index: 0;
-	margin-top: 1%;
-	
 }
 #feed h2{
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -275,7 +274,7 @@ button.close {
 	background-color: #F79696;
 	border: 2px dashed #D05353;
 	transition-duration: 0.4s;
-	background-image: url(document-icon.png);
+	background-image: url(images/document-icon.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	text-align: left;
@@ -295,7 +294,7 @@ button.close {
 	border: 2px dashed #F79696;
 	transition-duration: 0.4s;
 	text-align: left;
-	background-image: url(calander-icon.png);
+	background-image: url(images/calander-icon.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	font-weight: bolder;
