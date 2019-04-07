@@ -3,6 +3,7 @@ $(document).ready(function() {
   
 
   $("#backArrowLeft").on("click", function() {
+	  //resets account icons when back arrow is selected
 	selectedUser = null;
     $(".accountInfo").css("display", "none");
     $(".accountIcon").animate(
@@ -22,6 +23,7 @@ $(document).ready(function() {
   });
 
   $(".tabButton").on("click", function() {
+	  //switch view on tab click
     $(".tabButton").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
     $(".tabView").toggleClass("selectedView", false);
@@ -29,6 +31,7 @@ $(document).ready(function() {
   });
 
   $("#popupBackDrop").click(function(ev) {
+	  //make account creation popup disappear when clicked outside the thing
     if (ev.target.classList.contains("popup")) {
       ev.stopPropagation();
       return;
@@ -38,6 +41,7 @@ $(document).ready(function() {
   });
 
   $(".noInfoDefault").on("click", function(ev) {
+	  //brings up find-nearby form when a box with no doctor/school info is clicked
     var thisID = this.parentNode.id;
     
     if (thisID == "userInfo") {
@@ -103,6 +107,7 @@ $(document).ready(function() {
   });
   
   $('#plusIcon').on('click', function(){
+	  //bring up an account creation diy modal when the plus button is clicked
 		var popup = $("#userInfoPopup");
 		$("#popupBackDrop").css("display", "block");
 		popup.css("display", "block");
@@ -111,11 +116,13 @@ $(document).ready(function() {
   });
   
   $('#accountIconSelect img').on('click',function(){
+	  //highlights icon when selected in the account creation form
 		$('#accountIconSelect img').toggleClass('iconSelected',false);
 		$(this).toggleClass('iconSelected', true);
   });
   
   $('#createAccountSubmitButton').on('click', function(ev){
+	  //maes a new account with form input, needs a name and icon (default to dog);
 		ev.preventDefault();
 		var name = $('#accountNameInput').val();
 		if(name == '' || name == null){
