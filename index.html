@@ -12,7 +12,7 @@
 	<!-- Load style sheets -->
 	<link rel="stylesheet" href=
 	  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
-	<!--link rel="stylesheet" href="calendar_style.css"-->
+	<link rel="stylesheet" href="calendar_style.css">
 	<link rel="stylesheet" href="fileStyle.css">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -262,12 +262,9 @@
 																}
 															return suffix;
 															}
-															var unformattedDate = new Date(event.date)
-															formattedDate = [
-																			unformattedDate.getDate() + getSuffix(unformattedDate.getDate()),
-																			monthNames[unformattedDate.getMonth()],
-																			unformattedDate.getFullYear()
-																		]; 
+															var unformattedDate = new Date(event.date) 
+															var d = unformattedDate.getDate() + 1 
+															formattedDate = [ d + getSuffix(d), monthNames[unformattedDate.getMonth()], unformattedDate.getFullYear() ];
 															print(formattedDate.join(' '));
 															%>
 															</h6>
