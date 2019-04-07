@@ -133,6 +133,8 @@ $(document).ready(function() {
 		drawAccountAvatar(newUser);
 		$("#userInfoPopup").css('display', 'none');
 		$("#popupBackDrop").css("display", "none");
+		$('#userInfoPopup input').val('');
+		$('#userInfoPopup textarea').val('');
   });
   
 });
