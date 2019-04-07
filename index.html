@@ -12,7 +12,7 @@
 	<!-- Load style sheets -->
 	<link rel="stylesheet" href=
 	  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
-	<link rel="stylesheet" href="calendar_style.css">
+	<!--link rel="stylesheet" href="calendar_style.css"-->
 	<link rel="stylesheet" href="fileStyle.css">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -31,7 +31,7 @@
 	<div class='container' style='width:100%;margin:0;padding:0;'>
 		<div class='row flex-container' id='title'>
 			<div class='col-md-4 text-center'>
-				<h3 style='color: white'>Docdoc</h3>
+				<h3 style='font-weight:bold;color:white;'>Docdoc</h3>
 			</div>
 			<div class='col-md-6'>
 				<div class='row no-gutters' id='viewTabs'>
@@ -66,20 +66,6 @@
 				<div class='flex-container' id='leftContent'>
 				
 					<img src='images/left_arrow.png' id='backArrowLeft'>
-				
-					<div class='card text-center accountIcon' id='boyIcon'>
-						<img class='card-img-top avatar' src='images/boy_icon.png'>
-						<div class='card-body'>
-							<h3 class='card-title'>Bob</h3>
-						</div>
-					</div>
-					
-					<div class='card text-center accountIcon' id='girlIcon' >
-						<img class='card-img-top avatar' src='images/girl_icon.png'>
-						<div class='card-body'>
-							<h3 class='card-title'>Jannette</h3>
-						</div>
-					</div>
 					
 					<div class='card text-center accountIcon' id='plusIcon'>
 						<img class='card-img-top avatar' src='images/plus.svg'>
@@ -94,16 +80,14 @@
 						</div>
 						<div class='card-body populatedInfo'>
 							<p id='allergies'>Allergies<p>
-							<ul id='allergiesList no-gutters'>
-								<li>Pollen</li>
+							<ul id='allergiesList'>
 							</ul>
 							<p id='medication'>Medication<p>
 							<ul id='medicationList'>
-								<li>Pollen-away</li>
 							</ul>
-							<p id='age'>Age: <span id='ageValue'>12</span><p>
-							<p id='weight'>Weight: <span id='weightValue'>120</span><p>
-							<p id='bloodType'>Blood Type: <span id='bloodTypeValue'>AB-</span><p>
+							<p id='age'>Age: <span id='ageValue'></span><p>
+							<p id='weight'>Weight: <span id='weightValue'></span><p>
+							<p id='bloodType'>Blood Type: <span id='bloodTypeValue'></span><p>
 						</div>
 					</div>
 					
@@ -115,10 +99,10 @@
 							<div><h3>+Add Doctor+</h3></div>
 						</div>
 						<div class='card-body populatedInfo' style='display:none;'>
-							<p id='doctorName'>Name: <span id='doctorNameValue'>Dr. Realmann</span><p>
-							<p id='doctorNumber'>Number: <span id='doctorNumberValue'>231-555-1212</span><p>
-							<p id='doctorEmail'>Email: <span id='doctorEmailValue'>realMan@FakeMail.com</span><p>
-							<p id='doctorAddress'>Address: <span id='doctorAddressValue'>420 Lakeshore Dr.</span><p>
+							<p id='doctorName'>Name: <span id='nameValue'>Dr. Realmann</span><p>
+							<p id='doctorNumber'>Number: <span id='numberValue'>231-555-1212</span><p>
+							<p id='doctorEmail'>Email: <span id='emailValue'>realMan@FakeMail.com</span><p>
+							<p id='doctorAddress'>Address: <span id='addressValue'>420 Lakeshore Dr.</span><p>
 						</div>
 					</div>
 					
@@ -130,10 +114,10 @@
 							<div><h3>+Add School+</h3></div>
 						</div>
 						<div class='card-body populatedInfo'>
-							<p id='schoolName'>Name: <span id='schoolNameValue'>Middlth Elementary High For the Arts</span><p>
-							<p id='schoolNumber'>Number: <span id='schoolNumberValue'>882-902-1732</span><p>
-							<p id='schoolEmail'>Email: <span id='schoolEmailValue'>nurse@meh.com</span><p>
-							<p id='schoolAddress'>Address: <span id='schoolAddressValue'>4880 School Dr.</span><p>
+							<p id='schoolName'>Name: <span id='nameValue'>Middlth Elementary High For the Arts</span><p>
+							<p id='schoolNumber'>Number: <span id='numberValue'>882-902-1732</span><p>
+							<p id='schoolEmail'>Email: <span id='emailValue'>nurse@meh.com</span><p>
+							<p id='schoolAddress'>Address: <span id='addressValue'>4880 School Dr.</span><p>
 						</div>
 					</div>
 					
@@ -520,10 +504,6 @@
 								</div>
 							</div>
 							
-							<div class='popup text-center' id='userInfoPopup'>
-								<h2>What is you're phone number?
-								<h2>Plz Respond.
-							</div>
 						</div>
 					</div>
 				</div>
@@ -554,6 +534,7 @@
 						
 			</div>
 		</div>
+		
 		<div id="myModal" class="modal">
 		<!-- Modal content -->
 			<div class="event-card-modal-content">
@@ -589,8 +570,67 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class='popup container' id='userInfoPopup'>
+			<div class='row' style='width:100%;margin-top:3%;'>
+				<div class='col-md-12 text-center'>
+					<h3>Create Account</h3>
+					<hr>
+				</div>
+			</div>
+			<form>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" class="form-control" id="accountNameInput" placeholder="Name">
+				<small class="form-text text-muted">Probably their actual Name</small>
+			</div>
+			<div class="form-group">
+				<label>Age</label>
+				<input type="text" class="form-control" id="accountAgeInput" placeholder="e.g. 12, 13">
+			</div>
+			<div class="form-group">
+				<label>Weight</label>
+				<input type="text" class="form-control" id="accountWeightInput" placeholder="e.g. 120, 130">
+			</div>
+			<div class="form-group">
+				<label>Blood Type</label>
+				<input type="text" class="form-control" id="accountBloodTypeInput" placeholder="e.g. A+, O-">
+			</div>
+			<div class='form-group'>
+				<label>Conditions</label>
+				<textarea id='accountConditionsInput' placeholder='e.g. chronic sniffles, near-sightedness' style='width:100%'></textarea>
+				<small class='form-text text-muted'>Seperate items with a comma</small>
+			</div>
+			<div class='form-group'>
+				<label>Medications</label>
+				<textarea id='accountMedicationInput' placeholder='e.g. zyrtec, tums' style='width:100%'></textarea>
+				<small class='form-text text-muted'>Seperate items with a comma</small>
+			</div>
+			<div class='form-group'>
+				<label>Select a User Icon</label>
+				<div id='accountIconSelect'>
+					<img src='images/boy_icon.png'/>
+					<img src='images/girl_icon.png'/>
+					<img src='images/default_icon.png' class='iconSelected'/>
+				</div>
+			</div>
+			<button type="submit" id='createAccountSubmitButton'>Save Account</button>
+			</form>
+			<br>
+		</div>
+		
 	</div>
 	
+	<template id='avatarTemplate'>
+		<div class='card text-center accountIcon'>
+			<img class='card-img-top avatar'>
+			<div class='card-body'>
+				<h3 class='card-title'></h3>
+			</div>
+		</div>
+	</template>
+	
+	<script src='userData.js'></script>
 	<script src='controller.js'></script>
 	<script src='calendar_script.js'></script>
 	<script src='fileScript.js'></script>
