@@ -257,6 +257,7 @@ button.close {
 	cursor: pointer;
 	color: black;
 	padding: .4em;
+	background: inherit;
 	border: .1em solid #912E2E;
 	font-size: 1.1em;
 }
@@ -264,6 +265,38 @@ button.close {
 	background-color: #912E2E;
 	color: white;
 }
+
+hr {
+	margin-left: 0%;
+	margin-right: 0%;
+	border-color: #000000;
+	border-width: 1.5px;
+}
+
+.sortButton{
+	font-size: 1.1em;
+	cursor: pointer;
+	color: black;
+	padding: .4em;
+	background-color: #D05353;
+	color: white;
+}
+.sortButton:hover{
+	background-color: #912E2E;
+}
+
+.tabHeader{
+	margin-top: 1em;
+	width: 90%;
+} .tabHeader h2{
+	font-weight: bold;
+	margin-top: .1em;
+}
+
+.dropdown-menu > *{
+	cursor: pointer;
+}
+
 #accountIconSelect{
 	display:flex;
 	width: 100%;
@@ -285,13 +318,15 @@ button.close {
 	z-index: 0;
 }
 #feed h2{
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-weight: bold;
 }
 #feedContainer{
 	display: flex;
 	align-items: left;
 	flex-direction: column;
+	overflow-x: hidden;
 }
+
 .feedFile, .feedAppt{
 	width: 80%;
 	margin-top: 1%;

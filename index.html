@@ -130,57 +130,79 @@
 							<div id='feed' class='tabView  selectedView'>
 							<!--Feed View-->
 								<div id="feedContainer" style="width: 100%">
+									<div class='row tabHeader' id='feedHeader'>
+										<div class='col-md-6 text-center'>
+											<h2>Upcoming and Recent Items</h2>
+										</div>
+										<div class='col-md-3'>
+											<div class='btn-group dropdown'>
+												<button type='button' class='btn sortButton'>
+													Sort Date:
+												</button>
+												<button type='button' class='btn dropdown-toggle dropdown-toggle-split sortButton' data-toggle='dropdown' id='feedSortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Latest</span>
+												</button>
+												<div class='dropdown-menu' aria-labelledby='feedSortDropDown'>
+													<a class='dropdown-item'>Latest</a>
+													<a class='dropdown-item'>Earliest</a>
+												</div>
+											</div>
+										</div>
+										<div class='col-md-3'>
+										</div>
+									</div>
+									<hr>
 									<div>
-										<button type= "button" class = "button feedFile">
+										<button type= "button" class = "button feedFile" data-user='Bob'>
 											<h2>File Added: Bob Vaccines.pdf</h2>
 											<p>March 3rd, 2019: BOB</p>
 										</button>
 									</div>										
 									
 									<div>
-										<button type= "button" class ="button feedFile">
+										<button type= "button" class ="button feedFile" data-user='Jannette'>
 											<h2>File Added: Jannette Vaccines.pdf </h2>
 											<p>March 1st, 2019: JANNETTE</p>
 										</button>
 									</div>									
 
 									<div>  
-										<button type= "button" class = "button feedAppt">
+										<button type= "button" class = "button feedAppt" data-user='Jannette'>
 											<h2>Appointment Added: Jannette Eye Test</h2>
 											<p>Scheduled for: April 17th, 2019: JANNETTE OPTOMETRIST</p>
 										</button>
 									</div>
 									
 									<div>
-										<button type= "button" class = "button feedFile">
+										<button type= "button" class = "button feedFile" data-user='Bob'>
 											<h2>File Added: Bob School Forms.pdf</h2>
 											<p>February 18th, 2019: BOB</p>
 										</button>
 									</div>
 									
 									<div>  
-										<button type= "button" class = "button feedAppt">
+										<button type= "button" class = "button feedAppt" data-user='Bob'>
 											<h2>Appointment Added: Bob CheckUp</h2>
 										<p>Scheduled for: April 2nd, 2019: BOB PEDIATRICIAN</p>
 										</button>
 									</div>
 										
 									<div>
-										<button type= "button" class = "button feedFile">
+										<button type= "button" class = "button feedFile" data-user='Jannette'>
 											<h2>File Added: Dr.Realman Sick Note for Jannette.pdf</h2>
 											<p>February 9th, 2019: JANNETTE</p>
 										</button>
 									</div>
 										
 									<div>  
-									<button type= "button" class = "button feedFile">
+									<button type= "button" class = "button feedFile" data-user='Bob'>
 										<h2>File Added: Dr.Realman Sick Note for Bob.pdf</h2>
 										<p>February 2nd, 2019: BOB</p>
 									</button>
 									</div>
 
 									<div class="column">
-									<button type= "button" class = "button feedFile">
+									<button type= "button" class = "button feedFile" data-user='Bob'>
 										<h2>File Added: Bob School Form.pdf</h2>
 										<p>January 5th, 2019: BOB</p>
 									</button>
@@ -470,17 +492,36 @@
 								</div>
 								</div>
 							<div id='files' class='tabView'>
-								<div class = "container-fluid">
-									<div class = "col-sm-3">
-										<h3>Recent Files</h3>
+								<div class = "container-fluid" style='width:100%;'>
+									<div class='row tabHeader' id='fileHeader'>
+										<div class='col-md-6 text-center'>
+											<h2>Recent Files</h2>
+										</div>
+										<div class='col-md-3'>
+											<div class='btn-group dropdown'>
+												<button class='btn sortButton' style='cursor:default;'>
+													Sort Date
+												</button>
+												<button type='button' class='btn dropdown-toggle dropdown-toggle-split sortButton' data-toggle='dropdown' id='sortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Latest</span>
+												</button>
+												<div class='dropdown-menu' aria-labelledby='sortDropDown'>
+													<a class='dropdown-item'>Latest</a>
+													<a class='dropdown-item'>Earliest</a>
+												</div>
+											</div>
+										</div>
+										<div class='col-md-3'>
+											<span>Filter</span>
+										</div>
 									</div>
-									<hr>				
+									<hr>	
 									<div>
-										<img src = "images/sampleDoc1.png" class="fileImage">		
-										<img src = "images/sampleDoc2.png" class = "fileImage">
-										<img src = "images/sampleDoc3.png" class = "fileImage">
-										<img src = "images/sampleDoc4.png" class = "fileImage">
-										<img src = "images/sampleDoc5.png" class = "fileImage">
+										<img src = "images/sampleDoc1.png" class="fileImage" data-user='Jannette'>		
+										<img src = "images/sampleDoc2.png" class = "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class = "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc4.png" class = "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc5.png" class = "fileImage" data-user='Bob'>
 									</div>
 									
 									<br>
@@ -491,11 +532,11 @@
 									<hr>
 									
 									<div>
-										<img src = "images/sampleDoc5.png" class= "fileImage">
-										<img src = "images/sampleDoc4.png" class= "fileImage">
-										<img src = "images/sampleDoc3.png" class= "fileImage">
-										<img src = "images/sampleDoc2.png" class= "fileImage">
-										<img src = "images/sampleDoc1.png" class= "fileImage">
+										<img src = "images/sampleDoc5.png" class= "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc4.png" class= "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class= "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc2.png" class= "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc1.png" class= "fileImage" data-user='Bob'>
 									</div>
 									
 								</div>

@@ -1,10 +1,15 @@
 $(document).ready(function() {
   console.log("loaded");
   
+  $('.tabHeader .dropdown-item').on('click', function(ev){
+	  //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
+	  this.parentNode.parentNode.querySelector('span').innerHTML = this.innerHTML;
+  });
 
   $("#backArrowLeft").on("click", function() {
 	  //resets account icons when back arrow is selected
 	selectedUser = null;
+	$('[data-user]').css('display', '');
     $(".accountInfo").css("display", "none");
     $(".accountIcon").animate(
       {

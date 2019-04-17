@@ -38,6 +38,9 @@ function setupAvatarOnClick(){
 		if (this.id == "plusIcon") {
 		  return;
 		}
+		if (selectedUser != null){
+			return;
+		}
 		var selected = this;
 		selectedUser = this.querySelector('.card-title').innerHTML;
 		var topPos = $(".accountIcon:first").offset().top - $(this).offset().top;
@@ -86,6 +89,8 @@ function setupAvatarOnClick(){
 		  visibility: "visible",
 		  cursor: "pointer"
 		});
+		
+		$('[data-user]').filter('[data-user !=' + selectedUser + ']').css('display', 'none');
 	});
 }
 
