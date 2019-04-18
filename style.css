@@ -1,12 +1,13 @@
 /*Color Palette
 * White: #FFFFFF
-* Darker red: #912E2E
-* Light pink/red: #F79696
-* Middlist red: #D05353
+* Dark Teal: #13A89E
+* Light Teal: #81cec8;
 * Dark grayish: #191919
 */
 * {
 	font-family: "Roboto", sans-serif;
+	--main-color: #81cec8;
+	--secondary-color: #13A89E;
 }
 
 body {
@@ -60,7 +61,7 @@ body {
   min-height: 5vh;
   width: 100%;
   vertical-align: middle;
-  background-color: #191919;
+  background-color: #333333;
 }
 #title > *{
 	margin-top: .8vh;
@@ -131,7 +132,7 @@ body {
   display: none;
 }
 .accountInfo .card-header {
-  background-color: #f79696;
+  background-color: var(--main-color);
   font-weight: bold;
 }
 .accountInfo .card-body {
@@ -175,11 +176,11 @@ body {
   font-size: 1.5em;
   border-radius: 2px;
 } .tabButton:hover{
-	border: 2px solid #912E2E;
+	border: 2px solid var(--secondary-color);
 }
 
 .activeTab {
-  background-color: #912E2E;
+  background-color: var(--secondary-color);
 }
 .tabView,
 #mainView {
@@ -203,7 +204,11 @@ body {
   justify-content: left;
   height: 100%;
 }
-.docList {
+.saveDoctorButton{
+	background-color: var(--main-color);
+	color: white;
+} .saveDoctorButton:hover{
+	background-color: var(--secondary-color);
 }
 .docBox {
   margin: 5px;
@@ -258,11 +263,11 @@ button.close {
 	color: black;
 	padding: .4em;
 	background: inherit;
-	border: .1em solid #912E2E;
+	border: .1em solid var(--secondary-color);
 	font-size: 1.1em;
 }
 .popup button:hover{
-	background-color: #912E2E;
+	background-color: var(--secondary-color);
 	color: white;
 }
 
@@ -278,11 +283,11 @@ hr {
 	cursor: pointer;
 	color: black;
 	padding: .4em;
-	background-color: #D05353;
+	background-color: var(--main-color);
 	color: white;
 }
 .sortButton:hover{
-	background-color: #912E2E;
+	background-color: var(--secondary-color);
 }
 
 .tabHeader{
@@ -308,10 +313,10 @@ hr {
 	height: 100%;
 	border-radius: 50%;
 } #accountIconSelect img:hover{
-	border: 3px solid #F79696;
+	border: 3px solid var(--secondary-color);
 }
 .iconSelected, .iconSelected:hover {
-	border: 5px solid #912E2E !important;
+	border: 5px solid var(--secondary-color) !important;
 }
 
 #feed{
@@ -336,8 +341,8 @@ hr {
 
 .feedFile {
 	padding-left:150px;
-	background-color: #F79696;
-	border: 2px dashed #D05353;
+	background-color: var(--secondary-color);
+	border: 2px dashed var(--main-color);
 	transition-duration: 0.4s;
 	background-image: url(images/document-icon.png);
 	background-size: contain;
@@ -348,15 +353,15 @@ hr {
 
 .feedFile:hover{
 	box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801), 0 6px 20px 0 rgba(156, 17, 17, 0.821);
-	background-color: #F79696;
+	background-color: var(--secondary-color);
 	color: white;
 	border: 2px solid #FFFFFF;
 }
 
 .feedAppt {
 	padding-left:150px;
-	background-color: #D05353;
-	border: 2px dashed #F79696;
+	background-color: var(--main-color);
+	border: 2px dashed var(--secondary-color);
 	transition-duration: 0.4s;
 	text-align: left;
 	background-image: url(images/calander-icon.png);
@@ -368,6 +373,80 @@ hr {
 .feedAppt:hover{
 	border: 2px solid #FFFFFF;
 	box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801), 0 6px 20px 0 rgba(156, 17, 17, 0.821);
-	background-color:#D05353;
+	background-color:var(--main-color);
 	color: white;
+}
+
+#fileModal p{
+	font-size: 1.5em;
+}
+
+.fileImage
+{
+	cursor: pointer;
+	width: 300px;
+	height: 350px;
+	margin: 10px 10px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#fileModal .btn
+{
+	background-color: var(--main-color);
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+#fileModal .btn:hover
+{
+	background-color: var(--secondary-color);
+	color: white;
+}
+/* Modal stuff */
+
+/* The Modal (background) */
+.file-modal-class
+{
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* 
+ * Modal Content/Box 
+*/
+#fileModal .modal-content-class
+{
+	background-color: #fefefe;
+	margin: 5% auto; /* 5% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#fileModal .close 
+{
+	float: right;
+	font-size: 48px;
+	font-weight: bold;
+	color: var(--secondary-color);
+}
+
+#fileModal .close:hover,
+#fileModal .close:focus 
+{
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
 }

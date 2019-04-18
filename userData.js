@@ -43,6 +43,7 @@ function setupAvatarOnClick(){
 		}
 		var selected = this;
 		selectedUser = this.querySelector('.card-title').innerHTML;
+		populateAccountInfo(selectedUser);
 		var topPos = $(".accountIcon:first").offset().top - $(this).offset().top;
 		var disapearPromise = Promise.resolve(
 		  $(".accountIcon")
@@ -79,7 +80,7 @@ function setupAvatarOnClick(){
 			})
 			.promise()
 		);
-		populateAccountInfo(selectedUser);
+	
 		disapearPromise.then(function() {
 		  $(this).css("cursor", "default");
 		  $(".accountInfo").css("display", "flex");
