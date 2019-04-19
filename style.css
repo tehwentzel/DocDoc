@@ -5,9 +5,11 @@
 * Dark grayish: #191919
 */
 * {
-	font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif !important;
 	--main-color: #81cec8;
 	--secondary-color: #13A89E;
+	--bob-color: #00FA9A;
+	--jannette-color: #DAA520;
 }
 
 body {
@@ -123,6 +125,10 @@ body {
   border-radius: 10%;
   cursor: pointer;
 }
+#plusIcon {
+	width: 60%;
+	margin: 10% 20% 10% 20%;
+}
 
 .accountInfo {
   width: 90%;
@@ -145,6 +151,15 @@ body {
   width: 70%;
   height: auto;
   border-radius: 50%;
+}
+.fakeRectangle {
+	width: 50%;
+	padding: 0%;
+	height: .3em;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: -.4em;
+	background-color: var(--bob-color);
 }
 
 #backArrowLeft {
@@ -176,11 +191,13 @@ body {
   font-size: 1.5em;
   border-radius: 2px;
 } .tabButton:hover{
-	border: 2px solid var(--secondary-color);
+	font-size: 2em;
+	margin-top: -.25em;
 }
 
 .activeTab {
-  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-bottom: .5em solid var(--main-color);
 }
 .tabView,
 #mainView {
@@ -260,15 +277,8 @@ button.close {
 .popup button{
 	border-radius: 5px;
 	cursor: pointer;
-	color: black;
 	padding: .4em;
-	background: inherit;
-	border: .1em solid var(--secondary-color);
 	font-size: 1.1em;
-}
-.popup button:hover{
-	background-color: var(--secondary-color);
-	color: white;
 }
 
 hr {
@@ -277,17 +287,21 @@ hr {
 	border-color: #000000;
 	border-width: 1.5px;
 }
-
-.sortButton{
-	font-size: 1.1em;
-	cursor: pointer;
-	color: black;
-	padding: .4em;
+.btn {
 	background-color: var(--main-color);
 	color: white;
-}
-.sortButton:hover{
+	cursor: pointer;
+} .btn:hover{
 	background-color: var(--secondary-color);
+}
+.sortButton{
+	font-size: 1.1em;
+	padding: .4em;
+}
+.sortLabel{
+	background: inherit;
+	color: black;
+	border: none;
 }
 
 .tabHeader{
@@ -391,20 +405,6 @@ hr {
 	border-width: 2px;
 }
 
-#fileModal .btn
-{
-	background-color: var(--main-color);
-	border: none;
-	color: white;
-	cursor: pointer;
-	font-size: 1.5em;
-}
-
-#fileModal .btn:hover
-{
-	background-color: var(--secondary-color);
-	color: white;
-}
 /* Modal stuff */
 
 /* The Modal (background) */
@@ -421,6 +421,7 @@ hr {
 	background-color: rgb(0,0,0); /* Fallback color */
 	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
 
 /* 
  * Modal Content/Box 

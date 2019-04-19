@@ -23,6 +23,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 	<script src='https://kylestetz.github.io/CLNDR/js/clndr.js'></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -60,7 +61,7 @@
 				</div>
 			</div>
 			<div class='col-md-2'>
-				<input type="text" placeholder="Search..." id='searchBar'>
+				<input type="text" placeholder=" Search..." id='searchBar'>
 			</div>
 		</div>
 		<div class='row no-gutters'>
@@ -71,6 +72,9 @@
 					
 					<div class='card text-center accountIcon' id='plusIcon'>
 						<img class='card-img-top avatar' src='images/plus.svg'>
+						<div class='card-body'>
+							<h5 class='card-title'>Add Account</h5>
+						</div>
 					</div>
 					
 					<div class='card accountInfo' id='userInfo'>
@@ -78,7 +82,7 @@
 							<h5 style='margin:0;padding:0;'>Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault'>
-							<div><h3>+Add Info+</h3></div>
+							<div><button class='btn'>Add Info</button></div>
 						</div>
 						<div class='card-body populatedInfo'>
 							<p id='allergies'>Allergies:<p>
@@ -98,7 +102,7 @@
 							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault' style='display:flex;'>
-							<div><h3>+Add Doctor+</h3></div>
+							<div><button class='btn'>Add Doctor</button></div>
 						</div>
 						<div class='card-body populatedInfo' style='display:none;'>
 							<p id='doctorName'>Name: <span id='nameValue'>Dr. Realmann</span><p>
@@ -113,7 +117,7 @@
 							<h5 style='margin:0;padding:0;'>School Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault'>
-							<div><h3>+Add School+</h3></div>
+							<div><button class='btn'>Add School</button></div>
 						</div>
 						<div class='card-body populatedInfo'>
 							<p id='schoolName'>Name: <span id='nameValue'>Middlth Elementary High For the Arts</span><p>
@@ -134,15 +138,12 @@
 								<div id="feedContainer" style="width: 100%">
 									<div class='row tabHeader' id='feedHeader'>
 										<div class='col-md-6 text-center'>
-											<h2>Upcoming and Recent Items</h2>
+											<h2>Upcoming and Recent</h2>
 										</div>
 										<div class='col-md-3'>
-											<div class='btn-group dropdown'>
-												<button type='button' class='btn sortButton'>
-													Sort Date:
-												</button>
-												<button type='button' class='btn dropdown-toggle dropdown-toggle-split sortButton' data-toggle='dropdown' id='feedSortDropDown' aria-haspopup="true" aria-expanded="false">
-													<span>Latest</span>
+											<div class='dropdown'>
+												<button type='button' class='btn dropdown-toggle sortButton' data-toggle='dropdown' id='feedSortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Sort Date: Latest</span>
 												</button>
 												<div class='dropdown-menu' aria-labelledby='feedSortDropDown'>
 													<a class='dropdown-item'>Latest</a>
@@ -222,7 +223,7 @@
 												<div class="clndr-previous-button"><</i></div>
 											</div>
 											<div class='col-md-2' style='overflow: hidden'>
-												<button id="addCalendarEventButton" type="button" class="btn btn-danger"> Add Event </button>
+												<button id="addCalendarEventButton" type="button" class="btn"> Add Event </button>
 											</div>
 											<div class='col-md-4'>
 												<div class="current-month"><%= month %> <%= year %></div>
@@ -500,21 +501,17 @@
 											<h2>Recent Files</h2>
 										</div>
 										<div class='col-md-3'>
-											<div class='btn-group dropdown'>
-												<button class='btn sortButton' style='cursor:default;'>
-													Sort Date
+											<div class='dropdown'>
+												<button type='button' class='btn dropdown-toggle sortButton' data-toggle='dropdown' id='feedSortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Sort Date: Latest</span>
 												</button>
-												<button type='button' class='btn dropdown-toggle dropdown-toggle-split sortButton' data-toggle='dropdown' id='sortDropDown' aria-haspopup="true" aria-expanded="false">
-													<span>Latest</span>
-												</button>
-												<div class='dropdown-menu' aria-labelledby='sortDropDown'>
+												<div class='dropdown-menu' aria-labelledby='feedSortDropDown'>
 													<a class='dropdown-item'>Latest</a>
 													<a class='dropdown-item'>Earliest</a>
 												</div>
 											</div>
 										</div>
 										<div class='col-md-3'>
-											<span>Filter</span>
 										</div>
 									</div>
 									<hr>	
@@ -567,7 +564,7 @@
 					<form style = "margin-top: 15px; margin-left: 15%;">
 						<p>Send To<p>
 						<input type = "text" id = "userInput" value "" style = "width: 72.5%;">
-						<input type = "button" id = "sendButton" value = "Send" style= "width: auto;"/>
+						<input type = "button" id = "sendButton" value = "Send" class='btn' style='width:auto'/>
 					</form>
 						
 					<img src = "images/sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
@@ -605,7 +602,7 @@
 						<br>
 						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
 					</div>
-					<input type="submit" id='newEventSubmitButton'/>
+					<input class='btn' type="submit" id='newEventSubmitButton'/>
 					</form>
 				</div>
 			</div>
@@ -614,7 +611,7 @@
 		<div class='popup container' id='userInfoPopup'>
 			<div class='row' style='width:100%;margin-top:3%;'>
 				<div class='col-md-12 text-center'>
-					<h3>Create Account</h3>
+					<h3>Add Account</h3>
 					<hr>
 				</div>
 			</div>
@@ -654,7 +651,7 @@
 					<img src='images/default_icon.png' class='iconSelected'/>
 				</div>
 			</div>
-			<button type="submit" id='createAccountSubmitButton'>Save Account</button>
+			<button type="submit" id='createAccountSubmitButton' class='btn'>Save Account</button>
 			</form>
 			<br>
 		</div>
@@ -666,6 +663,7 @@
 			<img class='card-img-top avatar'>
 			<div class='card-body'>
 				<h3 class='card-title'></h3>
+				<div class='fakeRectangle'></div>
 			</div>
 		</div>
 	</template>

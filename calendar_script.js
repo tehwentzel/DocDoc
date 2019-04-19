@@ -24,7 +24,7 @@ $( function() {
 			var title = $('#myModal').find('#eventFormTitle').val();;
 			if(title !== ''){//check if a title is given
 				ev.preventDefault(); //don't refresh the page
-				alert('Event Added!'); //alert success
+				swal('Event Added!'); //alert success
 				modal.style.display = "none";
 				$('#myModal').find('input:not([type=submit]), textarea').val('');  //clear entries
 				$('#myModal').find('input:radio').prop('checked', false);

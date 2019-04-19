@@ -1,4 +1,4 @@
-function Account(name, age, weight, bloodType, allergies, medication, doctor, school, avatar){
+function Account(name, age, weight, bloodType, allergies, medication, doctor, school, avatar, color){
 	//user account info we need;
 	this.name = name;
 	this.age = +age;
@@ -9,6 +9,10 @@ function Account(name, age, weight, bloodType, allergies, medication, doctor, sc
 	this.doctor = doctor;//should be instiution objects I think
 	this.school = school;
 	this.avatar = avatar;
+	this.color = color; //underline color;
+	if(color == undefined){//if we run out of colors we call pop on an empty array and get undefined, I think, shouldn't really occur
+		color = 'gray';
+	}
 }
 
 function Contact(type, name, phone, email, address){
@@ -100,6 +104,7 @@ function drawAccountAvatar(person){
 	element.querySelector('.accountIcon').id = person.name + 'Icon';
 	element.querySelector('img').src = (person.avatar == null)? 'images/default_icon.PNG': person.avatar;
 	element.querySelector('.card-title').innerHTML = person.name;
+	element.querySelector('.fakeRectangle').style.backgroundColor = person.color;
 	var leftContent = document.getElementById('leftContent');
 	leftContent.insertBefore(element, leftContent.children[1]);//insert as the 2nd item behind the back arrow
 	setupAvatarOnClick();
@@ -167,11 +172,14 @@ function populateAccountInfo(name){
 	}
 }
 
+var newUserColors = ['yellow', 'blue', 'cyan', 'orange', 'magenta', 'red', 'steelblue'];
 var middlestHigh = new Contact('school', 'Middlest High School', '888-432-4353', 'nurse@achoo.edu', '4800 Avenue Q');
 var collegeElementary = new Contact('school', 'College Elementary School', '834-432-4333', 'mam please dont email us', '445 fake st.');
 var users = new Array(
-	new Account('Bob', '13', '140', 'A+', ['Pollen', 'Bees'], ['PollenBeeGone'], null, middlestHigh, 'images/boy_icon.png'),
-	new Account('Jannette', '12', '120', 'O-', ['Sandwich Crusts'], ['Smuckers Uncrustables'], null, collegeElementary, 'images/girl_icon.png')
+	new Account('Bob', '13', '140', 'A+', ['Pollen', 'Bees'], ['PollenBeeGone'], null, 
+		middlestHigh, 'images/boy_icon.png', getComputedStyle(document.body).getPropertyValue('--bob-color')),
+	new Account('Jannette', '12', '120', 'O-', ['Sandwich Crusts'], ['Smuckers Uncrustables'], null, 
+		collegeElementary, 'images/girl_icon.png', getComputedStyle(document.body).getPropertyValue('--jannette-color'))
 );
 users.forEach(function(user){
 	drawAccountAvatar(user);
