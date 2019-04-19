@@ -3,7 +3,7 @@ $(document).ready(function() {
   
   $('.tabHeader .dropdown-item').on('click', function(ev){
 	  //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
-	  this.parentNode.parentNode.querySelector('span').innerHTML = this.innerHTML;
+	  this.parentNode.parentNode.querySelector('span').innerHTML = 'Sort Date: ' + this.innerHTML;
   });
 
   $("#backArrowLeft").on("click", function() {
@@ -106,7 +106,7 @@ $(document).ready(function() {
 	  users.filter(person => person.name.toLowerCase() == 'jannette')[0].doctor = newDoctor;
 	  populateAccountInfo('Jannette');
     }
-    alert(text);
+    swal(text);
     // should reset states of dropdown/checked boxes
     $(".dropdown-toggle").click();
   });
@@ -131,7 +131,7 @@ $(document).ready(function() {
 		ev.preventDefault();
 		var name = $('#accountNameInput').val();
 		if(name == '' || name == null){
-			alert('User Name is Required');
+			swal('User Name is Required');
 			return;
 		}
 		var age = $('#accountAgeInput').val();
@@ -140,7 +140,7 @@ $(document).ready(function() {
 		var image = $('.iconSelected').attr('src');
 		var allergies = $('#accountConditionsInput').val().split(',');
 		var medication = $('#accountMedicationInput').val().split(',');
-		var newUser = new Account(name, age, weight, bloodType, allergies, medication, null, null, image);
+		var newUser = new Account(name, age, weight, bloodType, allergies, medication, null, null, image, newUserColors.pop());
 		users.push(newUser);
 		drawAccountAvatar(newUser);
 		$("#userInfoPopup").css('display', 'none');
