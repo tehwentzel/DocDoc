@@ -250,9 +250,13 @@
 														<%= event.unlabeledTitle %> 
 													</div>
 													<%= event.title %>
-													<% if (typeof(event.title2) !== "undefined") { %>
-													<br><%= event.title2 %> 
-													<% } %>
+													<% if (event.user == "Bob") { %>
+																	<div class="bob"></div>
+																	<% } %>
+
+															<% if (event.user == "Janette") { %>
+																	<div class="jan"></div>
+																	<% } %>
 													</a>
 													<% }) %>
 												</div>
@@ -264,7 +268,6 @@
 											<div class="event-card-modal <%= event.date %>">
 												<div class="event-card-modal-content ">
 													<div class="event-card-modal-header">
-														<div class="closeModalButton"><span class="closeModal" id="closeModal">&times;</span></div>
 															<h6>
 															<% 
 															var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -305,12 +308,17 @@
 															<% if (typeof(event.user) !== "undefined") { %>
 																	<div class="event-item-name">User: <%= event.user %></div>
 																	<% } %>
+
 															<% if (typeof(event.description) !== "undefined") { %>
 																	<div class="event-item-name">Description: <%= event.description %></div>
 																	<% } %>                                  
 															<% if (typeof(event.time) !== "undefined") { %>
 																	<div>Time: <%= event.time %></div>
 																	<% } %>
+															<br>
+															<br>
+															<button type="button" class="btn btn-default btn-xs"> Edit </button>
+															<button type="button" class="btn btn-default btn-xs">Delete</button>		
 														</div>   
 													</div>                     
 												</div>
@@ -318,6 +326,7 @@
 									</script>
 								</div>
 							</div>
+
 							
 							<div id='find' class='tabView'>
 								<div class="row no-gutters col-md-12" >
@@ -576,8 +585,7 @@
 		<!-- Modal content -->
 			<div class="event-card-modal-content">
 				<div class="event-card-modal-header">
-					<span id="close" class="closeModal">&times;</span>
-					<h2>Add Event</h2>
+					<h3>Add Event</h3>
 				</div>
 				<div class="modal-body">
 					<form>
