@@ -10,6 +10,7 @@ $(document).ready(function() {
   $("#backArrowLeft").on("click", function() {
     //resets account icons when back arrow is selected
     selectedUser = null;
+    $(".saveDoctorButton").html("Assign to...");
     $("[data-user]").css("display", "");
     $(".accountInfo").css("display", "none");
     $(".accountIcon").animate(
@@ -64,10 +65,12 @@ $(document).ready(function() {
 
   $(".docBox").on("click", function(ev) {
     $(".docBoxInfo").css("display", "none");
-    $(".bobCheck").prop("checked", false);
-    $(".janCheck").prop("checked", false);
     $(".docBox").toggleClass("activeTab", false);
-    $(".dropdown-menu").hide();
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
     $(this).toggleClass("activeTab", true);
     $("#" + this.id + "Info").css("display", "flex");
     ev.stopPropagation();
@@ -79,14 +82,7 @@ $(document).ready(function() {
     $(".docBox").toggleClass("activeTab", false);
   });
 
-  $(".saveDoctorButton").on("click", function() {});
-  $(".dropdown-toggle").click(function() {
-    $(this)
-      .next(".dropdown-menu")
-      .toggle();
-  });
-
-  $(".confirmSave").on("click", function() {
+  $(".saveDoctorButton").on("click", function() {
     var docInfo = this.parentNode.parentNode.parentNode;
     var docName = docInfo.getElementsByClassName("docNameValue")[0].innerHTML;
     var docNumber = docInfo.getElementsByClassName("docNumberValue")[0]
@@ -101,35 +97,109 @@ $(document).ready(function() {
       docEmail,
       docAddress
     );
+    var currInfo = $("#doctorInfo").find(".populatedInfo");
 
-    var text = "Doctor Information set for:";
-    var janChecked = this.parentNode.getElementsByClassName("janCheck")[0]
-      .checked;
-    var bobChecked = this.parentNode.getElementsByClassName("bobCheck")[0]
-      .checked;
-    //add selected doctors to the users and redraw
-    if (bobChecked) {
-      text += "\n-Bob";
-      users.filter(
-        person => person.name.toLowerCase() == "bob"
-      )[0].doctor = newDoctor;
-      populateAccountInfo("Bob");
+    // Handling assignment of Doctor information to user
+
+    if (selectedUser != null) {
+      // Selected user already has a doctor
+      if (currInfo.css("display") != "none") {
+        // Check if same doctor
+        var currDoc = currInfo.find("#nameValue").html();
+        if (currDoc == docName) {
+          swal({
+            title: "Doctor already assigned",
+            text:
+              docName +
+              "'s information already saved to " +
+              selectedUser +
+              "'s profile",
+            icon: "info"
+          });
+        }
+        // Replace Doctor
+        else {
+          swal({
+            title: "Doctor already assigned",
+            text:
+              "Replace " +
+              currDoc +
+              " with " +
+              docName +
+              " for " +
+              selectedUser +
+              "?",
+            buttons: true,
+            dangerMode: true,
+            icon: "warning"
+          }).then(willDelete => {
+            if (willDelete) {
+              swal({
+                title: "Doctor Assigned!",
+                text:
+                  docName +
+                  "'s information saved to " +
+                  selectedUser +
+                  "'s profile",
+                icon: "success"
+              });
+              users.filter(
+                person =>
+                  person.name.toLowerCase() == selectedUser.toLowerCase()
+              )[0].doctor = newDoctor;
+              populateAccountInfo(selectedUser);
+            } else {
+              swal({
+                title: "No changes made",
+                icon: "error"
+              });
+            }
+          });
+        }
+      }
+      // No doctor assigned, so assign it
+      else {
+        swal({
+          title: "Doctor Assigned!",
+          text:
+            docName + "'s information saved to " + selectedUser + "'s profile",
+          icon: "success"
+        });
+        users.filter(
+          person => person.name.toLowerCase() == selectedUser.toLowerCase()
+        )[0].doctor = newDoctor;
+        populateAccountInfo(selectedUser);
+      }
     }
-    if (janChecked) {
-      text += "\n-Jannete";
-      users.filter(
-        person => person.name.toLowerCase() == "jannette"
-      )[0].doctor = newDoctor;
-      populateAccountInfo("Jannette");
+    // If selectedUser == null
+    else {
+      swal({
+        title: "Assign " + docName + " to:",
+        buttons: {
+          janButton: {
+            text: "Jannette",
+            value: "Jannette"
+          },
+          bobButton: {
+            text: "Bob",
+            value: "Bob"
+          }
+        }
+      }).then(value => {
+        swal({
+          title: "Doctor Assigned!",
+          text: docName + "'s information saved to " + value + "'s profile",
+          icon: "success"
+        });
+        users.filter(
+          person => person.name.toLowerCase() == value.toLowerCase()
+        )[0].doctor = newDoctor;
+        populateAccountInfo(value);
+      });
     }
-    swal(text, {
-      buttons: true
-    });
+
     // should reset states of dropdown/checked boxes
     $(".docBoxInfo").css("display", "none");
-    $(".bobCheck").prop("checked", false);
-    $(".janCheck").prop("checked", false);
-    $(".dropdown-menu").hide();
   });
 
   $("#plusIcon").on("click", function() {
