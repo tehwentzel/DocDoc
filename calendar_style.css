@@ -1,5 +1,3 @@
-/* Calendar Styling */
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 * {
@@ -127,10 +125,20 @@ font-family: Roboto;
 	cursor: pointer;
 }
 
-#cts-clndr .clndr-grid .days .day.event .day-number,
-#cts-clndr .clndr-grid .days .empty.event .day-number {
+.bob {
   padding-bottom: 4px;
-  border-bottom: 2px solid var(--main-color);
+  border-bottom: 4px solid var(--bob-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
+}
+
+.jan {
+  padding-bottom: 4px;
+  border-bottom: 4px solid var(--jannette-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
 }
 
 #cts-clndr .clndr-grid .days .day.adjacent-month .day-number,

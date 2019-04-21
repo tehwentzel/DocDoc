@@ -3,8 +3,17 @@ $(document).ready(function() {
 
   $(".tabHeader .dropdown-item").on("click", function(ev) {
     //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
-    this.parentNode.parentNode.querySelector("span").innerHTML =
-      "Sort Date: " + this.innerHTML;
+    if (
+      this.parentNode.parentNode.querySelector("span").innerHTML !=
+      "Sort Date: " + this.innerHTML
+    ) {
+      this.parentNode.parentNode.querySelector("span").innerHTML =
+        "Sort Date: " + this.innerHTML;
+    }
+  });
+
+  $(".tabHeader").on("mouseleave", function(ev) {
+    this.querySelector(".dropdown-menu").style.display = "none";
   });
 
   $("#backArrowLeft").on("click", function() {
