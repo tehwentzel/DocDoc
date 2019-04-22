@@ -221,33 +221,39 @@ var collegeElementary = new Contact(
   "mam please dont email us",
   "445 fake st."
 );
-var users = new Array(
-  new Account(
-    "Bob",
-    "13",
-    "140",
-    "A+",
-    ["Pollen", "Bees"],
-    ["PollenBeeGone"],
-    null,
-    middlestHigh,
-    "images/boy_icon.png",
-    getComputedStyle(document.body).getPropertyValue("--bob-color")
-  ),
-  new Account(
-    "Jannette",
-    "12",
-    "120",
-    "O-",
-    ["Sandwich Crusts"],
-    ["Smuckers Uncrustables"],
-    null,
-    collegeElementary,
-    "images/girl_icon.png",
-    getComputedStyle(document.body).getPropertyValue("--jannette-color")
-  )
-);
+
+if(localStorage.users == undefined){
+	users = new Array(
+	  new Account(
+		"Bob",
+		"13",
+		"140",
+		"A+",
+		["Pollen", "Bees"],
+		["PollenBeeGone"],
+		null,
+		middlestHigh,
+		"images/boy_icon.png",
+		getComputedStyle(document.body).getPropertyValue("--bob-color")
+	  ),
+	  new Account(
+		"Jannette",
+		"12",
+		"120",
+		"O-",
+		["Sandwich Crusts"],
+		["Smuckers Uncrustables"],
+		null,
+		collegeElementary,
+		"images/girl_icon.png",
+		getComputedStyle(document.body).getPropertyValue("--jannette-color")
+	  )
+	);
+} else{
+	users = JSON.parse(localStorage.users);
+}
 users.forEach(function(user) {
   drawAccountAvatar(user);
 });
+
 var selectedUser = null;

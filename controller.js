@@ -277,6 +277,7 @@ $(document).ready(function() {
 
     // should reset states of dropdown/checked boxes
     $(".docBoxInfo").css("display", "none");
+	localStorage.users = JSON.stringify(users);
   });
 
   $("#plusIcon").on("click", function() {
@@ -325,6 +326,7 @@ $(document).ready(function() {
       newUserColors.pop()
     );
     users.push(newUser);
+	localStorage.users = JSON.stringify(users);
     drawAccountAvatar(newUser);
     $("#userInfoPopup").css("display", "none");
     $("#popupBackDrop").css("display", "none");
