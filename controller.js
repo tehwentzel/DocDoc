@@ -82,7 +82,7 @@ $(document).ready(function() {
   });
 
   $(".docBox").on("click", function(ev) {
-    $("#popupBackDrop").css("display", "block");
+    //$("#popupBackDrop").css("display", "block");
     $(".docBoxInfo").css("display", "none");
     $(".docBox").toggleClass("activeTab", false);
     if (selectedUser != null) {
@@ -280,6 +280,20 @@ $(document).ready(function() {
     // should reset states of dropdown/checked boxes
     $(".docBoxInfo").css("display", "none");
     $("#popupBackDrop").css("display", "none");
+  });
+
+  $(".tabView").on("click", function(ev) {
+    if (ev.target.classList.contains("docBoxInfo")) {
+      ev.stopPropagation();
+      return;
+    }
+    $(".docBoxInfo").css("display", "none");
+    $(this).css("display", "none");
+  });
+
+  $(".docBoxInfo").on("click", function(ev) {
+    ev.stopPropagation();
+    return false;
   });
 
   $("#plusIcon").on("click", function() {
