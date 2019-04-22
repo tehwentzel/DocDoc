@@ -283,15 +283,18 @@ $(document).ready(function() {
   });
 
   $(".tabView").on("click", function(ev) {
-    if (ev.target.classList.contains("docBoxInfo")) {
-      ev.stopPropagation();
-      return;
-    }
     $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
     $(this).css("display", "none");
+    ev.stopPropagation();
   });
 
   $(".docBoxInfo").on("click", function(ev) {
+    ev.stopPropagation();
+    return false;
+  });
+
+  $("#map").on("click", function(ev) {
     ev.stopPropagation();
     return false;
   });
