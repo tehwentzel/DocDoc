@@ -1,6 +1,6 @@
 $(document).ready(function() {
   console.log("loaded");
-  
+
   $('.tabHeader .dropdown-item').on('click', function(ev){
 	  //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
 	  if(this.parentNode.parentNode.querySelector('span').innerHTML != 'Sort Date: ' + this.innerHTML){
