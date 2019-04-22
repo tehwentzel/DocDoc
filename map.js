@@ -19,34 +19,75 @@ function initMap() {
     position: markA,
     map: map,
     title: "Dr. Realman",
-    icon: {
-      url: "http://maps.google.com/mapfiles/ms/icons/red.png"
-    }
+    label: "A"
   });
   var markerB = new google.maps.Marker({
     position: markB,
     map: map,
     title: "Dr. Octavia",
-    icon: {
-      url: "http://maps.google.com/mapfiles/ms/icons/red.png"
-    }
+    label: "B"
   });
   var markerC = new google.maps.Marker({
     position: markC,
     map: map,
     title: "Dr. Strange",
-    icon: {
-      url: "http://maps.google.com/mapfiles/ms/icons/red.png"
-    }
+    label: "C"
   });
   var markerD = new google.maps.Marker({
     position: markD,
     map: map,
     title: "Dr. Doctor",
-    icon: {
-      url: "http://maps.google.com/mapfiles/ms/icons/red.png"
-    }
+    label: "D"
   });
 
   marker.addListener("click", function() {});
+  markerA.addListener("click", function() {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
+    $("#docBoxA").toggleClass("activeTab", true);
+    $("#docBoxAInfo").css("display", "flex");
+  });
+  markerB.addListener("click", function() {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
+    $("#docBoxB").toggleClass("activeTab", true);
+    $("#docBoxBInfo").css("display", "flex");
+  });
+  markerC.addListener("click", function() {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
+    $("#docBoxC").toggleClass("activeTab", true);
+    $("#docBoxCInfo").css("display", "flex");
+  });
+  markerD.addListener("click", function() {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
+    $("#docBoxD").toggleClass("activeTab", true);
+    $("#docBoxDInfo").css("display", "flex");
+  });
+
+  map.addListener("click", function() {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+  });
 }
