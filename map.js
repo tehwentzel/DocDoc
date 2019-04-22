@@ -5,9 +5,20 @@ function initMap() {
   var markC = { lat: 41.867253, lng: -87.657259 };
   var markD = { lat: 41.867797, lng: -87.636145 };
 
+  var myStyles = [
+    {
+      featureType: "poi",
+      elementType: "labels",
+      stylers: [{ visibility: "off" }]
+    }
+  ];
   var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
-    center: myLatlng
+    center: myLatlng,
+    disableDefaultUI: true,
+    styles: myStyles,
+    clickableIcons: false,
+    draggable: false
   });
 
   var marker = new google.maps.Marker({
