@@ -298,7 +298,6 @@ $(document).ready(function() {
   $("#map").on("click", function(ev) {
     ev.stopPropagation();
     return false;
->>>>>>> map_update
   });
 
   $("#plusIcon").on("click", function() {
