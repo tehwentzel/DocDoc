@@ -24,6 +24,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 	<script src='https://kylestetz.github.io/CLNDR/js/clndr.js'></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src='map.js'></script>
 </head>
 
 <body>
@@ -348,8 +349,8 @@
 													Dr. Realman<br />
 													<small><i>Pediatrician<br />420 Lakeshore Dr.</i></small>
 												  </h5>
-												  
 												</div>
+												<span>A</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxB">
@@ -361,6 +362,7 @@
 													<small><i>Pediatrician<br />628 Spider Lane</i></small>
 												  </h5>
 												</div>
+												<span>B</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxC">
@@ -372,6 +374,7 @@
 													<small><i>Pediatrician<br />221b Baker St.</i></small>
 												  </h5>
 												</div>
+												<span>C</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxD">
@@ -383,6 +386,7 @@
 													<small><i>Pediatrician<br />301 Doctor Dr.</i></small>
 												  </h5>
 												</div>
+												<span>D</span>
 											  </div>
 											</div>
 									</div>
@@ -406,10 +410,6 @@
 															</button>
 														</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxBInfo" style="display:none;">
@@ -430,9 +430,6 @@
 															</button>
 														</div>
 													</div>
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxCInfo" style="display:none;">
@@ -452,10 +449,6 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxDInfo" style="display:none;">
@@ -475,15 +468,14 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
 												</div>
 											</div>
 										<div id="map">
-												<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>
-												<!--<img src='images/map.PNG'/>-->
+											<script async defer
+											src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvfb0pxlIVLOnk1JBhVnDd3LemaG6IyZE&callback=initMap">
+											</script>
+											<!--<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>-->
+											<!--<img src='images/map.PNG'/>-->
 										</div>
 									</div>
 								</div>

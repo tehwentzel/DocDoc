@@ -61,6 +61,7 @@ $(document).ready(function() {
       return;
     }
     $(".popup").css("display", "none");
+    $(".docBoxInfo").css("display", "none");
     $(this).css("display", "none");
   });
 
@@ -81,6 +82,7 @@ $(document).ready(function() {
   });
 
   $(".docBox").on("click", function(ev) {
+    //$("#popupBackDrop").css("display", "block");
     $(".docBoxInfo").css("display", "none");
     $(".docBox").toggleClass("activeTab", false);
     if (selectedUser != null) {
@@ -278,6 +280,25 @@ $(document).ready(function() {
     // should reset states of dropdown/checked boxes
     $(".docBoxInfo").css("display", "none");
 	localStorage.users = JSON.stringify(users);
+    $("#popupBackDrop").css("display", "none");
+  });
+
+  $(".tabView").on("click", function(ev) {
+    $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    $(this).css("display", "none");
+    ev.stopPropagation();
+  });
+
+  $(".docBoxInfo").on("click", function(ev) {
+    ev.stopPropagation();
+    return false;
+  });
+
+  $("#map").on("click", function(ev) {
+    ev.stopPropagation();
+    return false;
+>>>>>>> map_update
   });
 
   $("#plusIcon").on("click", function() {
