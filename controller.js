@@ -1,6 +1,5 @@
 $(document).ready(function() {
   console.log("loaded");
-<<<<<<< HEAD
   
   $('.tabHeader .dropdown-item').on('click', function(ev){
 	  //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
@@ -11,13 +10,6 @@ $(document).ready(function() {
   
   $('.tabHeader').on('mouseleave', function(ev){
 	  this.querySelector('.dropdown-menu').style.display = 'none';
-=======
-
-  $(".tabHeader .dropdown-item").on("click", function(ev) {
-    //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
-    this.parentNode.parentNode.querySelector("span").innerHTML =
-      "Sort Date: " + this.innerHTML;
->>>>>>> dropdown/checkbox reset
   });
 
   $("#backArrowLeft").on("click", function() {
