@@ -251,3 +251,34 @@ users.forEach(function(user) {
   drawAccountAvatar(user);
 });
 var selectedUser = null;
+
+var doctors = new Array(
+  new contact(
+    "doctor",
+    "Dr. Realman",
+    "231-555-1212",
+    "Realman@FakeMail.com",
+    "420 Lakeshore Dr."
+  ),
+  new contact(
+    "doctor",
+    "Dr. Octavia",
+    "362-774-3377",
+    "DocOc@Octomail.com",
+    "628 Spider Ln."
+  ),
+  new contact(
+    "doctor",
+    "Dr. Strange",
+    "312-995-9112",
+    "Strange@Cosmail.com",
+    "221b Baker St."
+  ),
+  new contact(
+    "doctor",
+    "Dr. Doctor",
+    "362-362-3622",
+    "DrDoctor@Docmail.com",
+    "301 Doctor Dr."
+  )
+);
