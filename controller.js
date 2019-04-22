@@ -8,8 +8,15 @@ $(document).ready(function() {
 	  }
   });
   
+  $('.sortButton').on('click', function(ev){
+		let style = this.parentNode.querySelector('.dropdown-menu').style.display;
+		this.parentNode.querySelector('.dropdown-menu').style.display = (style == 'block')? '' : 'block';
+  });
+  
   $('.tabHeader').on('mouseleave', function(ev){
-	  this.querySelector('.dropdown-menu').style.display = 'none';
+	  try{
+		this.querySelector('.dropdown-menu').style.display = 'none';
+	  }catch{}
   });
 
   $("#backArrowLeft").on("click", function() {
