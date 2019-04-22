@@ -17,8 +17,7 @@ function initMap() {
     center: myLatlng,
     disableDefaultUI: true,
     styles: myStyles,
-    clickableIcons: false,
-    draggable: false
+    clickableIcons: false
   });
 
   var marker = new google.maps.Marker({
