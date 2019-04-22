@@ -1,22 +1,27 @@
 $(document).ready(function() {
   console.log("loaded");
 
-  $('.tabHeader .dropdown-item').on('click', function(ev){
-	  //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
-	  if(this.parentNode.parentNode.querySelector('span').innerHTML != 'Sort Date: ' + this.innerHTML){
-		this.parentNode.parentNode.querySelector('span').innerHTML = 'Sort Date: ' + this.innerHTML;
-	  }
+  $(".tabHeader .dropdown-item").on("click", function(ev) {
+    //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
+    if (
+      this.parentNode.parentNode.querySelector("span").innerHTML !=
+      "Sort Date: " + this.innerHTML
+    ) {
+      this.parentNode.parentNode.querySelector("span").innerHTML =
+        "Sort Date: " + this.innerHTML;
+    }
   });
-  
-  $('.sortButton').on('click', function(ev){
-		let style = this.parentNode.querySelector('.dropdown-menu').style.display;
-		this.parentNode.querySelector('.dropdown-menu').style.display = (style == 'block')? '' : 'block';
+
+  $(".sortButton").on("click", function(ev) {
+    let style = this.parentNode.querySelector(".dropdown-menu").style.display;
+    this.parentNode.querySelector(".dropdown-menu").style.display =
+      style == "block" ? "" : "block";
   });
-  
-  $('.tabHeader').on('mouseleave', function(ev){
-	  try{
-		this.querySelector('.dropdown-menu').style.display = 'none';
-	  }catch{}
+
+  $(".tabHeader").on("mouseleave", function(ev) {
+    try {
+      this.querySelector(".dropdown-menu").style.display = "none";
+    } catch {}
   });
 
   $("#backArrowLeft").on("click", function() {
@@ -198,15 +203,75 @@ $(document).ready(function() {
           }
         }
       }).then(value => {
-        swal({
-          title: "Doctor Assigned!",
-          text: docName + "'s information saved to " + value + "'s profile",
-          icon: "success"
-        });
-        users.filter(
-          person => person.name.toLowerCase() == value.toLowerCase()
-        )[0].doctor = newDoctor;
-        populateAccountInfo(value);
+        // Button clicked
+        if (value != null) {
+          var currUser = users.filter(
+            person => person.name.toLowerCase() == value.toLowerCase()
+          )[0];
+          // New Doctor
+          if (currUser.doctor == null) {
+            swal({
+              title: "Doctor Assigned!",
+              text: docName + "'s information saved to " + value + "'s profile",
+              icon: "success"
+            });
+            users.filter(
+              person => person.name.toLowerCase() == value.toLowerCase()
+            )[0].doctor = newDoctor;
+            populateAccountInfo(value);
+          }
+          // Replace Doctor
+          else {
+            // Check if same doctor
+            if (currUser.doctor.name == docName) {
+              swal({
+                title: "Doctor already assigned",
+                text:
+                  docName +
+                  "'s information already saved to " +
+                  currUser.name +
+                  "'s profile",
+                icon: "info"
+              });
+            }
+            // Replace Doctor
+            else {
+              swal({
+                title: "Doctor already assigned",
+                text:
+                  "Replace " +
+                  currUser.doctor.name +
+                  " with " +
+                  docName +
+                  " for " +
+                  currUser.name +
+                  "?",
+                buttons: true,
+                dangerMode: true,
+                icon: "warning"
+              }).then(willDelete => {
+                if (willDelete) {
+                  swal({
+                    title: "Doctor Assigned!",
+                    text:
+                      docName +
+                      "'s information saved to " +
+                      currUser.name +
+                      "'s profile",
+                    icon: "success"
+                  });
+                  currUser.doctor = newDoctor;
+                  populateAccountInfo(currUser.name);
+                } else {
+                  swal({
+                    title: "No changes made",
+                    icon: "error"
+                  });
+                }
+              });
+            }
+          }
+        }
       });
     }
 
