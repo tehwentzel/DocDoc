@@ -1,62 +1,34 @@
 $(document).ready(function() {
   console.log("loaded");
 
-  $(".accountIcon").on("click", function() {
-    if (this.id == "plusIcon") {
-      return;
+  $(".tabHeader .dropdown-item").on("click", function(ev) {
+    //click event for dropdown in the feed and file header sort button.  changes sort text to selected thing
+    if (
+      this.parentNode.parentNode.querySelector("span").innerHTML !=
+      "Sort Date: " + this.innerHTML
+    ) {
+      this.parentNode.parentNode.querySelector("span").innerHTML =
+        "Sort Date: " + this.innerHTML;
     }
-    var selected = this;
-    var topPos = $(".accountIcon:first").offset().top - $(this).offset().top;
-    console.log(top);
-    var disapearPromise = Promise.resolve(
-      $(".accountIcon")
-        .each(function(index) {
-          console.log(index);
-          if (this !== selected) {
-            var toClear = this;
-            var p = Promise.resolve(
-              $(this)
-                .animate(
-                  {
-                    opacity: 0
-                  },
-                  1000
-                )
-                .promise()
-            );
-            var p2 = new Promise(function(resolve, reject) {
-              if (index == 0) {
-                $(selected).animate(
-                  {
-                    marginTop: topPos
-                  },
-                  1000
-                );
-              }
-              resolve(true);
-            });
-            Promise.all([p, p2]).then(function() {
-              console.log("now");
-              $(toClear).css("display", "none");
-              $(selected).css("marginTop", 0);
-              return;
-            });
-          }
-        })
-        .promise()
-    );
-    disapearPromise.then(function() {
-      $(this).css("cursor", "default");
-      $(".accountInfo").css("display", "flex");
-      return;
-    });
-    $("#backArrowLeft").css({
-      visibility: "visible",
-      cursor: "pointer"
-    });
+  });
+
+  $(".sortButton").on("click", function(ev) {
+    let style = this.parentNode.querySelector(".dropdown-menu").style.display;
+    this.parentNode.querySelector(".dropdown-menu").style.display =
+      style == "block" ? "" : "block";
+  });
+
+  $(".tabHeader").on("mouseleave", function(ev) {
+    try {
+      this.querySelector(".dropdown-menu").style.display = "none";
+    } catch {}
   });
 
   $("#backArrowLeft").on("click", function() {
+    //resets account icons when back arrow is selected
+    selectedUser = null;
+    $(".saveDoctorButton").html("Assign to...");
+    $("[data-user]").css("display", "");
     $(".accountInfo").css("display", "none");
     $(".accountIcon").animate(
       {
@@ -75,6 +47,7 @@ $(document).ready(function() {
   });
 
   $(".tabButton").on("click", function() {
+    //switch view on tab click
     $(".tabButton").toggleClass("activeTab", false);
     $(this).toggleClass("activeTab", true);
     $(".tabView").toggleClass("selectedView", false);
@@ -82,6 +55,7 @@ $(document).ready(function() {
   });
 
   $("#popupBackDrop").click(function(ev) {
+    //make account creation popup disappear when clicked outside the thing
     if (ev.target.classList.contains("popup")) {
       ev.stopPropagation();
       return;
@@ -91,8 +65,9 @@ $(document).ready(function() {
   });
 
   $(".noInfoDefault").on("click", function(ev) {
+    //brings up find-nearby form when a box with no doctor/school info is clicked
     var thisID = this.parentNode.id;
-    $("#popupBackDrop").css("display", "block");
+
     if (thisID == "userInfo") {
       $("#userInfoPopup").css("display", "block");
     }
@@ -101,60 +76,259 @@ $(document).ready(function() {
       $("#findButton").toggleClass("activeTab", true);
       $(".tabView").toggleClass("selectedView", false);
       $("#find").toggleClass("selectedView", true);
-      $("#userInfoPopup").css("display", "block");
     }
     ev.stopPropagation();
   });
-  $(".docBox").on("click", function(ev) {
-    $(".docBox").toggleClass("activeTab", false);
-    $(this).toggleClass("activeTab", true);
 
+  $(".docBox").on("click", function(ev) {
     $(".docBoxInfo").css("display", "none");
+    $(".docBox").toggleClass("activeTab", false);
+    if (selectedUser != null) {
+      $(".saveDoctorButton").html("Assign to " + selectedUser);
+    } else {
+      $(".saveDoctorButton").html("Assign to...");
+    }
+    $(this).toggleClass("activeTab", true);
     $("#" + this.id + "Info").css("display", "flex");
     ev.stopPropagation();
   });
+
   $(".close").on("click", function() {
     $("#" + this.parentNode.parentNode.id).css("display", "none");
+    $(".dropdown-menu").hide();
     $(".docBox").toggleClass("activeTab", false);
   });
-  $(".saveDoctorButton").on("click", function() {});
-  $(".dropdown-toggle").click(function() {
-    $(this)
-      .next(".dropdown-menu")
-      .toggle();
-  });
-  $(".confirmSave").on("click", function() {
-    var docInfo = this.parentNode.parentNode.parentNode;
-    var text = "Doctor Information added to:";
-    var janChecked = this.parentNode.getElementsByClassName("janCheck")[0]
-      .checked;
-    var bobChecked = this.parentNode.getElementsByClassName("bobCheck")[0]
-      .checked;
 
-    if (bobChecked) {
-      text += "\n-Bob";
-      $("#doctorInfo")[0].getElementsByClassName("noInfoDefault")[0].style =
-        "display:none";
-      $("#doctorInfo")[0].getElementsByClassName("populatedInfo")[0].style =
-        "display:inline";
-      $("#doctorNameValue").html(
-        docInfo.getElementsByClassName("docNameValue")[0].innerHTML
-      );
-      $("#doctorNumberValue").html(
-        docInfo.getElementsByClassName("docNumberValue")[0].innerHTML
-      );
-      $("#doctorEmailValue").html(
-        docInfo.getElementsByClassName("docEmailValue")[0].innerHTML
-      );
-      $("#doctorAddressValue").html(
-        docInfo.getElementsByClassName("docAddressValue")[0].innerHTML
-      );
+  $(".saveDoctorButton").on("click", function() {
+    var docInfo = this.parentNode.parentNode.parentNode;
+    var docName = docInfo.getElementsByClassName("docNameValue")[0].innerHTML;
+    var docNumber = docInfo.getElementsByClassName("docNumberValue")[0]
+      .innerHTML;
+    var docEmail = docInfo.getElementsByClassName("docEmailValue")[0].innerHTML;
+    var docAddress = docInfo.getElementsByClassName("docAddressValue")[0]
+      .innerHTML;
+    var newDoctor = new Contact(
+      "doctor",
+      docName,
+      docNumber,
+      docEmail,
+      docAddress
+    );
+    var currInfo = $("#doctorInfo").find(".populatedInfo");
+
+    // Handling assignment of Doctor information to user
+
+    if (selectedUser != null) {
+      // Selected user already has a doctor
+      if (currInfo.css("display") != "none") {
+        // Check if same doctor
+        var currDoc = currInfo.find("#nameValue").html();
+        if (currDoc == docName) {
+          swal({
+            title: "Doctor already assigned",
+            text:
+              docName +
+              "'s information already saved to " +
+              selectedUser +
+              "'s profile",
+            icon: "info"
+          });
+        }
+        // Replace Doctor
+        else {
+          swal({
+            title: "Doctor already assigned",
+            text:
+              "Replace " +
+              currDoc +
+              " with " +
+              docName +
+              " for " +
+              selectedUser +
+              "?",
+            buttons: true,
+            dangerMode: true,
+            icon: "warning"
+          }).then(willDelete => {
+            if (willDelete) {
+              swal({
+                title: "Doctor Assigned!",
+                text:
+                  docName +
+                  "'s information saved to " +
+                  selectedUser +
+                  "'s profile",
+                icon: "success"
+              });
+              users.filter(
+                person =>
+                  person.name.toLowerCase() == selectedUser.toLowerCase()
+              )[0].doctor = newDoctor;
+              populateAccountInfo(selectedUser);
+            } else {
+              swal({
+                title: "No changes made",
+                icon: "error"
+              });
+            }
+          });
+        }
+      }
+      // No doctor assigned, so assign it
+      else {
+        swal({
+          title: "Doctor Assigned!",
+          text:
+            docName + "'s information saved to " + selectedUser + "'s profile",
+          icon: "success"
+        });
+        users.filter(
+          person => person.name.toLowerCase() == selectedUser.toLowerCase()
+        )[0].doctor = newDoctor;
+        populateAccountInfo(selectedUser);
+      }
     }
-    if (janChecked) {
-      text += "\n-Jannete";
+    // If selectedUser == null
+    else {
+      swal({
+        title: "Assign " + docName + " to:",
+        buttons: {
+          janButton: {
+            text: "Jannette",
+            value: "Jannette"
+          },
+          bobButton: {
+            text: "Bob",
+            value: "Bob"
+          }
+        }
+      }).then(value => {
+        // Button clicked
+        if (value != null) {
+          var currUser = users.filter(
+            person => person.name.toLowerCase() == value.toLowerCase()
+          )[0];
+          // New Doctor
+          if (currUser.doctor == null) {
+            swal({
+              title: "Doctor Assigned!",
+              text: docName + "'s information saved to " + value + "'s profile",
+              icon: "success"
+            });
+            users.filter(
+              person => person.name.toLowerCase() == value.toLowerCase()
+            )[0].doctor = newDoctor;
+            populateAccountInfo(value);
+          }
+          // Replace Doctor
+          else {
+            // Check if same doctor
+            if (currUser.doctor.name == docName) {
+              swal({
+                title: "Doctor already assigned",
+                text:
+                  docName +
+                  "'s information already saved to " +
+                  currUser.name +
+                  "'s profile",
+                icon: "info"
+              });
+            }
+            // Replace Doctor
+            else {
+              swal({
+                title: "Doctor already assigned",
+                text:
+                  "Replace " +
+                  currUser.doctor.name +
+                  " with " +
+                  docName +
+                  " for " +
+                  currUser.name +
+                  "?",
+                buttons: true,
+                dangerMode: true,
+                icon: "warning"
+              }).then(willDelete => {
+                if (willDelete) {
+                  swal({
+                    title: "Doctor Assigned!",
+                    text:
+                      docName +
+                      "'s information saved to " +
+                      currUser.name +
+                      "'s profile",
+                    icon: "success"
+                  });
+                  currUser.doctor = newDoctor;
+                  populateAccountInfo(currUser.name);
+                } else {
+                  swal({
+                    title: "No changes made",
+                    icon: "error"
+                  });
+                }
+              });
+            }
+          }
+        }
+      });
     }
-    alert(text);
+
     // should reset states of dropdown/checked boxes
-    $(".dropdown-toggle").click();
+    $(".docBoxInfo").css("display", "none");
+  });
+
+  $("#plusIcon").on("click", function() {
+    //bring up an account creation diy modal when the plus button is clicked
+    var popup = $("#userInfoPopup");
+    $("#popupBackDrop").css("display", "block");
+    popup.css("display", "block");
+    popup.css("marginTop", -(popup.height() / 2));
+    popup.css("marginLeft", -(popup.width() / 2));
+  });
+
+  $("#accountIconSelect img").on("click", function() {
+    //highlights icon when selected in the account creation form
+    $("#accountIconSelect img").toggleClass("iconSelected", false);
+    $(this).toggleClass("iconSelected", true);
+  });
+
+  $("#createAccountSubmitButton").on("click", function(ev) {
+    //maes a new account with form input, needs a name and icon (default to dog);
+    ev.preventDefault();
+    var name = $("#accountNameInput").val();
+    if (name == "" || name == null) {
+      swal("User Name is Required");
+      return;
+    }
+    var age = $("#accountAgeInput").val();
+    var weight = $("#accountWeightInput").val();
+    var bloodType = $("#accountBloodTypeInput").val();
+    var image = $(".iconSelected").attr("src");
+    var allergies = $("#accountConditionsInput")
+      .val()
+      .split(",");
+    var medication = $("#accountMedicationInput")
+      .val()
+      .split(",");
+    var newUser = new Account(
+      name,
+      age,
+      weight,
+      bloodType,
+      allergies,
+      medication,
+      null,
+      null,
+      image,
+      newUserColors.pop()
+    );
+    users.push(newUser);
+    drawAccountAvatar(newUser);
+    $("#userInfoPopup").css("display", "none");
+    $("#popupBackDrop").css("display", "none");
+    $("#userInfoPopup input").val("");
+    $("#userInfoPopup textarea").val("");
   });
 });

@@ -1,238 +1,672 @@
+<!-- External Libraries Used: -->
+<!-- moment.js -->
+<!-- underscore.js -->
+<!-- clndr.js -->
+
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<title>DocDoc</title>
 
 	<!-- Load style sheets -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+	<link rel="stylesheet" href=
+	  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+	<link rel="stylesheet" href="calendar_style.css">
+	<link rel="stylesheet" href="fileStyle.css">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+	
 	<!-- Load any supplemental Javascript libraries here -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src=
+	  "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+	<script src='https://kylestetz.github.io/CLNDR/js/clndr.js'></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
 	<div id='popupBackDrop'>
 	</div>
-	<div class='container' style='width:100%'>
+	<div class='container' style='width:100%;margin:0;padding:0;'>
 		<div class='row flex-container' id='title'>
-			<div class='col-md-3'></div>
-			<div class='col-md-6 text-center'>
-				<h3 style='color: white'>Docdoc</h3>
+			<div class='col-md-2 text-center'>
+				<h3 style='font-weight:bold;color:white;'>Docdoc</h3>
 			</div>
-			<div class='col-md-3 flex-container'>
-				<input type="text" id='searchBar' placeholder="Search..">
+			<div class='col-md-2'>
+			</div>
+			<div class='col-md-6'>
+				<div class='row no-gutters' id='viewTabs'>
+					<div class='col-md-3'>
+						<div class='tabButton activeTab' id='feedButton' name='feed'>
+							Feed
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='calendarButton' name='calendar'>
+							Calendar
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='findButton' name='find'>
+							Find Nearby
+						</div>
+					</div>
+					<div class='col-md-3'>
+						<div class='tabButton' id='filesButton' name='files'>
+							Files
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='col-md-2'>
+				<input type="text" placeholder=" Search..." id='searchBar'>
 			</div>
 		</div>
 		<div class='row no-gutters'>
 			<div class='col-md-2'>
 				<div class='flex-container' id='leftContent'>
-
-					<img src='left_arrow.png' id='backArrowLeft'>
-
-					<div class='card text-center accountIcon' id='boyIcon'>
-						<img class='card-img-top avatar' src='boy_icon.png'>
-						<div class='card-body'>
-							<h3 class='card-title'>Bob</h3>
-						</div>
-					</div>
-
-					<div class='card text-center accountIcon' id='girlIcon'>
-						<img class='card-img-top avatar' src='girl_icon.png'>
-						<div class='card-body'>
-							<h3 class='card-title'>Jannette</h3>
-						</div>
-					</div>
-
+				
+					<img src='images/left_arrow.png' id='backArrowLeft'>
+					
 					<div class='card text-center accountIcon' id='plusIcon'>
-						<img class='card-img-top avatar' src='plus.svg'>
+						<img class='card-img-top avatar' src='images/plus.svg'>
+						<div class='card-body'>
+							<h5 class='card-title'>Add Account</h5>
+						</div>
 					</div>
-
+					
 					<div class='card accountInfo' id='userInfo'>
 						<div class='card-header text-center'>
 							<h5 style='margin:0;padding:0;'>Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault'>
-							<div>
-								<h3>+Add Info+</h3>
-							</div>
+							<div><button class='btn'>Add Info</button></div>
 						</div>
 						<div class='card-body populatedInfo'>
-							<p id='allergies'>Allergies<p>
-									<ul id='allergiesList no-gutters'>
-										<li>Pollen</li>
-									</ul>
-									<p id='medication'>Medication<p>
-											<ul id='medicationList'>
-												<li>Pollen-away</li>
-											</ul>
-											<p id='age'>Age: <span id='ageValue'>12</span>
-												<p>
-													<p id='weight'>Weight: <span id='weightValue'>120</span>
-														<p>
-															<p id='bloodType'>Blood Type: <span
-																	id='bloodTypeValue'>AB-</span>
-																<p>
+							<p id='allergies'>Allergies:<p>
+							<ul id='allergiesList'>
+							</ul>
+							<p id='medication'>Medication:<p>
+							<ul id='medicationList'>
+							</ul>
+							<p id='age'>Age: <span id='ageValue'></span><p>
+							<p id='weight'>Weight: <span id='weightValue'></span><p>
+							<p id='bloodType'>Blood Type: <span id='bloodTypeValue'></span><p>
 						</div>
 					</div>
-
+					
 					<div class='card accountInfo' id='doctorInfo'>
 						<div class='card-header text-center'>
 							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault' style='display:flex;'>
-							<div>
-								<h3>+Add Doctor+</h3>
-							</div>
+							<div><button class='btn'>Find A Doctor</button></div>
 						</div>
 						<div class='card-body populatedInfo' style='display:none;'>
-							<p id='doctorName'>Name: <span id='doctorNameValue'>Dr. Doc</span>
-								<p>
-									<p id='doctorNumber'>Number: <span id='doctorNumberValue'>888-882-1232</span>
-										<p>
-											<p id='doctorEmail'>Email: <span
-													id='doctorEmailValue'>docdoc@dmail.biz</span>
-												<p>
-													<p id='doctorAddress'>Address: <span id='doctorAddressValue'>A4990
-															Doctor ln.</span>
-														<p>
+							<p id='doctorName'>Name: <span id='nameValue'>Dr. Realmann</span><p>
+							<p id='doctorNumber'>Number: <span id='numberValue'>231-555-1212</span><p>
+							<p id='doctorEmail'>Email: <span id='emailValue'>realMan@FakeMail.com</span><p>
+							<p id='doctorAddress'>Address: <span id='addressValue'>420 Lakeshore Dr.</span><p>
 						</div>
 					</div>
-
+					
 					<div class='card accountInfo' id='schoolInfo'>
 						<div class='card-header text-center'>
-							<h5 style='margin:0;padding:0;'>Doctor Info</h5>
+							<h5 style='margin:0;padding:0;'>School Info</h5>
 						</div>
 						<div class='card-body flex-center noInfoDefault'>
-							<div>
-								<h3>+Add School+</h3>
-							</div>
+							<div><button class='btn'>Find a School</button></div>
 						</div>
 						<div class='card-body populatedInfo'>
-							<p id='schoolName'>Name: <span id='schoolNameValue'>Middlth Elementary High For the
-									Arts</span>
-								<p>
-									<p id='schoolNumber'>Number: <span id='schoolNumberValue'>882-902-1732</span>
-										<p>
-											<p id='schoolEmail'>Email: <span id='schoolEmailValue'>nurse@meh.com</span>
-												<p>
-													<p id='schoolAddress'>Address: <span id='schoolAddressValue'>4880
-															School Dr.</span>
-														<p>
+							<p id='schoolName'>Name: <span id='nameValue'>Middlth Elementary High For the Arts</span><p>
+							<p id='schoolNumber'>Number: <span id='numberValue'>882-902-1732</span><p>
+							<p id='schoolEmail'>Email: <span id='emailValue'>nurse@meh.com</span><p>
+							<p id='schoolAddress'>Address: <span id='addressValue'>4880 School Dr.</span><p>
 						</div>
 					</div>
-
+					
 				</div>
 			</div>
 			<div class='col-md-10'>
 				<div class='flex-container' id='rightContent'>
-					<div class='row' id='viewTabs'>
-						<div class='col-md-3'>
-							<div class='tabButton activeTab' id='feedButton' name='feed'>
-								Feed
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='calendarButton' name='calendar'>
-								Calendar
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='findButton' name='find'>
-								Find Nearby
-							</div>
-						</div>
-						<div class='col-md-3'>
-							<div class='tabButton' id='filesButton' name='files'>
-								Files
-							</div>
-						</div>
-					</div>
-
 					<div class='row no-gutters' id='mainView'>
 						<div class='col-md-12' style='height:100%;margin:0auto;padding:0auto;'>
 							<div id='feed' class='tabView  selectedView'>
-								<!--Feed View-->
-								<div class="grid-container" id="feedContainer" style="background-color: white; width: 100%">
-									<div class="column" style=" width: 100%; height:100%;">
-										<button type= "button" class = "button feedFile" style = "width: 100%;">
+							<!--Feed View-->
+								<div id="feedContainer" style="width: 100%">
+									<div class='row tabHeader' id='feedHeader'>
+										<div class='col-md-6 text-center'>
+											<h2>Upcoming and Recent</h2>
+										</div>
+										<div class='col-md-3'>
+											<div class='dropdown'>
+												<button type='button' class='btn dropdown-toggle sortButton' data-toggle='dropdown' id='feedSortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Sort Date: Latest</span>
+												</button>
+												<div class='dropdown-menu' aria-labelledby='feedSortDropDown'>
+													<a class='dropdown-item'>Latest</a>
+													<a class='dropdown-item'>Earliest</a>
+												</div>
+											</div>
+										</div>
+										<div class='col-md-3'>
+										</div>
+									</div>
+									<hr>
+									<div>
+										<button type= "button" class = "button feedFile" data-user='Bob'>
 											<h2>File Added: Bob Vaccines.pdf</h2>
 											<p>March 3rd, 2019: BOB</p>
 										</button>
-										
+									</div>										
 									
-									<div class="column" style="width: 100%;">
-										<button type= "button" class ="button feedFile" style = "width: 100%;">
+									<div>
+										<button type= "button" class ="button feedFile" data-user='Jannette'>
 											<h2>File Added: Jannette Vaccines.pdf </h2>
 											<p>March 1st, 2019: JANNETTE</p>
 										</button>
-									
+									</div>									
 
-									<div class="column" style="width: 100%;">  
-										<button type= "button" class = "button feedAppt" style = "width: 100%;">
-											<h2>Appointment Added: Jannette CheckUp</h2>
-											<p>February 20th, 2019: JANNETTE PEDIATRICIAN</p>
+									<div>  
+										<button type= "button" class = "button feedAppt" data-user='Jannette'>
+											<h2>Appointment Scheduled for: April 17th, 2019: JANNETTE-OPTOMETRIST</h2>
+											
 										</button>
-
-									<div class="column"  style=" width: 100%;">
-										<button type= "button" class = "button feedFile"style = "width: 100%;">
+									</div>
+									
+									<div>
+										<button type= "button" class = "button feedFile" data-user='Bob'>
 											<h2>File Added: Bob School Forms.pdf</h2>
 											<p>February 18th, 2019: BOB</p>
 										</button>
-
-									<div class="column" style=" width: 100%;">  
-										<button type= "button" class = "button feedAppt" style = "width: 100%;">
-											<h2>Appointment Added: Bob CheckUp</h2>
-										<p>February 12th, 2019: BOB PEDIATRICIAN</p>
+									</div>
+									
+									<div>  
+										<button type= "button" class = "button feedAppt" data-user='Bob'>
+											<h2>Appointment Scheduled for: April 2nd, 2019: BOB-PEDIATRICIAN</h2>
+										
 										</button>
-
-									<div class="column" style=" width: 100%;">
-										<button type= "button" class = "button feedFile" style = "width: 100%;">
+									</div>
+										
+									<div>
+										<button type= "button" class = "button feedFile" data-user='Jannette'>
 											<h2>File Added: Dr.Realman Sick Note for Jannette.pdf</h2>
 											<p>February 9th, 2019: JANNETTE</p>
 										</button>
-
-									<div class="column" style=" width: 100%;">  
-									<button type= "button" class = "button feedFile" style = "width: 100%;">
+									</div>
+										
+									<div>  
+									<button type= "button" class = "button feedFile" data-user='Bob'>
 										<h2>File Added: Dr.Realman Sick Note for Bob.pdf</h2>
 										<p>February 2nd, 2019: BOB</p>
 									</button>
+									</div>
 
-									<div class="column" style=" width: 100%;">
-									<button type= "button" class = "button feedFile"  style = "width: 100%;">
+									<div class="column">
+									<button type= "button" class = "button feedFile" data-user='Bob'>
 										<h2>File Added: Bob School Form.pdf</h2>
 										<p>January 5th, 2019: BOB</p>
 									</button>
 									</div>
 								</div>
-							</div>
 							<!--Feed View-->
-						</div>
+							</div>
+							
+							<div id='calendar' class='tabView'>
+								<div id="cts-clndr" class="clearfix">
+									<script type="text/template" id="cts-clndr-template">
+										<!-- Calendar Controls and heading -->
+										<div class="clndr-controls row no-gutters">
+											<div class='col-md-2'>
+												<div class="clndr-previous-button"><</i></div>
+											</div>
+											<div class='col-md-2' style='overflow: hidden'>
+												<button id="addCalendarEventButton" type="button" class="btn"> Add Event </button>
+											</div>
+											<div class='col-md-4'>
+												<div class="current-month"><%= month %> <%= year %></div>
+											</div>
+											<div class='col-md-4'>
+												<div class="clndr-next-button">></i></div>
+											</div>
+											
+										</div>
+										<!-- Calendar Grid with the days -->
+										<div class="clndr-grid">
+											<div class="days-of-the-week clearfix">
+												<% _.each(daysOfTheWeek, function(day) { %>
+												<div class="header-day "><%= day %></div>
+												<% }); %>
+											</div> 
+											<div class="days">            
+												<% _.each(days, function(day) { %>
+												<div class="<%= day.classes %>" id="<%= day.id %>">
+													<span class="day-number"><%= day.day %></span>
+													<% _.each(day.events, function(event){ %>
+													<br><br><a class="day-link">
+													<div> 
+														<%= event.unlabeledTitle %> 
+													</div>
+													<%= event.title %>
+													<% if (event.user == "Bob") { %>
+																	<div class="bob"></div>
+																	<% } %>
 
-						<div id='calendar' class='tabView'>
-						</div>
+															<% if (event.user == "Janette") { %>
+																	<div class="jan"></div>
+																	<% } %>
+													</a>
+													<% }) %>
+												</div>
+												<% }); %>
+											</div>
+										</div>
+										<!-- Calendar Events Cards-->  
+										<% _.each(eventsThisMonth, function(event) { %>
+											<div class="event-card-modal <%= event.date %>">
+												<div class="event-card-modal-content ">
+													<div class="event-card-modal-header">
+															<h6>
+															<% 
+															var monthNames = ["January", "February", "March", "April", "May", "June",
+																			   "July", "August", "September", "October", "November", "December"
+																				];
+															function getSuffix (date){
+															switch(date % 10){
+																case 1: 
+																	suffix = (date % 100 === 11) ? "th" : "st";
+																	break;
+																case 2:
+																	suffix = (date % 100 === 12) ? "th" : "nd";
+																	break;
+																case 3:
+																	suffix = (date % 100 === 13) ? "th" : "rd";
+																	break;
+																default:
+																	suffix = "th";
+																	break;
+																}
+															return suffix;
+															}
+															var unformattedDate = new Date(event.date) 
+															var d = unformattedDate.getDate() + 1 
+															formattedDate = [ d + getSuffix(d), monthNames[unformattedDate.getMonth()], unformattedDate.getFullYear() ];
+															print(formattedDate.join(' '));
+															%>
+															</h6>
+														</div>
+															
+														<div class=" event-card-modal-body ">
+															<% if (typeof(event.unlabeledTitle) !== "undefined") { %>
+																	<div class="event-item-name"><%= event.unlabeledTitle %></div>
+																	<% } %>
+															<% if (typeof(event.title) !== "undefined") { %>
+																	<div class="event-item-name">Event: <%= event.title %></div>
+																	<% } %>
+															<% if (typeof(event.user) !== "undefined") { %>
+																	<div class="event-item-name">User: <%= event.user %></div>
+																	<% } %>
 
-						<div id='find' class='tabView'>
-						</div>
+															<% if (typeof(event.description) !== "undefined") { %>
+																	<div class="event-item-name">Description: <%= event.description %></div>
+																	<% } %>                                  
+															<% if (typeof(event.time) !== "undefined") { %>
+																	<div>Time: <%= event.time %></div>
+																	<% } %>
+															<br>
+															<br>
+															<button type="button" class="btn btn-default btn-xs"> Edit </button>
+															<button type="button" class="btn btn-default btn-xs">Delete</button>		
+														</div>   
+													</div>                     
+												</div>
+										<% }); %>
+									</script>
+								</div>
+							</div>
 
-						<div id='files' class='tabView'>
-						</div>
+							
+							<div id='find' class='tabView'>
+							<!--Find View-->
+								<div class = "container-fluid" style='width:100%;'>
+									<div class='row tabHeader' id='fileHeader'>
+											<div class='col-md-6 text-center'>
+												<h2>Nearby Pediatricians</h2>
+											</div>
+											<div class='col-md-6'></div>
+									</div>
+									<hr>
+								<div class="row col-md-12" >
+									<div class="col-md-4 docList">
+											<div class="flex-container docBox" id="docBoxA">
+											  <div class="media border p-3">
+												<img class="docIcon" src="images/doc0.jpg"/>
+												<div class="media-body">
+												  <h5>
+													Dr. Realman<br />
+													<small><i>Pediatrician<br />420 Lakeshore Dr.</i></small>
+												  </h5>
+												  
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docBoxB">
+											  <div class="media border p-3">
+												<img class="docIcon" src="images/doc1.png"/>
+												<div class="media-body">
+												  <h5>
+													Dr. Octavia<br />
+													<small><i>Pediatrician<br />628 Spider Lane</i></small>
+												  </h5>
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docBoxC">
+											  <div class="media border p-3">
+												<img class="docIcon" src="images/doc2.png" />
+												<div class="media-body">
+												  <h5>
+													Dr. Strange<br />
+													<small><i>Pediatrician<br />221b Baker St.</i></small>
+												  </h5>
+												</div>
+											  </div>
+											</div>
+											<div class="flex-container docBox" id="docBoxD">
+											  <div class="media border p-3">
+												<img class="docIcon" src="images/doc3.jpg" />
+												<div class="media-body">
+												  <h5>
+													Dr. Doctor<br />
+													<small><i>Pediatrician<br />301 Doctor Dr.</i></small>
+												  </h5>
+												</div>
+											  </div>
+											</div>
+									</div>
+										  
+									<div class="col-md-8 mapArea">
+											<div class="flex-container docBoxInfo" id="docBoxAInfo" style="display:none;">
+												<div class="media border p-3">
+													<img class="docIconBig" src="images/doc0.jpg"/>
+													<div class="media-body">
+														<span class="docInfo">
+															<h2 class='docName'><span class='docNameValue'>Dr. Realman</span></h2>
+															<p><small><i>Pediatrician</i></small></p>
+															<h6 class='docAddress'><span class='docAddressValue'>420 Lakeshore Dr.</span></h6>
+															<h6 class='docNumber'><span class='docNumberValue'>(231)555-1212</span></h6>
+															<h6 class='docEmail'><span class='docEmailValue'>Realman@FakeMail.com</span></h6>
+														</span>
+														
+														<div class="btn-group">
+															<button type="button" class="btn saveDoctorButton">
+																Assign to...
+															</button>
+														</div>
+													</div>
+													
+													<button type="button" class="close" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														  </button>
+												</div>
+											</div>
+											<div class="docBoxInfo" id="docBoxBInfo" style="display:none;">
+												<div class="media border p-3">
+													<img class="docIconBig" src="images/doc1.png"/>
+													<div class="media-body">
+														<span class="docInfo">
+															<h2 class='docName'><span class='docNameValue'>Dr. Octavia</span></h2>
+															<p><small><i>Pediatrician</i></small></p>
+															<h6 class='docAddress'><span class='docAddressValue'>628 Spider Lane</span></h6>
+															<h6 class='docNumber'><span class='docNumberValue'>(362)774-3377</span></h6>
+															<h6 class='docEmail'><span class='docEmailValue'>DocOc@Octomail.com</span></h6>
+														</span>
+														
+														<div class="btn-group">
+															<button type="button" class="btn saveDoctorButton">
+																Assign to...
+															</button>
+														</div>
+													</div>
+													<button type="button" class="close" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														  </button>
+												</div>
+											</div>
+											<div class="docBoxInfo" id="docBoxCInfo" style="display:none;">
+												<div class="media border p-3">
+													<img class="docIconBig" src="images/doc2.png" />
+													<div class="media-body">
+														<span class="docInfo">
+															<h2 class='docName'><span class='docNameValue'>Dr. Strange</span></h2>
+															<p><small><i>Pediatrician</i></small></p>
+															<h6 class='docAddress'><span class='docAddressValue'>221b Baker St.</span></h6>
+															<h6 class='docNumber'><span class='docNumberValue'>(312)995-9112</span></h6>
+															<h6 class='docEmail'><span class='docEmailValue'>Strange@Cosmail.com</span></h6>
+														</span>
+														<div class="btn-group">
+																<button type="button" class="btn saveDoctorButton">
+																	Assign to...
+																</button>
+															</div>
+													</div>
+													
+													<button type="button" class="close" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														  </button>
+												</div>
+											</div>
+											<div class="docBoxInfo" id="docBoxDInfo" style="display:none;">
+												<div class="media border p-3">
+													<img class="docIconBig" src="images/doc3.jpg" />
+													<div class="media-body">
+														<span class="docInfo">
+															<h2 class='docName'><span class='docNameValue'>Dr. Doctor</span></h2>
+															<p><small><i>Pediatrician</i></small></p>
+															<h6 class='docAddress'><span class='docAddressValue'>301 Doctor Dr.</span></h6>
+															<h6 class='docNumber'><span class='docNumberValue'>231-555-1212</span></h6>
+															<h6 class='docEmail'><span class='docEmailValue'>DrDoctor@Docmail.com</span></h6>
+														</span>
+														<div class="btn-group">
+																<button type="button" class="btn saveDoctorButton">
+																	Assign to...
+																</button>
+															</div>
+													</div>
+													
+													<button type="button" class="close" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											</div>
+										<div id="map">
+												<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>
+												<!--<img src='images/map.PNG'/>-->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Find View-->
+							</div>
 
-						<div class='popup text-center' id='userInfoPopup'>
-							<h2>What is you're phone number?
-								<h2>Plz Respond.
+							<div id='files' class='tabView'>
+								<div class = "container-fluid" style='width:100%;'>
+									<div class='row tabHeader' id='fileHeader'>
+										<div class='col-md-6 text-center'>
+											<h2>Recent Files</h2>
+										</div>
+										<div class='col-md-3'>
+											<div class='dropdown'>
+												<button type='button' class='btn dropdown-toggle sortButton' data-toggle='dropdown' id='fileSortDropDown' aria-haspopup="true" aria-expanded="false">
+													<span>Sort Date: Latest</span>
+												</button>
+												<div class='dropdown-menu' aria-labelledby='fileSortDropDown'>
+													<a class='dropdown-item'>Latest</a>
+													<a class='dropdown-item'>Earliest</a>
+												</div>
+											</div>
+										</div>
+										<div class='col-md-3'>
+										</div>
+									</div>
+									<hr>	
+									<div>
+										<img src = "images/sampleDoc1.png" class="fileImage" data-user='Jannette'>		
+										<img src = "images/sampleDoc2.png" class = "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class = "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc4.png" class = "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc5.png" class = "fileImage" data-user='Bob'>
+									</div>
+									
+									<br>
+									
+									<div class = "col-sm-3">
+										<h3>Sort by: Recent</h3>
+									</div>
+									<hr>
+									
+									<div>
+										<img src = "images/sampleDoc5.png" class= "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc4.png" class= "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class= "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc2.png" class= "fileImage" data-user='Jannette'>
+										<img src = "images/sampleDoc1.png" class= "fileImage" data-user='Bob'>
+									</div>
+									
+								</div>
+							</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	<!--  the modal -->
+		<div id = "fileModal" class = "file-modal-class">
+			<!-- modal content -->
+			<div class = "modal-content-class">
+				<span class = "close">&times;</span>
+					<br><br>
+					<center>
+						<!-- define the inside of the modal with what we as a group decided -->
+						<h2>Send File</h2>
+						<hr style = "margin-left: 15%; margin-right: 15%;">
+						<input class = "btn" id = "downloadButton" value = "Download" style = "color:white;"></button>
+						
+						<br>
+					</center>
+					
+					<form style = "margin-top: 15px; margin-left: 15%;">
+						<p>Send To<p>
+						<input type = "text" id = "userInput" value "" style = "width: 72.5%;">
+						<input type = "button" id = "sendButton" value = "Send" class='btn' style='width:auto'/>
+					</form>
+						
+					<img src = "images/sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
+						
+			</div>
+		</div>
+		
+		<div id="myModal" class="modal">
+		<!-- Modal content -->
+			<div class="event-card-modal-content">
+				<div class="event-card-modal-header">
+					<h3>Add Event</h3>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div>
+						<label for="title">Title: </label>
+						<input type="text" name="title" id="eventFormTitle" required />
+						<br>
+						<label> Date: </label>
+						<input type="date"/>
+						<label> Time: </label>
+						<input type="time"/>
+					</div>
+					<div>User:
+						<br>
+						<input type="radio" name="radio-choice" value="choice-1" />
+						<label for="radio-choice-1">Bob</label>
+						<br>
+						<input type="radio" name="radio-choice" value="choice-2" />
+						<label for="radio-choice-2">Janette</label>
+					</div>
+					<div>Description:
+						<br>
+						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
+					</div>
+					<input class='btn' type="submit" id='newEventSubmitButton'/>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class='popup container' id='userInfoPopup'>
+			<div class='row' style='width:100%;margin-top:3%;'>
+				<div class='col-md-12 text-center'>
+					<h3>Add Account</h3>
+					<hr>
+				</div>
+			</div>
+			<form>
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" class="form-control" id="accountNameInput" placeholder="Name">
+				<small class="form-text text-muted">Probably their actual Name</small>
+			</div>
+			<div class="form-group">
+				<label>Age</label>
+				<input type="text" class="form-control" id="accountAgeInput" placeholder="e.g. 12, 13">
+			</div>
+			<div class="form-group">
+				<label>Weight</label>
+				<input type="text" class="form-control" id="accountWeightInput" placeholder="e.g. 120, 130">
+			</div>
+			<div class="form-group">
+				<label>Blood Type</label>
+				<input type="text" class="form-control" id="accountBloodTypeInput" placeholder="e.g. A+, O-">
+			</div>
+			<div class='form-group'>
+				<label>Conditions</label>
+				<textarea id='accountConditionsInput' placeholder='e.g. chronic sniffles, near-sightedness' style='width:100%'></textarea>
+				<small class='form-text text-muted'>Seperate items with a comma</small>
+			</div>
+			<div class='form-group'>
+				<label>Medications</label>
+				<textarea id='accountMedicationInput' placeholder='e.g. zyrtec, tums' style='width:100%'></textarea>
+				<small class='form-text text-muted'>Seperate items with a comma</small>
+			</div>
+			<div class='form-group'>
+				<label>Select a User Icon</label>
+				<div id='accountIconSelect'>
+					<img src='images/boy_icon.png'/>
+					<img src='images/girl_icon.png'/>
+					<img src='images/default_icon.png' class='iconSelected'/>
+				</div>
+			</div>
+			<button type="submit" id='createAccountSubmitButton' class='btn'>Save Account</button>
+			</form>
+			<br>
+		</div>
+		
 	</div>
-	</div>
-
+	
+	<template id='avatarTemplate'>
+		<div class='card text-center accountIcon'>
+			<img class='card-img-top avatar'>
+			<div class='card-body'>
+				<h3 class='card-title'></h3>
+				<div class='fakeRectangle'></div>
+			</div>
+		</div>
+	</template>
+	
+	<script src='userData.js'></script>
 	<script src='controller.js'></script>
+	<script src='calendar_script.js'></script>
+	<script src='fileScript.js'></script>
 </body>
-
 </html>

@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var span = document.getElementsByClassName("close")[0];
 
 	// when the user clicks on the button, open the modal
-	$('.fileImage').on('click', function(){
+	$('.fileImage, .feedFile').on('click', function(){
 		document.getElementById('fileModal').style.display = "block";
 	});
 

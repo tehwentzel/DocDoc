@@ -1,9 +1,12 @@
-/* Calendar Styling */
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 * {
-  box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+	--main-color: #81cec8;
+	--secondary-color: #13A89E;
+	--bob-color: #00FA9A;
+	--jannette-color: #DAA520;
+	box-sizing: border-box;
 }
 
 #mp {
@@ -23,15 +26,15 @@
   margin-top: 1%;
   background-color: #ebebeb;
   font-weight: 700;
-  -moz-box-shadow: 0px 4px 0 #912E2E;
-  -webkit-box-shadow: 0px 4px 0 #912E2E;
-  box-shadow: 0px 4px 0 #912E2E;
+  -moz-box-shadow: 0px 4px 0 var(--secondary-color);
+  -webkit-box-shadow: 0px 4px 0 var(--secondary-color);
+  box-shadow: 0px 4px 0 var(--secondary-color);
   margin-bottom: 3em;
   font-family: Roboto;;
 }
 
 #cts-clndr .clndr-controls {
-  background-color: #D05353;
+  background-color: var(--secondary-color);
   color: white;
   text-align: center;
   font-family: Roboto;
@@ -40,6 +43,8 @@
 .clndr-controls  {
 	padding: .3%;
 	padding-bottom: 0px;
+	font-weight: bold;
+	font-size: 1.5em;
 } .clndr-controls > *{
 	margin-top: .3%;
 }
@@ -115,15 +120,25 @@ font-family: Roboto;
 }
 
 #cts-clndr .clndr-grid .days .day:hover {
-    background-color: #F79696;
+    background-color: var(--main-color);
     background-image: none;
 	cursor: pointer;
 }
 
-#cts-clndr .clndr-grid .days .day.event .day-number,
-#cts-clndr .clndr-grid .days .empty.event .day-number {
+.bob {
   padding-bottom: 4px;
-  border-bottom: 2px solid #d05353;
+  border-bottom: 4px solid var(--bob-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
+}
+
+.jan {
+  padding-bottom: 4px;
+  border-bottom: 4px solid var(--jannette-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
 }
 
 #cts-clndr .clndr-grid .days .day.adjacent-month .day-number,
@@ -132,7 +147,7 @@ font-family: Roboto;
 }
 
 #cts-clndr .clndr-grid .days .today {
-  background-color: #d05353;
+  background-color: var(--secondary-color);
   color: white;
   background-image: none;
 }
@@ -150,7 +165,7 @@ font-family: Roboto;
   width: 35%;
 }
 
-#cts-clndr .event-listing .event-listing-title {
+#cts-clndr .event-listing, .event-card-modal-header  {
   padding: 14px;
   background-color: #777;
   text-align: center;
@@ -260,9 +275,8 @@ html[xmlns] #cts-clndr .clearfix {
 
 .event-card-modal-header {
     padding: 2px;
-    background-color: #912E2E;
+    background-color: var(--secondary-color);
     color: white;
-    height: 4em;
     
 }
 
@@ -356,4 +370,8 @@ html[xmlns] #cts-clndr .clearfix {
 	margin-top: 0% !important;
 	background-color: #912E2E !important;
 	cursor: pointer;
+}
+
+#eventFormTitle{
+	width: 80%;
 }
