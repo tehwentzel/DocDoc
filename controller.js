@@ -353,4 +353,6 @@ $(document).ready(function() {
     $("#userInfoPopup input").val("");
     $("#userInfoPopup textarea").val("");
   });
+  
+  
 });

@@ -24,6 +24,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 	<script src='https://kylestetz.github.io/CLNDR/js/clndr.js'></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src='map.js'></script>
 </head>
 
 <body>
@@ -505,11 +506,11 @@
 									</div>
 									<hr>	
 									<div>
-										<img src = "images/sampleDoc1.png" class="fileImage" data-user='Jannette'>		
+										<img src = "images/sampleDoc1.png" class = "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc2.png" class = "fileImage" data-user='Bob'>
 										<img src = "images/sampleDoc3.png" class = "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc4.png" class = "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc5.png" class = "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc5.png" class = "fileImage" id = "clickableFileImage" data-user='Bob'>
 									</div>
 									
 									<br>
@@ -526,8 +527,8 @@
 										<img src = "images/sampleDoc2.png" class= "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc1.png" class= "fileImage" data-user='Bob'>
 									</div>
+									
 								</div>
-							</div>
 							</div>
 						</div>
 					</div>
@@ -538,7 +539,7 @@
 	<!--  the modal -->
 		<div id = "fileModal" class = "file-modal-class">
 			<!-- modal content -->
-			<div class = "modal-content-class">
+			<div class = "modal-content-class animate fadeInDown setDelayDefault">
 				<span class = "close">&times;</span>
 					<br><br>
 					<center>
@@ -556,7 +557,7 @@
 						<input type = "button" id = "sendButton" value = "Send" class='btn' style='width:auto'/>
 					</form>
 						
-					<img src = "images/sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
+					<img src = "images/sampleDoc1.png" class = "fileViewer" id = "fileViewer" style = "width: 100%; height: 100%; margin: 10px 0px;">
 						
 			</div>
 		</div>
@@ -653,7 +654,7 @@
 			</div>
 		</div>
 	</template>
-	<script src='map.js'></script>
+	
 	<script src='userData.js'></script>
 	<script src='controller.js'></script>
 	<script src='calendar_script.js'></script>
