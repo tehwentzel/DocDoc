@@ -67,7 +67,7 @@
 		<div class='row no-gutters'>
 			<div class='col-md-2'>
 				<div class='flex-container' id='leftContent'>
-					<img src="images/settings_icon.png" id='accountSettingsIcon'>
+				
 					<img src='images/left_arrow.png' id='backArrowLeft'>
 					
 					<div class='card text-center accountIcon' id='plusIcon'>
@@ -171,8 +171,8 @@
 
 									<div>  
 										<button type= "button" class = "button feedAppt" data-user='Jannette'>
-											<h2>Appointment Scheduled for: April 17th, 2019: JANNETTE-OPTOMETRIST</h2>
-											
+											<h2>Appointment Scheduled for:<br> April 17th, 2019 <br> 2:00pm</h2>
+											<p>Optometrist appointment for Jann with Dr. Madeye</p>
 										</button>
 									</div>
 									
@@ -185,7 +185,8 @@
 									
 									<div>  
 										<button type= "button" class = "button feedAppt" data-user='Bob'>
-											<h2>Appointment Scheduled for: April 2nd, 2019: BOB-PEDIATRICIAN</h2>
+											<h2>Appointment Scheduled for:<br> April 10th, 2019<br>10:00am</h2> 
+											<p>Pediatrician appointment for Bob with Dr. Realman</p>
 										
 										</button>
 									</div>
@@ -534,7 +535,6 @@
 										<img src = "images/sampleDoc2.png" class= "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc1.png" class= "fileImage" data-user='Bob'>
 									</div>
-									
 								</div>
 							</div>
 							</div>
@@ -542,6 +542,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	<!--  the modal -->
 		<div id = "fileModal" class = "file-modal-class">
@@ -570,7 +571,7 @@
 		</div>
 		
 		<div id="myModal" class="modal">
-			<!-- Modal content -->
+		<!-- Modal content -->
 			<div class="event-card-modal-content">
 				<div class="event-card-modal-header">
 					<h3>Add Event</h3>
@@ -582,21 +583,21 @@
 						<input type="text" name="title" id="eventFormTitle" required />
 						<br>
 						<label> Date: </label>
-						<input type="date" id="eDate" required />
+						<input type="date"/>
 						<label> Time: </label>
-						<input type="time" id="eTime"/>
+						<input type="time"/>
 					</div>
 					<div>User:
 						<br>
-						<input type="radio" name="radio-choice" value="Bob" />
+						<input type="radio" name="radio-choice" value="choice-1" />
 						<label for="radio-choice-1">Bob</label>
 						<br>
-						<input type="radio" name="radio-choice" value="Janette" />
+						<input type="radio" name="radio-choice" value="choice-2" />
 						<label for="radio-choice-2">Janette</label>
 					</div>
 					<div>Description:
 						<br>
-						<textarea rows="4" cols="50" name="description" form="usrform" id="eDesc"></textarea>
+						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
 					</div>
 					<input class='btn' type="submit" id='newEventSubmitButton'/>
 					</form>
@@ -669,4 +670,5 @@
 	<script src='calendar_script.js'></script>
 	<script src='fileScript.js'></script>
 </body>
+<footer> About Material</footer>
 </html>

@@ -168,22 +168,10 @@ body {
   height: 1.5em;
   left: 1em;
   top: 1.3em;
-  margin-left: -2.3em;
   padding: 0em;
-  z-index: 4;
+  z-index: 3;
   visibility: hidden;
   cursor: default;
-}
-#accountSettingsIcon{
-	position: relative;
-	width: 2.3em;
-	height: 2.3em;
-	left: calc(100% - 3.3em);
-	top: 1.3em;
-	padding: 0em;
-	z-index: 4;
-	visibility: hidden;
-	cursor: default;
 }
 
 #viewTabs {
@@ -375,7 +363,6 @@ hr {
   margin-top: 1%;
   margin-left: 1%;
   border-radius: 8px;
-  cursor: pointer;
 }
 
 .feedFile[data-user= "Bob"]{
@@ -390,12 +377,14 @@ hr {
   box-shadow: 0 8px 16px 0 rgba(105, 255, 222, 0.801),
   0 6px 20px 0 rgba(20, 149, 167, 0.821);
   background-color: var(--bob-color);
+  color: white;
   border: 3px solid #ffffff;
 }
 .feedFile:Hover[data-user= "Jannette"]{
   box-shadow: 0 8px 16px 0 rgba(255, 244, 90, 0.801),
   0 6px 20px 0 rgba(177, 214, 43, 0.821);
   background-color: var(--jannette-color);
+  color: white;
   border: 3px solid #ffffff;
 }
 
@@ -418,7 +407,7 @@ hr {
   box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
   0 6px 20px 0 rgba(35, 99, 194, 0.821);
   background-color: var(--secondary-color);
-  color: black;
+  color: white;
   border: 2px solid #ffffff;
 }
 
@@ -455,12 +444,14 @@ hr {
   box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
     0 6px 20px 0 rgba(35, 99, 194, 0.821);
   background-color: var(--secondary-color);
+  color: white;
 }
 
 .feedAppt:hover[data-user = "Bob"] {
   box-shadow: 0 8px 16px 0 rgba(105, 255, 222, 0.801),
   0 6px 20px 0 rgba(20, 149, 167, 0.821);
   background-color: var(--bob-color);
+  color: white;
   border: 3px solid #ffffff;
 }
 
@@ -468,6 +459,7 @@ hr {
   box-shadow: 0 8px 16px 0 rgba(255, 244, 90, 0.801),
   0 6px 20px 0 rgba(177, 214, 43, 0.821);
   background-color: var(--jannette-color);
+  color: white;
   border: 3px solid #ffffff;
 }
 
@@ -477,7 +469,7 @@ hr {
   box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
     0 6px 20px 0 rgba(35, 99, 194, 0.821);
   background-color: var(--secondary-color);
-  color: black;
+  color: white;
 }
 
 /* End Feed CSS */
