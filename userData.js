@@ -222,7 +222,38 @@ var collegeElementary = new Contact(
   "445 fake st."
 );
 
-if(localStorage.users == undefined){
+if(localStorage.users != undefined){
+	try{
+		users = JSON.parse(localStorage.users);
+	} catch{
+		users = new Array(
+		  new Account(
+			"Bob",
+			"13",
+			"140",
+			"A+",
+			["Pollen", "Bees"],
+			["PollenBeeGone"],
+			null,
+			middlestHigh,
+			"images/boy_icon.png",
+			getComputedStyle(document.body).getPropertyValue("--bob-color")
+		  ),
+		  new Account(
+			"Jannette",
+			"12",
+			"120",
+			"O-",
+			["Sandwich Crusts"],
+			["Smuckers Uncrustables"],
+			null,
+			collegeElementary,
+			"images/girl_icon.png",
+			getComputedStyle(document.body).getPropertyValue("--jannette-color")
+		  )
+		);
+	}
+} else{
 	users = new Array(
 	  new Account(
 		"Bob",
@@ -249,8 +280,6 @@ if(localStorage.users == undefined){
 		getComputedStyle(document.body).getPropertyValue("--jannette-color")
 	  )
 	);
-} else{
-	users = JSON.parse(localStorage.users);
 }
 users.forEach(function(user) {
   drawAccountAvatar(user);

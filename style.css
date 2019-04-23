@@ -363,21 +363,47 @@ hr {
   border-radius: 8px;
 }
 
+.feedFile[data-user= "Bob"]{
+  border: 3px dashed var(--bob-color);
+}
+.feedFile[data-user= "Jannette"]{
+  border: 3px dashed var(--jannette-color);
+}
+
+
+.feedFile:Hover[data-user= "Bob"]{
+  box-shadow: 0 8px 16px 0 rgba(105, 255, 222, 0.801),
+  0 6px 20px 0 rgba(20, 149, 167, 0.821);
+  background-color: var(--bob-color);
+  color: white;
+  border: 3px solid #ffffff;
+}
+.feedFile:Hover[data-user= "Jannette"]{
+  box-shadow: 0 8px 16px 0 rgba(255, 244, 90, 0.801),
+  0 6px 20px 0 rgba(177, 214, 43, 0.821);
+  background-color: var(--jannette-color);
+  color: white;
+  border: 3px solid #ffffff;
+}
+
+
 .feedFile {
   padding-left: 150px;
-  background-color: var(--secondary-color);
+  background-color: white;
   border: 2px dashed var(--main-color);
   transition-duration: 0.4s;
+  background-position-x: 50px;
+  background-position-y: center;
   background-image: url(images/document-icon.png);
-  background-size: contain;
+  background-size: 50px 50px;
   background-repeat: no-repeat;
   text-align: left;
   font-weight: bolder;
 }
 
 .feedFile:hover {
-  box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801),
-    0 6px 20px 0 rgba(156, 17, 17, 0.821);
+  box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
+  0 6px 20px 0 rgba(35, 99, 194, 0.821);
   background-color: var(--secondary-color);
   color: white;
   border: 2px solid #ffffff;
@@ -385,23 +411,65 @@ hr {
 
 .feedAppt {
   padding-left: 150px;
-  background-color: var(--main-color);
-  border: 2px dashed var(--secondary-color);
+  background-color: white;
+  border: 2px dashed var(--main-color);
   transition-duration: 0.4s;
   text-align: left;
+  background-position-x: 50px;
+  background-position-y: center;
   background-image: url(images/calander-icon.png);
-  background-size: contain;
+  background-size: 50px 50px;
   background-repeat: no-repeat;
   font-weight: bolder;
 }
 
+
+.feedAppt[data-user= "Bob"] {
+  
+  border: 3px dashed var(--bob-color);
+}
+
+.feedAppt[data-user= "Jannette"] {
+  
+  border: 3px dashed var(--jannette-color);
+}
+
+/* Feed Hover*/ 
+
+
 .feedAppt:hover {
   border: 2px solid #ffffff;
-  box-shadow: 0 8px 16px 0 rgba(156, 17, 17, 0.801),
-    0 6px 20px 0 rgba(156, 17, 17, 0.821);
-  background-color: var(--main-color);
+  box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
+    0 6px 20px 0 rgba(35, 99, 194, 0.821);
+  background-color: var(--secondary-color);
   color: white;
 }
+
+.feedAppt:hover[data-user = "Bob"] {
+  box-shadow: 0 8px 16px 0 rgba(105, 255, 222, 0.801),
+  0 6px 20px 0 rgba(20, 149, 167, 0.821);
+  background-color: var(--bob-color);
+  color: white;
+  border: 3px solid #ffffff;
+}
+
+.feedAppt:hover[data-user = "Jannette"] {
+  box-shadow: 0 8px 16px 0 rgba(255, 244, 90, 0.801),
+  0 6px 20px 0 rgba(177, 214, 43, 0.821);
+  background-color: var(--jannette-color);
+  color: white;
+  border: 3px solid #ffffff;
+}
+
+
+.feedAppt:hover {
+  border: 2px solid #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(94, 158, 255, 0.801),
+    0 6px 20px 0 rgba(35, 99, 194, 0.821);
+  background-color: var(--secondary-color);
+  color: white;
+}
+
 
 #fileModal p {
   font-size: 1.5em;
