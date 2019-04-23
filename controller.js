@@ -32,7 +32,7 @@ $(document).ready(function() {
     $(".accountInfo").css("display", "none");
     $(".accountIcon").animate(
       {
-        opacity: 1
+        opacity: 1,
       },
       200,
       function() {
@@ -40,7 +40,7 @@ $(document).ready(function() {
         $(this).css("cursor", "pointer");
       }
     );
-    $("#backArrowLeft").css({
+    $("#backArrowLeft, #accountSettingsIcon").css({
       visibility: "hidden",
       cursor: "default"
     });
@@ -279,7 +279,7 @@ $(document).ready(function() {
 
     // should reset states of dropdown/checked boxes
     $(".docBoxInfo").css("display", "none");
-	localStorage.users = JSON.stringify(users);
+	sessionStorage.users = JSON.stringify(users);
     $("#popupBackDrop").css("display", "none");
   });
 
@@ -346,7 +346,7 @@ $(document).ready(function() {
       newUserColors.pop()
     );
     users.push(newUser);
-	localStorage.users = JSON.stringify(users);
+	sessionStorage.users = JSON.stringify(users);
     drawAccountAvatar(newUser);
     $("#userInfoPopup").css("display", "none");
     $("#popupBackDrop").css("display", "none");

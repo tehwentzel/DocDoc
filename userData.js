@@ -58,6 +58,7 @@ function setupAvatarOnClick() {
       return;
     }
     var selected = this;
+	this.style.cursor = 'default';
     selectedUser = this.querySelector(".card-title").innerHTML;
     populateAccountInfo(selectedUser);
     var topPos = $(".accountIcon:first").offset().top - $(this).offset().top;
@@ -102,7 +103,7 @@ function setupAvatarOnClick() {
       $(".accountInfo").css("display", "flex");
       return;
     });
-    $("#backArrowLeft").css({
+    $("#backArrowLeft, #accountSettingsIcon").css({
       visibility: "visible",
       cursor: "pointer"
     });
@@ -124,7 +125,7 @@ function drawAccountAvatar(person) {
   element.querySelector(".card-title").innerHTML = person.name;
   element.querySelector(".fakeRectangle").style.backgroundColor = person.color;
   var leftContent = document.getElementById("leftContent");
-  leftContent.insertBefore(element, leftContent.children[1]); //insert as the 2nd item behind the back arrow
+  leftContent.insertBefore(element, leftContent.children[2]); //insert as the 2nd item behind the back arrow
   setupAvatarOnClick();
 }
 
@@ -222,9 +223,9 @@ var collegeElementary = new Contact(
   "445 fake st."
 );
 
-if(localStorage.users != undefined){
+if(sessionStorage.users != undefined){
 	try{
-		users = JSON.parse(localStorage.users);
+		users = JSON.parse(sessionStorage.users);
 	} catch{
 		users = new Array(
 		  new Account(
