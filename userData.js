@@ -125,7 +125,7 @@ function drawAccountAvatar(person) {
   element.querySelector(".card-title").innerHTML = person.name;
   element.querySelector(".fakeRectangle").style.backgroundColor = person.color;
   var leftContent = document.getElementById("leftContent");
-  leftContent.insertBefore(element, leftContent.children[2]); //insert as the 2nd item behind the back arrow
+  leftContent.insertBefore(element, leftContent.querySelector('#plusIcon')); //insert as the 2nd item behind the back arrow
   setupAvatarOnClick();
 }
 

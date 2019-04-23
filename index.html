@@ -349,8 +349,8 @@
 													Dr. Realman<br />
 													<small><i>Pediatrician<br />420 Lakeshore Dr.</i></small>
 												  </h5>
-												  
 												</div>
+												<span>A</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxB">
@@ -362,6 +362,7 @@
 													<small><i>Pediatrician<br />628 Spider Lane</i></small>
 												  </h5>
 												</div>
+												<span>B</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxC">
@@ -373,6 +374,7 @@
 													<small><i>Pediatrician<br />221b Baker St.</i></small>
 												  </h5>
 												</div>
+												<span>C</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxD">
@@ -384,6 +386,7 @@
 													<small><i>Pediatrician<br />301 Doctor Dr.</i></small>
 												  </h5>
 												</div>
+												<span>D</span>
 											  </div>
 											</div>
 									</div>
@@ -407,10 +410,6 @@
 															</button>
 														</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxBInfo" style="display:none;">
@@ -431,9 +430,6 @@
 															</button>
 														</div>
 													</div>
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxCInfo" style="display:none;">
@@ -453,10 +449,6 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxDInfo" style="display:none;">
@@ -476,15 +468,14 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
 												</div>
 											</div>
 										<div id="map">
-												<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>
-												<!--<img src='images/map.PNG'/>-->
+											<script async defer
+											src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvfb0pxlIVLOnk1JBhVnDd3LemaG6IyZE&callback=initMap">
+											</script>
+											<!--<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>-->
+											<!--<img src='images/map.PNG'/>-->
 										</div>
 									</div>
 								</div>
@@ -580,24 +571,22 @@
 					<form>
 					<div>
 						<label for="title">Title: </label>
-						<input type="text" name="title" id="eventFormTitle" required />
+						<input type="text" name="title" id="eventFormTitle" maxlength="15" required />
 						<br>
-						<label> Date: </label>
-						<input type="date"/>
 						<label> Time: </label>
-						<input type="time"/>
+						<input type="time" id="eTime"/>
 					</div>
 					<div>User:
 						<br>
-						<input type="radio" name="radio-choice" value="choice-1" />
+						<input type="radio" name="radio-choice" value="Bob" />
 						<label for="radio-choice-1">Bob</label>
 						<br>
-						<input type="radio" name="radio-choice" value="choice-2" />
+						<input type="radio" name="radio-choice" value="Janette" />
 						<label for="radio-choice-2">Janette</label>
 					</div>
 					<div>Description:
 						<br>
-						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
+						<textarea rows="4" cols="50" name="description" form="usrform" id="eDesc"></textarea>
 					</div>
 					<input class='btn' type="submit" id='newEventSubmitButton'/>
 					</form>
@@ -664,11 +653,12 @@
 			</div>
 		</div>
 	</template>
-	
+	<script src='map.js'></script>
 	<script src='userData.js'></script>
 	<script src='controller.js'></script>
 	<script src='calendar_script.js'></script>
 	<script src='fileScript.js'></script>
+	
 </body>
 <footer> About Material</footer>
 </html>
