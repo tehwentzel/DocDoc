@@ -13,7 +13,7 @@ $( function() {
 		//Feed Button Display
 	//	$('.feedAppt').on('click', function(){
 	//		modal.style.display = 'block';
-		});
+	//	});
 		
 		$('#newEventSubmitButton').on('click', function(ev){
 			//submit event button 
