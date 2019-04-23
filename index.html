@@ -570,7 +570,7 @@
 		</div>
 		
 		<div id="myModal" class="modal">
-		<!-- Modal content -->
+			<!-- Modal content -->
 			<div class="event-card-modal-content">
 				<div class="event-card-modal-header">
 					<h3>Add Event</h3>
@@ -582,21 +582,21 @@
 						<input type="text" name="title" id="eventFormTitle" required />
 						<br>
 						<label> Date: </label>
-						<input type="date"/>
+						<input type="date" id="eDate" required />
 						<label> Time: </label>
-						<input type="time"/>
+						<input type="time" id="eTime"/>
 					</div>
 					<div>User:
 						<br>
-						<input type="radio" name="radio-choice" value="choice-1" />
+						<input type="radio" name="radio-choice" value="Bob" />
 						<label for="radio-choice-1">Bob</label>
 						<br>
-						<input type="radio" name="radio-choice" value="choice-2" />
+						<input type="radio" name="radio-choice" value="Janette" />
 						<label for="radio-choice-2">Janette</label>
 					</div>
 					<div>Description:
 						<br>
-						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
+						<textarea rows="4" cols="50" name="description" form="usrform" id="eDesc"></textarea>
 					</div>
 					<input class='btn' type="submit" id='newEventSubmitButton'/>
 					</form>
