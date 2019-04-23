@@ -1,60 +1,42 @@
 var clndr = {};
-var events = [];
 
-    var modal = document.getElementById('myModal');
+$( function() { 
+    $(document).ready(function(){
+		var modal = document.getElementById('myModal');
 
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-		if (event.target == modal) {
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
 		    modal.style.display = "none";
+		  }
 		}
-	}
-    $('#newEventSubmitButton').on('click', function(ev){
-        //submit event button 
-        var title = $("#eventFormTitle").val();
-        var d1 = $("#eDate").val();
-        var t1 = $("#eTime").val();
-        var desc1 = $("#eDesc").val();
-        var radioValue = $("input[name='radio-choice']:checked").val();
-        localStorage.setItem("date", d1);
-        localStorage.setItem("etitle", title);
-        localStorage.setItem("timeof", t1);
-        localStorage.setItem("descr", desc1);
-        localStorage.setItem("usr",radioValue);
-        
-        if(title && d1){         
-        swal('Event Added!'); //alert success
-        modal.style.display = "none";
-        }
-        else {
-            swal('Please enter the required information');
-        }
-        
-    });
-	
-    $.getJSON("https://api.myjson.com/bins/ff7bo", function(data){
-        $.each(data.jsonevents, function(index, value){
-            events.push(value);
-        });
-        cal();
-    });
-
-    function cal(){
-
-        if(localStorage.getItem("etitle")){
-            var d1 = localStorage.getItem("date");
-            var title = localStorage.getItem("etitle");
-            var t1 = localStorage.getItem("timeof");
-            var desc1 = localStorage.getItem("descr");
-            var rv = localStorage.getItem("usr");
-            events.push({date: d1, title: title, time: t1, user: rv, description: desc1});
-        }
-            
-        clndr = $('#cts-clndr').clndr({
-        template: $('#cts-clndr-template').html(),
-        daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        events: events,
-        lengthOfTime: {
+		//Feed Button Display
+	//	$('.feedAppt').on('click', function(){
+	//		modal.style.display = 'block';
+		});
+		
+		$('#newEventSubmitButton').on('click', function(ev){
+			//submit event button 
+			var title = $('#myModal').find('#eventFormTitle').val();;
+			if(title !== ''){//check if a title is given
+				ev.preventDefault(); //don't refresh the page
+				swal('Event Added!'); //alert success
+				modal.style.display = "none";
+				$('#myModal').find('input:not([type=submit]), textarea').val('');  //clear entries
+				$('#myModal').find('input:radio').prop('checked', false);
+			}
+		});
+		
+        $.getJSON("https://api.myjson.com/bins/ff7bo", function(data){
+           var events = [];
+           $.each(data.jsonevents, function(index, value){
+                events.push(value); 
+            });
+            clndr = $('#cts-clndr').clndr({
+            template: $('#cts-clndr-template').html(),
+            daysOfTheWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            events: events,
+            lengthOfTime: {
                 // Set to an integer if you want to render one or more months, otherwise
                 // leave this null
                 months: null,
@@ -67,16 +49,15 @@ var events = [];
                 // paging the calendar. With days=14 and interval=7, you would have a
                 // 2-week calendar that pages forward and backward 1 week at a time.
                 interval: 1
-        },
-        clickEvents: {
+            },
+            clickEvents: {
                 click: function(target) {
 					if(target.element.classList.contains('day') && !target.element.classList.contains('event')){
 						document.getElementById('myModal').style.display = 'block';
 					}
-                    
+                    if(target.events.length){
                         var selectedDate = target.date['_i'];
                         console.log(selectedDate);
-                        if(target.events.length){
                         var eventsContainer = $('#cts-clndr').find('.event-card-modal.' + selectedDate);
 
                         eventsContainer.show();
@@ -98,7 +79,9 @@ var events = [];
                     }
                 }
             },
-        forceSixRows: false,
-        showAdjacentMonths: false
-        });
-    }
+            forceSixRows: false,
+            showAdjacentMonths: false
+          });
+       }) ;
+    });
+});
