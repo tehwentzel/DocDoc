@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+	font-family: "Roboto", sans-serif;
+	--main-color: #81cec8;
+	--secondary-color: #13A89E;
+	--bob-color: #00FA9A;
+	--jannette-color: #DAA520;
+	box-sizing: border-box;
+}
+
+#mp {
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#ra {
+  text-align: right;
+}
+
+#cts-clndr {
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+  margin-top: 1%;
+  background-color: #ebebeb;
+  font-weight: 700;
+  -moz-box-shadow: 0px 4px 0 var(--secondary-color);
+  -webkit-box-shadow: 0px 4px 0 var(--secondary-color);
+  box-shadow: 0px 4px 0 var(--secondary-color);
+  margin-bottom: 3em;
+  font-family: Roboto;;
+}
+
+#cts-clndr .clndr-controls {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  font-family: Roboto;
+}
+
+.clndr-controls  {
+	padding: .3%;
+	padding-bottom: 0px;
+	font-weight: bold;
+	font-size: 1.5em;
+} .clndr-controls > *{
+	margin-top: .3%;
+}
+
+#cts-clndr .clndr-controls .clndr-previous-button {
+  float: left;
+  text-align: left;
+}
+
+#cts-clndr .clndr-controls .clndr-next-button {
+  float: right;
+  text-align: right;
+}
+
+#cts-clndr .clndr-controls .clndr-previous-button,
+#cts-clndr .clndr-controls .clndr-next-button {
+  width: 20px;
+  cursor: pointer;
+  padding: 2px;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+
+  -moz-user-select: none;
+  /* Firefox */
+
+  -ms-user-select: none;
+  /* IE10+ */
+
+}
+
+#cts-clndr .clndr-controls .clndr-previous-button:hover,
+#cts-clndr .clndr-controls .clndr-next-button:hover {
+  opacity: 0.5;
+}
+
+#cts-clndr .clndr-grid {
+  float: left;
+/*  width: 65%; */
+  width: 100%;
+/*  border-right: 2px solid white;*/
+font-family: Roboto;
+}
+
+#cts-clndr .clndr-grid .days-of-the-week {
+  width: 100%;
+  background-color: #191919;
+}
+
+#cts-clndr .clndr-grid .days-of-the-week .header-day {
+  float: left;
+  width: 14.2857%;
+  padding: 14px;
+  text-align: center;
+  color: white;
+}
+
+#cts-clndr .clndr-grid .days {
+  width: 100%;
+}
+
+#cts-clndr .clndr-grid .days .day,
+#cts-clndr .clndr-grid .days .empty {
+  float: left;
+  width: 14.2857%;
+  height: 7em;
+  padding: 24px 0;
+  text-align: center;
+  color: #4f4f4f;
+  background-color: #ebebeb;
+  border: 1px solid white;
+  background-size: cover;
+  background-position: center;
+}
+
+#cts-clndr .clndr-grid .days .day:hover {
+    background-color: var(--main-color);
+    background-image: none;
+	cursor: pointer;
+}
+
+.bob {
+  padding-bottom: 4px;
+  border-bottom: 4px solid var(--bob-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
+}
+
+.jan {
+  padding-bottom: 4px;
+  border-bottom: 4px solid var(--jannette-color);
+  width: 100px;
+  margin: auto;
+  text-align: center;
+}
+
+#cts-clndr .clndr-grid .days .day.adjacent-month .day-number,
+#cts-clndr .clndr-grid .days .empty.adjacent-month .day-number {
+  opacity: 0.3;
+}
+
+#cts-clndr .clndr-grid .days .today {
+  background-color: var(--secondary-color);
+  color: white;
+  background-image: none;
+}
+
+.day-link {
+    text-decoration: none;
+}
+
+.day-link:hover {
+    cursor: pointer;
+}
+
+#cts-clndr .event-listing {
+  float: left;
+  width: 35%;
+}
+
+#cts-clndr .event-listing, .event-card-modal-header  {
+  padding: 14px;
+  background-color: #777;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+
+#cts-clndr .event-listing .event-item {
+  padding: 14px;
+  color: #191919;
+}
+
+#cts-clndr .event-listing .event-item-location {
+  font-weight: 400;
+}
+
+.noselect {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+
+  -moz-user-select: none;
+  /* Firefox */
+
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
+#cts-clndr .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+#cts-clndr .clearfix {
+  display: block;
+}
+
+html[xmlns] #cts-clndr .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+/* The event-card-modal (background) */
+.event-card-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    font-family: Roboto;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* event-card-modal Content */
+.event-card-modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10;
+    border: 1px solid #888;
+    width: 50%;
+    min-height: 15em;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.closeModal {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.event-card-modal-header {
+    padding: 2px;
+    background-color: var(--secondary-color);
+    color: white;
+    
+}
+
+.event-card-modal-header h6{
+    color: white;
+    text-align:center;
+    font-size: 1.1em;
+}
+
+.event-card-modal-body {
+    padding: 2px 16px;
+    margin: 2px;
+}
+
+
+@media all and (max-width: 768px) {
+  #cts-clndr .clndr-grid {
+    width: 100%;
+    border: none;
+  }
+  #cts-clndr .event-listing {
+    display: none;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 14px;
+  }  
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+#addCalendarEventButton{
+	display: none;
+	float: left;
+	color: white;
+	height: 90%;
+	margin-top: 0% !important;
+	background-color: #912E2E !important;
+	cursor: pointer;
+}
+
+#eventFormTitle{
+	width: 80%;
+}
