@@ -467,9 +467,8 @@ hr {
 }
 
 /* End Feed CSS */
-
 #fileModal p {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .fileImage {
@@ -487,7 +486,7 @@ hr {
 .file-modal-class {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -495,6 +494,7 @@ hr {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
 }
 
 /* 
@@ -503,22 +503,8 @@ hr {
 #fileModal .modal-content-class {
   background-color: #fefefe;
   margin: 5% auto; /* 5% from the top and centered */
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-#fileModal .close {
-  float: right;
-  font-size: 48px;
-  font-weight: bold;
-  color: var(--secondary-color);
-}
-
-#fileModal .close:hover,
-#fileModal .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}

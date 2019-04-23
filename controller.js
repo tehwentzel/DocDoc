@@ -54,7 +54,7 @@ $(document).ready(function() {
     $("#" + this.attributes["name"].value).toggleClass("selectedView", true);
   });
 
-  $("#popupBackDrop").click(function(ev) {
+  $("#popupBackDrop").on('click', function(ev) {
     //make account creation popup disappear when clicked outside the thing
     if (ev.target.classList.contains("popup")) {
       ev.stopPropagation();
