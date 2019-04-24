@@ -5,8 +5,7 @@
 * Middlist red: var(--secondary-color)
 * Dark grayish: #191919
 */
-
-.animate
+animate
 {
 	-webkit-animation-duration: .5s;
 	animation-duration: .5s;
@@ -45,141 +44,107 @@
   }
 }
  
-.fadeIn {
+.fadeIn 
+{
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
  
  
 /*=== FADE IN DOWN ===*/
-@-webkit-keyframes fadeInDown {
-  from {
+@-webkit-keyframes fadeInDown 
+{
+  from 
+  {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
  
-  to {
+  to 
+  {
     opacity: 1;
     -webkit-transform: none;
     transform: none;
   }
 }
-@keyframes fadeInDown {
-  from {
+@keyframes fadeInDown 
+{
+  from 
+  {
     opacity: 0;
     -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
  
-  to {
+  to 
+  {
     opacity: 1;
     -webkit-transform: none;
     transform: none;
   }
 }
  
-.fadeInDown {
+.fadeInDown 
+{
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
  
-/*==== FADE IN UP ===*/
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+
+/* wrap the image */
+.img-wrap 
+{
+	display: -webkit-flex; /* Safari */
+	-webkit-flex-wrap: wrap; /* Safari 6.1+ */
+	display: flex;  
+	flex-wrap: wrap;
 }
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+
+/* and the alt that is contained within it */
+.alt-wrap 
+{ 
+  position: relative;
+  color: whitesmoke;
+  
+  margin: 0px;
 }
- 
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+
+/* The alt text itself */
+/* Will be added with js */
+.alt-wrap p.alt 
+{
+  position: absolute;
+  opacity: 1; /* hide initially */
+  left: 10px; right: 10px; bottom: 10px;
+  margin: 0px;
+  padding: 15px;
+  font-size: 15px;
+  line-height: 50px;
+  background-color: rgba(0,0,0,0.75);
+  /*
+  transition: all 500ms ease;
+  transition-delay: 500ms;
+  */
 }
- 
-/*=== FADE IN LEFT ===*/
-@-webkit-keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+
+/* Hovering over the wrapper shows its alt p
+.alt-wrap:hover > p.alt 
+{ 
+  opacity: 1; 
+  transition-delay: 0s;
 }
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+*/
+
+.fileImageContainer
+{
+    margin: 0 auto; 
+    padding: 0px;
+
 }
- 
-.fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
-}
- 
- 
-/*==== FADE IN RIGHT ===*/
-@-webkit-keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
- 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
- 
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight;
+
+/* encapsulate the file image within a black border */
+.fileImage
+{
+	border: 1px solid black;
 }

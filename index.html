@@ -470,7 +470,7 @@
 							</div>
 							<!--Find View-->
 							</div>
-
+							
 							<div id='files' class='tabView'>
 								<div class = "container-fluid" style='width:100%;'>
 									<div class='row tabHeader' id='fileHeader'>
@@ -492,17 +492,31 @@
 										</div>
 									</div>
 									<hr>	
-									<div>
-										<img src = "images/sampleDoc1.png" class = "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc2.png" class = "fileImage" data-user='Bob'>
-										<img src = "images/sampleDoc3.png" class = "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc4.png" class = "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc5.png" class = "fileImage" id = "clickableFileImage" data-user='Bob'>
+									<div class = "img-wrap fileImageContainer">
+										<img src = "images/sampleDoc1.png" class = "fileImage" alt = "Lurie Children's Hospital consent form" data-user='Jannette'>
+										<img src = "images/sampleDoc2.png" class = "fileImage" alt = "CPS enrollment form" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class = "fileImage" alt = "UI Health immunizations" data-user='Jannette'>
+										<img src = "images/sampleDoc4.png" class = "fileImage" alt = "DCFS health examination" data-user='Jannette'>
+										<img src = "images/sampleDoc5.png" class = "fileImage" alt = "Illinois health examination" data-user='Bob'>
 									</div>
-
 									
-								</div>
+									<br>
+								<!--		
+									<div class = "col-sm-3">
+										<h3>Sort by: Recent</h3>
+									</div>
+									<hr>
+								
+									<div class = "img-wrap fileImageContainer">
+										<img src = "images/sampleDoc5.png" class= "fileImage" alt = "Illinois health examination" data-user='Bob'>
+										<img src = "images/sampleDoc4.png" class= "fileImage" alt = "DCFS health examination" data-user='Bob'>
+										<img src = "images/sampleDoc3.png" class= "fileImage" alt = "UI Health immunizations" data-user='Jannette'>
+										<img src = "images/sampleDoc2.png" class= "fileImage" alt = "CPS enrollment form" data-user='Jannette'>
+										<img src = "images/sampleDoc1.png" class= "fileImage" alt = "Lurie Children's Hospital consent form" data-user='Bob'>
+									</div>
+								-->	
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -630,7 +644,7 @@
 	<template id='feedEventTemplate'>
 		<button type= "button" class = "button feedAppt">
 			<h3>
-				<span>Appointment Scheduled for:</span>
+				<span>Event Scheduled for:</span>
 				<span class='feedEventUser'></span>
 				<br>
 				<span class='feedEventDate'></span> 

@@ -44,10 +44,13 @@ var events = [];
 			let eventDate = new Date(e.date);
 			element.querySelector('.feedEventDate').innerHTML = eventDate.toLocaleDateString('en-US', dateOptions);
 			element.querySelector('.feedEventTime').innerHTML = e.time;
-			element.querySelector('.feedEventDescription').innerHTML = e.description;
+			element.querySelector('.feedEventDescription').innerHTML = (e.description.trim().length >= 1)? e.description: e.title;
+			console.log(e.description.trim().length < 1);
 			element.querySelector('.feedAppt').setAttribute('data-user', e.user);
 			element.querySelector('.feedAppt').setAttribute('data-time', eventDate);
-			element.querySelector('.feedEventUser').innerHTML = e.user;
+			if(e.user != 'undefined'){
+				element.querySelector('.feedEventUser').innerHTML = e.user;
+			}
 			document.getElementById('feedItems').prepend(element);
 		});
 		sortFeedFiles();

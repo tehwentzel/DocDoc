@@ -21,7 +21,6 @@ $(document).ready(function() {
 		return false;
 	});
 
-
 	// download button inside modal
 	$('#downloadButton').on('click', function()
 	{
@@ -46,4 +45,13 @@ $(document).ready(function() {
 		else
 			sendButton.value = "Send";
 	});
+	
+	// encapsulate the file images with alt wrap so that the hover effect can work
+	$(".fileImage").wrap('<div class="alt-wrap"/>');
+
+	// used for file image hover effect
+	$(".fileImage").each(function() 
+	{
+		$(this).after('<p class="alt">' + $(this).attr('alt') + '</p>');
+	})
 })
