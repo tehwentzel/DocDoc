@@ -347,6 +347,11 @@ hr {
 #feed {
   z-index: 0;
 }
+#feed h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
 #feed h3 {
   font-size: 20px;
   font-weight: bold;
