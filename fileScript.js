@@ -52,6 +52,6 @@ $(document).ready(function() {
 	// used for file image hover effect
 	$(".fileImage").each(function() 
 	{
-		$(this).after('<p class="alt">' + $(this).attr('alt') + '</p>');
+		$(this).after('<p class="alt" data-user=' + this.getAttribute('data-user') + '>' + $(this).attr('alt') + '</p>');
 	})
 })

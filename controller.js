@@ -362,5 +362,4 @@ $(document).ready(function() {
     $("#userInfoPopup textarea").val("");
   });
   
-  
 });

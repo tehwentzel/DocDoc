@@ -57,10 +57,19 @@ var events = [];
 			element.querySelector('.feedEventTitle').innerHTML = e.title;
 			element.querySelector('.feedEventDate').innerHTML = eventDate.toLocaleDateString('en-US', dateOptions);
 			element.querySelector('.feedEventDescription').innerHTML = e.description;
-			console.log(e.time);
-			element.querySelector('.feedAppt').setAttribute('data-user', e.user);
-			element.querySelector('.feedAppt').setAttribute('data-time', eventDate);
+			let node = element.querySelector('.feedAppt');
+			node.setAttribute('data-user', e.user)
+			node.setAttribute('data-time', eventDate)
+			node.setAttribute('data-date', e.date);
 			document.getElementById('feedItems').prepend(element);
+			$('.feedAppt').on('click',function(ev){
+				  let date = this.getAttribute('data-date');
+				  let eventModal = document.getElementsByClassName(date);
+				  if(eventModal.length > 0){
+					  $('.'+date).css('display','show');
+					  $('.'+date).show();
+				  }
+			  });
 		});
 		sortFeedFiles();
     });
