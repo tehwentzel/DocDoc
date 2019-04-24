@@ -24,6 +24,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 	<script src='https://kylestetz.github.io/CLNDR/js/clndr.js'></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src='map.js'></script>
 </head>
 
 <body>
@@ -155,59 +156,76 @@
 										</div>
 									</div>
 									<hr>
+									<div>  
+										<button type= "button" class = "button feedAppt" data-user='Jannette'>
+											<h3>Event Scheduled for:<br> May 17th, 2019 <br> 9:00am</h3>
+											<p>Yearly visit for Jannette </p>
+										</button>
+									</div>
+									<div>  
+										<button type= "button" class = "button feedAppt" data-user='Bob'>
+											<h3>Event Scheduled for:<br> May 13th, 2019 <br> 12:00pm</h3>
+											<p>Vaccines due for Bob's school</p>
+										</button>
+									</div>
 									<div>
 										<button type= "button" class = "button feedFile" data-user='Bob'>
-											<h2>File Added: Bob Vaccines.pdf</h2>
-											<p>March 3rd, 2019: BOB</p>
+											<h3>File Added: Bob Vaccines.pdf</h3>
+											<p>March 3rd, 2019</p>
 										</button>
 									</div>										
-									
+									<div>  
+										<button type= "button" class = "button feedAppt" data-user='Jannette'>
+											<h3>Appointment Scheduled for:<br> April 19th, 2019 <br> 2:00pm</h3>
+											<p>Optometrist appointment for Jann with Dr. Madeye</p>
+										</button>
+									</div>
 									<div>
 										<button type= "button" class ="button feedFile" data-user='Jannette'>
-											<h2>File Added: Jannette Vaccines.pdf </h2>
-											<p>March 1st, 2019: JANNETTE</p>
+											<h3>File Added: Jannette Vaccines.pdf </h3>
+											<p>March 1st, 2019</p>
 										</button>
 									</div>									
 
 									<div>  
-										<button type= "button" class = "button feedAppt" data-user='Jannette'>
-											<h2>Appointment Scheduled for: April 17th, 2019: JANNETTE-OPTOMETRIST</h2>
-											
+										<button type= "button" class = "button feedAppt" data-user='Bob'>
+											<h3>Event Scheduled for:<br> April 14th, 2019 <br> 9:00am</h3>
+											<p>School Deadline to send in Bob's forms</p>
 										</button>
 									</div>
 									
 									<div>
 										<button type= "button" class = "button feedFile" data-user='Bob'>
-											<h2>File Added: Bob School Forms.pdf</h2>
-											<p>February 18th, 2019: BOB</p>
+											<h3>File Added: Bob School Forms.pdf</h3>
+											<p>February 18th, 2019</p>
 										</button>
 									</div>
 									
 									<div>  
 										<button type= "button" class = "button feedAppt" data-user='Bob'>
-											<h2>Appointment Scheduled for: April 2nd, 2019: BOB-PEDIATRICIAN</h2>
-										
+											<h3>Event Scheduled for:<br> April 10th, 2019<br>10:00am</h3> 
+											<p>Pediatrician appointment for Bob with Dr. Realman</p>
 										</button>
 									</div>
 										
 									<div>
 										<button type= "button" class = "button feedFile" data-user='Jannette'>
-											<h2>File Added: Dr.Realman Sick Note for Jannette.pdf</h2>
-											<p>February 9th, 2019: JANNETTE</p>
+											<h3>File Added: Dr.Realman Sick Note for Jannette.pdf</h3>
+											<p>February 9th, 2019</p>
 										</button>
 									</div>
 										
 									<div>  
 									<button type= "button" class = "button feedFile" data-user='Bob'>
-										<h2>File Added: Dr.Realman Sick Note for Bob.pdf</h2>
-										<p>February 2nd, 2019: BOB</p>
+										<h3>File Added: Dr.Realman Sick Note for Bob.pdf</h3>
+										<p>February 2nd, 2019</p>
 									</button>
 									</div>
 
 									<div class="column">
 									<button type= "button" class = "button feedFile" data-user='Bob'>
-										<h2>File Added: Bob School Form.pdf</h2>
-										<p>January 5th, 2019: BOB</p>
+										<h3>File Added: Bob School Form.pdf</h3>
+										<p>January 5th, 2019</p>
 									</button>
 									</div>
 								</div>
@@ -348,8 +366,8 @@
 													Dr. Realman<br />
 													<small><i>Pediatrician<br />420 Lakeshore Dr.</i></small>
 												  </h5>
-												  
 												</div>
+												<span>A</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxB">
@@ -361,6 +379,7 @@
 													<small><i>Pediatrician<br />628 Spider Lane</i></small>
 												  </h5>
 												</div>
+												<span>B</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxC">
@@ -372,6 +391,7 @@
 													<small><i>Pediatrician<br />221b Baker St.</i></small>
 												  </h5>
 												</div>
+												<span>C</span>
 											  </div>
 											</div>
 											<div class="flex-container docBox" id="docBoxD">
@@ -383,6 +403,7 @@
 													<small><i>Pediatrician<br />301 Doctor Dr.</i></small>
 												  </h5>
 												</div>
+												<span>D</span>
 											  </div>
 											</div>
 									</div>
@@ -406,10 +427,6 @@
 															</button>
 														</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxBInfo" style="display:none;">
@@ -430,9 +447,6 @@
 															</button>
 														</div>
 													</div>
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxCInfo" style="display:none;">
@@ -452,10 +466,6 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														  </button>
 												</div>
 											</div>
 											<div class="docBoxInfo" id="docBoxDInfo" style="display:none;">
@@ -475,15 +485,14 @@
 																</button>
 															</div>
 													</div>
-													
-													<button type="button" class="close" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
 												</div>
 											</div>
 										<div id="map">
-												<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>
-												<!--<img src='images/map.PNG'/>-->
+											<script async defer
+											src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvfb0pxlIVLOnk1JBhVnDd3LemaG6IyZE&callback=initMap">
+											</script>
+											<!--<iframe src="https://snazzymaps.com/embed/149880" width="100%" height="100%" style="border:none;"></iframe>-->
+											<!--<img src='images/map.PNG'/>-->
 										</div>
 									</div>
 								</div>
@@ -513,58 +522,43 @@
 									</div>
 									<hr>	
 									<div>
-										<img src = "images/sampleDoc1.png" class="fileImage" data-user='Jannette'>		
+										<img src = "images/sampleDoc1.png" class = "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc2.png" class = "fileImage" data-user='Bob'>
 										<img src = "images/sampleDoc3.png" class = "fileImage" data-user='Jannette'>
 										<img src = "images/sampleDoc4.png" class = "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc5.png" class = "fileImage" data-user='Bob'>
+										<img src = "images/sampleDoc5.png" class = "fileImage" id = "clickableFileImage" data-user='Bob'>
 									</div>
-									
-									<br>
-									
-									<div class = "col-sm-3">
-										<h3>Sort by: Recent</h3>
-									</div>
-									<hr>
-									
-									<div>
-										<img src = "images/sampleDoc5.png" class= "fileImage" data-user='Bob'>
-										<img src = "images/sampleDoc4.png" class= "fileImage" data-user='Bob'>
-										<img src = "images/sampleDoc3.png" class= "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc2.png" class= "fileImage" data-user='Jannette'>
-										<img src = "images/sampleDoc1.png" class= "fileImage" data-user='Bob'>
-									</div>
+
 									
 								</div>
-							</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	<!--  the modal -->
 		<div id = "fileModal" class = "file-modal-class">
 			<!-- modal content -->
-			<div class = "modal-content-class">
-				<span class = "close">&times;</span>
+			<div class = "modal-content-class animate fadeInDown setDelayDefault">
 					<br><br>
 					<center>
 						<!-- define the inside of the modal with what we as a group decided -->
-						<h2>Send File</h2>
+						<h4>Send File</h4>
 						<hr style = "margin-left: 15%; margin-right: 15%;">
-						<input class = "btn" id = "downloadButton" value = "Download" style = "color:white;"></button>
+						<input class = "btn" id = "downloadButton" value = "Download"></button>
 						
 						<br>
 					</center>
 					
 					<form style = "margin-top: 15px; margin-left: 15%;">
-						<p>Send To<p>
+						<h5>Send To</h5>
 						<input type = "text" id = "userInput" value "" style = "width: 72.5%;">
 						<input type = "button" id = "sendButton" value = "Send" class='btn' style='width:auto'/>
 					</form>
 						
-					<img src = "images/sampleDoc1.png" style = "width: 100%; height: 100%; margin: 10px 0px;">
+					<img src = "images/sampleDoc1.png" class = "fileViewer" id = "fileViewer" style = "width: 100%; height: 100%; margin: 10px 0px;">
 						
 			</div>
 		</div>
@@ -579,24 +573,22 @@
 					<form>
 					<div>
 						<label for="title">Title: </label>
-						<input type="text" name="title" id="eventFormTitle" required />
+						<input type="text" name="title" id="eventFormTitle" maxlength="15" required />
 						<br>
-						<label> Date: </label>
-						<input type="date"/>
 						<label> Time: </label>
-						<input type="time"/>
+						<input type="time" id="eTime"/>
 					</div>
 					<div>User:
 						<br>
-						<input type="radio" name="radio-choice" value="choice-1" />
+						<input type="radio" name="radio-choice" value="Bob" />
 						<label for="radio-choice-1">Bob</label>
 						<br>
-						<input type="radio" name="radio-choice" value="choice-2" />
+						<input type="radio" name="radio-choice" value="Janette" />
 						<label for="radio-choice-2">Janette</label>
 					</div>
 					<div>Description:
 						<br>
-						<textarea rows="4" cols="50" name="description" form="usrform"></textarea>
+						<textarea rows="4" cols="50" name="description" form="usrform" id="eDesc"></textarea>
 					</div>
 					<input class='btn' type="submit" id='newEventSubmitButton'/>
 					</form>
@@ -668,5 +660,6 @@
 	<script src='controller.js'></script>
 	<script src='calendar_script.js'></script>
 	<script src='fileScript.js'></script>
+	
 </body>
 </html>
