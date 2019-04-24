@@ -199,6 +199,21 @@ function populateAccountInfo(name) {
   }
 }
 
+function getSortedDates(selector, attrName, reverse = false) {
+    return $($(selector).toArray().sort(function(a, b){
+        var aVal = new Date(a.getAttribute(attrName)),
+            bVal = new Date(b.getAttribute(attrName));
+        return (reverse)? aVal - bVal: bVal - aVal;
+    }));
+}
+function sortFeedFiles(reverse = false){
+	let cards = getSortedDates('.feedAppt, .feedFile', 'data-time', reverse);
+	let parent = document.getElementById('feedItems');
+	cards.each(function(index, element){
+		parent.append(element);
+	});
+}
+
 var newUserColors = [
   "yellow",
   "blue",
@@ -285,6 +300,11 @@ if(sessionStorage.users != undefined){
 users.forEach(function(user) {
   drawAccountAvatar(user);
 });
+
+if(localStorage.newEvent == 'true'){
+	swal('event added!');
+}
+localStorage.newEvent = false;
 
 var selectedUser = null;
 

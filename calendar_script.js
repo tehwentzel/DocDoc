@@ -1,6 +1,5 @@
 var clndr = {};
 var events = [];
-
     var modal = document.getElementById('myModal');
 
     // When the user clicks anywhere outside of the modal, close it
@@ -19,7 +18,7 @@ var events = [];
         localStorage.setItem("timeof", t1);
         localStorage.setItem("descr", desc1);
         localStorage.setItem("usr",radioValue);
-        
+        localStorage.newEvent = true;
         if(title && d1){         
         swal('Event Added!'); //alert success
         modal.style.display = "none";
@@ -30,11 +29,28 @@ var events = [];
         
     });
     
-    $.getJSON("https://api.myjson.com/bins/ff7bo", function(data){
+    $.getJSON("https://api.myjson.com/bins/1anmkg", function(data){
         $.each(data.jsonevents, function(index, value){
             events.push(value);
         });
         cal();
+		var dateOptions = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+		
+		let parent = document.getElementById('feedItems');
+		events.forEach(function(e){
+			var element = document
+				.getElementById("feedEventTemplate")
+				.content.cloneNode(true);
+			let eventDate = new Date(e.date);
+			element.querySelector('.feedEventDate').innerHTML = eventDate.toLocaleDateString('en-US', dateOptions);
+			element.querySelector('.feedEventTime').innerHTML = e.time;
+			element.querySelector('.feedEventDescription').innerHTML = e.description;
+			element.querySelector('.feedAppt').setAttribute('data-user', e.user);
+			element.querySelector('.feedAppt').setAttribute('data-time', eventDate);
+			element.querySelector('.feedEventUser').innerHTML = e.user;
+			document.getElementById('feedItems').prepend(element);
+		});
+		sortFeedFiles();
     });
 
     function cal(){

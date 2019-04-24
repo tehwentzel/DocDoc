@@ -11,6 +11,14 @@ $(document).ready(function() {
         "Sort Date: " + this.innerHTML;
     }
   });
+  
+  $('#feed .tabHeader .dropdown-item').on('click', function(){
+	  if(this.innerHTML.toLowerCase() == 'latest'){
+		  sortFeedFiles(false);
+	  } else{
+		  sortFeedFiles(true);
+	  }
+  });
 
   $(".sortButton").on("click", function(ev) {
     let style = this.parentNode.querySelector(".dropdown-menu").style.display;

@@ -156,63 +156,50 @@
 										</div>
 									</div>
 									<hr>
-									<div>
-										<button type= "button" class = "button feedFile" data-user='Bob'>
-											<h2>File Added: Bob Vaccines.pdf</h2>
-											<p>March 3rd, 2019: BOB</p>
+									<div id='feedItems'>
+										<div>
+											<button type= "button" class = "button feedFile" data-user='Bob' data-time='3/3/2019'>
+												<h3>File Added: Bob Vaccines.pdf</h3>
+												<p>March 3rd, 2019: BOB</p>
+											</button>
+										</div>										
+										
+										<div>
+											<button type= "button" class ="button feedFile" data-user='Jannette' data-time='3/1/2019'>
+												<h3>File Added: Jannette Vaccines.pdf </h3>
+												<p>March 1st, 2019: JANNETTE</p>
+											</button>
+										</div>									
+										
+										<div>
+											<button type= "button" class = "button feedFile" data-user='Bob' data-time='2/18/2019'>
+												<h3>File Added: Bob School Forms.pdf</h3>
+												<p>February 18th, 2019: BOB</p>
+											</button>
+										</div>
+											
+										<div>
+											<button type= "button" class = "button feedFile" data-user='Jannette' data-time='2/9/2019'>
+												<h3>File Added: Dr.Realman Sick Note for Jannette.pdf</h3>
+												<p>February 9th, 2019: JANNETTE</p>
+											</button>
+										</div>
+											
+										<div>  
+										<button type= "button" class = "button feedFile" data-user='Bob' data-time='2/2/2019'>
+											<h3>File Added: Dr.Realman Sick Note for Bob.pdf</h3>
+											<p>February 2nd, 2019: BOB</p>
 										</button>
-									</div>										
-									
-									<div>
-										<button type= "button" class ="button feedFile" data-user='Jannette'>
-											<h2>File Added: Jannette Vaccines.pdf </h2>
-											<p>March 1st, 2019: JANNETTE</p>
-										</button>
-									</div>									
+										</div>
 
-									<div>  
-										<button type= "button" class = "button feedAppt" data-user='Jannette'>
-											<h2>Appointment Scheduled for:<br> April 17th, 2019 <br> 2:00pm</h2>
-											<p>Optometrist appointment for Jann with Dr. Madeye</p>
-										</button>
-									</div>
-									
 									<div>
-										<button type= "button" class = "button feedFile" data-user='Bob'>
-											<h2>File Added: Bob School Forms.pdf</h2>
-											<p>February 18th, 2019: BOB</p>
+										<button type= "button" class = "button feedFile" data-user='Bob' data-time='1/5/2019'>
+											<h3>File Added: Bob School Form.pdf</h3>
+											<p>January 5th, 2019: BOB</p>
 										</button>
-									</div>
-									
-									<div>  
-										<button type= "button" class = "button feedAppt" data-user='Bob'>
-											<h2>Appointment Scheduled for:<br> April 10th, 2019<br>10:00am</h2> 
-											<p>Pediatrician appointment for Bob with Dr. Realman</p>
-										
-										</button>
-									</div>
-										
-									<div>
-										<button type= "button" class = "button feedFile" data-user='Jannette'>
-											<h2>File Added: Dr.Realman Sick Note for Jannette.pdf</h2>
-											<p>February 9th, 2019: JANNETTE</p>
-										</button>
-									</div>
-										
-									<div>  
-									<button type= "button" class = "button feedFile" data-user='Bob'>
-										<h2>File Added: Dr.Realman Sick Note for Bob.pdf</h2>
-										<p>February 2nd, 2019: BOB</p>
-									</button>
-									</div>
-
-									<div class="column">
-									<button type= "button" class = "button feedFile" data-user='Bob'>
-										<h2>File Added: Bob School Form.pdf</h2>
-										<p>January 5th, 2019: BOB</p>
-									</button>
 									</div>
 								</div>
+							</div>
 							<!--Feed View-->
 							</div>
 							
@@ -256,7 +243,7 @@
 																	<div class="bob"></div>
 																	<% } %>
 
-															<% if (event.user == "Janette") { %>
+															<% if (event.user == "Jannette") { %>
 																	<div class="jan"></div>
 																	<% } %>
 													</a>
@@ -567,8 +554,8 @@
 						<input type="radio" name="radio-choice" value="Bob" />
 						<label for="radio-choice-1">Bob</label>
 						<br>
-						<input type="radio" name="radio-choice" value="Janette" />
-						<label for="radio-choice-2">Janette</label>
+						<input type="radio" name="radio-choice" value="Jannette" />
+						<label for="radio-choice-2">Jannette</label>
 					</div>
 					<div>Description:
 						<br>
@@ -638,6 +625,20 @@
 				<div class='fakeRectangle'></div>
 			</div>
 		</div>
+	</template>
+	
+	<template id='feedEventTemplate'>
+		<button type= "button" class = "button feedAppt">
+			<h3>
+				<span>Appointment Scheduled for:</span>
+				<span class='feedEventUser'></span>
+				<br>
+				<span class='feedEventDate'></span> 
+				<br>
+				<span class='feedEventTime'></span>
+			</h3>
+			<p class='feedEventDescription'></p>
+		</button>
 	</template>
 	
 	<script src='userData.js'></script>

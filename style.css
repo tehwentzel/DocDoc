@@ -365,7 +365,9 @@ hr {
   border-radius: 8px;
   cursor: pointer;
 }
-
+.feedFile h3, .feedAppt h3{
+	font-weight: bold;
+}
 .feedFile[data-user= "Bob"]{
   border: 3px dashed var(--bob-color);
 }
