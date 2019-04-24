@@ -42,20 +42,22 @@ var events = [];
 				.getElementById("feedEventTemplate")
 				.content.cloneNode(true);
 			let eventDate = new Date(e.date);
-			let time = e.time.match('([0-9]+):([0-9]+)')
-			let hour = +time[1];
-			let minutes = time[2];
-			var timeString;
-			if(hour > 12){
-				timeString = (hour%12) + ':' + minutes + ' PM'
-			}else{
-				timeString = e.time + ' AM'
+			let time = e.time.match('([0-9]+):([0-9]+)');
+			if(time != null){
+				let hour = +time[1];
+				let minutes = time[2];
+				var timeString;
+				if(hour > 12){
+					timeString = (hour%12) + ':' + minutes + ' PM'
+				}else{
+					timeString = e.time + ' AM'
+				}
+				element.querySelector('.feedEventTime').innerHTML = timeString;
 			}
 			element.querySelector('.feedEventTitle').innerHTML = e.title;
 			element.querySelector('.feedEventDate').innerHTML = eventDate.toLocaleDateString('en-US', dateOptions);
-			element.querySelector('.feedEventTime').innerHTML = timeString;
 			element.querySelector('.feedEventDescription').innerHTML = e.description;
-			console.log(e.description.trim().length < 1);
+			console.log(e.time);
 			element.querySelector('.feedAppt').setAttribute('data-user', e.user);
 			element.querySelector('.feedAppt').setAttribute('data-time', eventDate);
 			document.getElementById('feedItems').prepend(element);
