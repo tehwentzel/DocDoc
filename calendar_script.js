@@ -42,6 +42,7 @@ var events = [];
 				.getElementById("feedEventTemplate")
 				.content.cloneNode(true);
 			let eventDate = new Date(e.date);
+			eventDate.setTime( eventDate.getTime() + eventDate.getTimezoneOffset()*60000);
 			let time = e.time.match('([0-9]+):([0-9]+)');
 			if(time != null){
 				let hour = +time[1];
@@ -55,7 +56,7 @@ var events = [];
 				element.querySelector('.feedEventTime').innerHTML = timeString;
 			}
 			element.querySelector('.feedEventTitle').innerHTML = e.title;
-			element.querySelector('.feedEventDate').innerHTML = eventDate.toLocaleDateString('en-US', dateOptions);
+			element.querySelector('.feedEventDate').innerHTML = eventDate.toDateString('en-US', dateOptions);
 			element.querySelector('.feedEventDescription').innerHTML = e.description;
 			let node = element.querySelector('.feedAppt');
 			node.setAttribute('data-user', e.user)

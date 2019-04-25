@@ -5,7 +5,7 @@
 * Middlist red: var(--secondary-color)
 * Dark grayish: #191919
 */
-animate
+.animate
 {
 	-webkit-animation-duration: .5s;
 	animation-duration: .5s;
