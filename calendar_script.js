@@ -62,14 +62,7 @@ var events = [];
 			node.setAttribute('data-time', eventDate)
 			node.setAttribute('data-date', e.date);
 			document.getElementById('feedItems').prepend(element);
-			$('.feedAppt').on('click',function(ev){
-				  let date = this.getAttribute('data-date');
-				  let eventModal = document.getElementsByClassName(date);
-				  if(eventModal.length > 0){
-					  $('.'+date).css('display','show');
-					  $('.'+date).show();
-				  }
-			  });
+	
 		});
 		sortFeedFiles();
     });
